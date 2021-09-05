@@ -1,0 +1,6 @@
+framework module Pods_ForQualificationTests {
+  umbrella header "Pods-ForQualificationTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
