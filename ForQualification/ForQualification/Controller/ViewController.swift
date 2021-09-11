@@ -14,6 +14,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func loginButton(_ sender: Any) {
+        let menuVC = MenuProblem()
+        navigationController?.pushViewController(menuVC, animated: true)
+    }
+    
 }
 
