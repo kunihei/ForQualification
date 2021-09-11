@@ -39,7 +39,7 @@
                                 <constraint firstAttribute="width" constant="370" id="XyF-s7-OeE"/>
                                 <constraint firstAttribute="height" constant="80" id="wOJ-ql-BEj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                             <state key="normal" title="問題登録">
                                 <color key="titleColor" name="TextColor"/>
                             </state>
@@ -59,7 +59,7 @@
                                 <constraint firstAttribute="width" constant="370" id="Mwn-Ag-8rX"/>
                                 <constraint firstAttribute="height" constant="80" id="hfG-bb-fZZ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="問題挑戦">
                                 <color key="titleColor" name="TextColor"/>
                             </state>
@@ -78,7 +78,7 @@
                                 <constraint firstAttribute="width" constant="370" id="JWR-kH-fjf"/>
                                 <constraint firstAttribute="height" constant="80" id="fan-1p-iJm"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="問題編集・削除">
                                 <color key="titleColor" name="TextColor"/>

@@ -39,7 +39,7 @@
                                 <constraint firstAttribute="height" constant="80" id="l3O-cP-iFO"/>
                                 <constraint firstAttribute="width" constant="370" id="tHn-M5-mWH"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="普通モード">
                                 <color key="titleColor" name="TextColor"/>
                             </state>
@@ -59,7 +59,7 @@
                                 <constraint firstAttribute="height" constant="80" id="8Zh-gM-79k"/>
                                 <constraint firstAttribute="width" constant="370" id="r3R-GR-5BA"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="選択肢シャッフルモード">
                                 <color key="titleColor" name="TextColor"/>
                             </state>
