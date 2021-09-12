@@ -51,6 +51,9 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nomalButton:" destination="-1" eventType="touchUpInside" id="vkY-Ps-v2U"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMB-zl-Iw6">
                             <rect key="frame" x="0.0" y="147" width="370" height="80"/>
@@ -71,21 +74,40 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="shuffleButton:" destination="-1" eventType="touchUpInside" id="gyz-db-knz"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="227" id="qiJ-tE-IvD"/>
                     </constraints>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HjZ-yu-hy6">
+                    <rect key="frame" x="36" y="60" width="55" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="TqE-YQ-cyq"/>
+                        <constraint firstAttribute="width" constant="55" id="YJR-bc-kmt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="戻る">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="LTA-lL-cQc"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="FL2-zP-sWB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NIG-gx-NVn"/>
                 <constraint firstItem="8eG-YI-DZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="PO1-Nq-jP2"/>
+                <constraint firstItem="HjZ-yu-hy6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="36" id="QkI-Zs-q4e"/>
                 <constraint firstItem="8eG-YI-DZa" firstAttribute="top" secondItem="FL2-zP-sWB" secondAttribute="bottom" constant="274" id="dyD-J9-ILi"/>
                 <constraint firstItem="FL2-zP-sWB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="i2Y-j1-Ns3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FL2-zP-sWB" secondAttribute="trailing" constant="20" id="kUM-5c-6bX"/>
+                <constraint firstItem="HjZ-yu-hy6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="tFl-uo-im2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="uSe-Lx-Xla"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>

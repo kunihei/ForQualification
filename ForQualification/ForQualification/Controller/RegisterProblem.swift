@@ -12,6 +12,7 @@ class RegisterProblem: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationController?.isNavigationBarHidden = false
         // Do any additional setup after loading the view.
     }
 

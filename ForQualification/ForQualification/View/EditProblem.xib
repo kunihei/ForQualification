@@ -31,9 +31,35 @@
                     <color key="sectionIndexColor" name="TextColor"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPf-e7-aSH">
+                    <rect key="frame" x="20" y="53" width="59" height="59"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="59" id="d3w-Wl-Fpk"/>
+                        <constraint firstAttribute="height" constant="59" id="gZh-P0-cby"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="戻る">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="backButton:" destination="-1" eventType="touchUpInside" id="U1u-is-P8d"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cPf-e7-aSH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="PL3-Ij-I7f"/>
+                <constraint firstItem="cPf-e7-aSH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="53" id="emc-gz-hYx"/>
+            </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>

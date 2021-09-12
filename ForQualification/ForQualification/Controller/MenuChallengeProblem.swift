@@ -15,7 +15,18 @@ class MenuChallengeProblem: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func nomalButton(_ sender: Any) {
+        let challengeView = ChallengeProblem()
+        navigationController?.pushViewController(challengeView, animated: true)
+    }
+    @IBAction func shuffleButton(_ sender: Any) {
+        let challengeView = ChallengeProblem()
+        navigationController?.pushViewController(challengeView, animated: true)
+    }
+    
+    @IBAction func backButton(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     /*
     // MARK: - Navigation
 
