@@ -28,6 +28,8 @@
 		BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */; };
 		BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7049926ECA79600508AE7 /* EditProblem.swift */; };
 		BAD7049C26ECA79600508AE7 /* EditProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7049A26ECA79600508AE7 /* EditProblem.xib */; };
+		BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD704E026EDC04A00508AE7 /* ResultProblem.swift */; };
+		BAD704E326EDC04A00508AE7 /* ResultProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD704E126EDC04A00508AE7 /* ResultProblem.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeProblem.xib; sourceTree = "<group>"; };
 		BAD7049926ECA79600508AE7 /* EditProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProblem.swift; sourceTree = "<group>"; };
 		BAD7049A26ECA79600508AE7 /* EditProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProblem.xib; sourceTree = "<group>"; };
+		BAD704E026EDC04A00508AE7 /* ResultProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultProblem.swift; sourceTree = "<group>"; };
+		BAD704E126EDC04A00508AE7 /* ResultProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultProblem.xib; sourceTree = "<group>"; };
 		CAF755ACA505BB73844BB561 /* Pods_ForQualificationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForQualificationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8B0763A36C8807E744A0274 /* Pods-ForQualification.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForQualification.release.xcconfig"; path = "Target Support Files/Pods-ForQualification/Pods-ForQualification.release.xcconfig"; sourceTree = "<group>"; };
 		E47F57C6DDE6DA50D976C3E5 /* Pods-ForQualificationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForQualificationTests.debug.xcconfig"; path = "Target Support Files/Pods-ForQualificationTests/Pods-ForQualificationTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				BAD7048826EC610600508AE7 /* RegisterProblem.xib */,
 				BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */,
 				BAD7049A26ECA79600508AE7 /* EditProblem.xib */,
+				BAD704E126EDC04A00508AE7 /* ResultProblem.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				BAD7049926ECA79600508AE7 /* EditProblem.swift */,
+				BAD704E026EDC04A00508AE7 /* ResultProblem.swift */,
 				BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */,
 				BAD7048726EC610600508AE7 /* RegisterProblem.swift */,
 				BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */,
@@ -330,6 +336,7 @@
 				BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */,
 				BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */,
 				BAD7048626EC5ACA00508AE7 /* MenuChallengeProblem.xib in Resources */,
+				BAD704E326EDC04A00508AE7 /* ResultProblem.xib in Resources */,
 				BAD7049C26ECA79600508AE7 /* EditProblem.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +487,7 @@
 				BAD7048926EC610600508AE7 /* RegisterProblem.swift in Sources */,
 				BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */,
 				BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */,
+				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
 				BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */,
