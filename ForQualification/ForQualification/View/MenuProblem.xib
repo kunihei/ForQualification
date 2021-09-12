@@ -30,7 +30,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-Ud-phS">
-                    <rect key="frame" x="22" y="399" width="370" height="358"/>
+                    <rect key="frame" x="22" y="269" width="370" height="358"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IG-yd-z6d">
                             <rect key="frame" x="0.0" y="0.0" width="370" height="80"/>
@@ -51,6 +51,9 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="createButton:" destination="-1" eventType="touchUpInside" id="VER-gK-Nak"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7a-fJ-wy0">
                             <rect key="frame" x="0.0" y="139" width="370" height="80"/>
@@ -71,6 +74,9 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="challengeButton:" destination="-1" eventType="touchUpInside" id="KsS-WZ-ixr"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-CX-teD">
                             <rect key="frame" x="0.0" y="278" width="370" height="80"/>
@@ -91,21 +97,21 @@
                                     <integer key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="editButton:" destination="-1" eventType="touchUpInside" id="mPu-VS-WNx"/>
+                            </connections>
                         </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="358" id="U5n-E9-YQj"/>
-                    </constraints>
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I9t-Ud-phS" secondAttribute="trailing" constant="22" id="4VF-fC-6sS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I9t-Ud-phS" secondAttribute="trailing" constant="22" id="701-5D-Uf5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6nf-06-b35" secondAttribute="trailing" constant="20" id="8cq-K3-9hb"/>
-                <constraint firstItem="I9t-Ud-phS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="FHK-aa-xhc"/>
+                <constraint firstItem="I9t-Ud-phS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KKQ-Pi-7I8"/>
                 <constraint firstItem="6nf-06-b35" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Pda-P4-w9q"/>
-                <constraint firstItem="I9t-Ud-phS" firstAttribute="top" secondItem="6nf-06-b35" secondAttribute="bottom" constant="263" id="iJj-uV-SdI"/>
+                <constraint firstItem="I9t-Ud-phS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="gdb-dM-Wmx"/>
                 <constraint firstItem="6nf-06-b35" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="rOu-yM-au9"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>

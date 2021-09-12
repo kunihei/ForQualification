@@ -14,8 +14,26 @@ class MenuProblem: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
 
-
+    @IBAction func createButton(_ sender: Any) {
+        let registerView = RegisterProblem()
+        navigationController?.pushViewController(registerView, animated: true)
+    }
+    
+    @IBAction func challengeButton(_ sender: Any) {
+        let MenuChallengeView = MenuChallengeProblem()
+        navigationController?.pushViewController(MenuChallengeView, animated: true)
+    }
+    
+    @IBAction func editButton(_ sender: Any) {
+        let editView = EditProblem()
+        navigationController?.pushViewController(editView, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
