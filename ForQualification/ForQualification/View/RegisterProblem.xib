@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,12 +12,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="problemImage" destination="Qq8-fj-1yw" id="i1J-Cn-CV8"/>
+                <outlet property="problemstatement" destination="ySF-Bl-SIU" id="Z7T-YI-RgD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="1660"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="1760"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題登録" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1S-Yt-JqJ">
@@ -30,10 +32,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOD-gl-jVJ">
-                    <rect key="frame" x="0.0" y="121" width="414" height="1505"/>
+                    <rect key="frame" x="0.0" y="121" width="414" height="1605"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AP-KK-5I8">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1505"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1597"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-yr-BjO">
                                     <rect key="frame" x="8" y="0.0" width="398" height="353"/>
@@ -62,7 +64,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="nM8-rF-L2c">
                                             <rect key="frame" x="0.0" y="180" width="398" height="173"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qq8-fj-1yw">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qq8-fj-1yw">
                                                     <rect key="frame" x="0.0" y="0.0" width="288" height="173"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="288" id="gD6-sd-M9w"/>
@@ -80,6 +82,9 @@
                                                         <color key="titleColor" name="TextColor"/>
                                                         <imageReference key="image" image="カメラのアイコン素材 7" symbolScale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="photoButton:" destination="-1" eventType="touchUpInside" id="5TP-hx-nAD"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -411,6 +416,28 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-wG-eNH">
+                                    <rect key="frame" x="75" y="1505" width="265" height="84"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="84" id="1VK-rW-eTy"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                    <state key="normal" title="登録">
+                                        <color key="titleColor" name="TextColor"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="bW3-bs-DQj"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" name="BackgroundColor"/>
                             <constraints>
@@ -418,12 +445,15 @@
                                 <constraint firstAttribute="trailing" secondItem="xko-YU-6IS" secondAttribute="trailing" constant="8" id="6SI-fl-Xsy"/>
                                 <constraint firstItem="ZtK-o5-3gJ" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="8ei-Vx-5y0"/>
                                 <constraint firstItem="ZtK-o5-3gJ" firstAttribute="top" secondItem="VyI-yr-BjO" secondAttribute="bottom" constant="8" symbolic="YES" id="CFa-1B-ByI"/>
-                                <constraint firstAttribute="height" constant="1505" id="EyC-Y1-caw"/>
+                                <constraint firstAttribute="height" constant="1597" id="EyC-Y1-caw"/>
                                 <constraint firstItem="VyI-yr-BjO" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="Lff-C3-WlK"/>
                                 <constraint firstItem="VyI-yr-BjO" firstAttribute="top" secondItem="2AP-KK-5I8" secondAttribute="top" id="Ygi-SM-ADl"/>
+                                <constraint firstAttribute="trailing" secondItem="JFt-wG-eNH" secondAttribute="trailing" constant="74" id="hta-3s-pnd"/>
                                 <constraint firstAttribute="trailing" secondItem="VyI-yr-BjO" secondAttribute="trailing" constant="8" id="ij1-uG-vsn"/>
                                 <constraint firstAttribute="trailing" secondItem="ZtK-o5-3gJ" secondAttribute="trailing" constant="8" id="lwk-or-gVo"/>
                                 <constraint firstItem="xko-YU-6IS" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="o9z-lY-iaw"/>
+                                <constraint firstItem="JFt-wG-eNH" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="75" id="uvw-6Y-EhX"/>
+                                <constraint firstItem="JFt-wG-eNH" firstAttribute="top" secondItem="xko-YU-6IS" secondAttribute="bottom" constant="28" id="wJ1-nG-5Mi"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -431,7 +461,7 @@
                     <constraints>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="top" id="SMz-Zf-Eex"/>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="leading" secondItem="HOD-gl-jVJ" secondAttribute="leading" id="gE2-mF-1QZ"/>
-                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" id="sqN-kQ-rWB"/>
+                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" constant="8" id="sqN-kQ-rWB"/>
                         <constraint firstAttribute="trailing" secondItem="2AP-KK-5I8" secondAttribute="trailing" id="wqz-CF-rHI"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="FQe-Un-xEW"/>

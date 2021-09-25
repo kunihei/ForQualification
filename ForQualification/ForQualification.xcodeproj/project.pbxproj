@@ -18,6 +18,7 @@
 		BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA09FC2026E4446F006BEAD8 /* LaunchScreen.storyboard */; };
 		BA09FC2D26E4446F006BEAD8 /* ForQualificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC2C26E4446F006BEAD8 /* ForQualificationTests.swift */; };
 		BA09FC3826E4446F006BEAD8 /* ForQualificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC3726E4446F006BEAD8 /* ForQualificationUITests.swift */; };
+		BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
@@ -68,6 +69,7 @@
 		BA09FC3326E4446F006BEAD8 /* ForQualificationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ForQualificationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA09FC3726E4446F006BEAD8 /* ForQualificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForQualificationUITests.swift; sourceTree = "<group>"; };
 		BA09FC3926E4446F006BEAD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProblem.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				BAD704E626EDDFB300508AE7 /* ForQualification.entitlements */,
 				BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */,
 				BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */,
+				BAD704E726EDE81100508AE7 /* Model */,
 				BAD7047D26EC40DD00508AE7 /* View */,
 				BAD7048226EC427200508AE7 /* Controller */,
 				BA09FC1E26E4446F006BEAD8 /* Assets.xcassets */,
@@ -223,6 +226,14 @@
 				BAD7047E26EC426100508AE7 /* MenuProblem.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		BAD704E726EDE81100508AE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +504,7 @@
 				BAD7048926EC610600508AE7 /* RegisterProblem.swift in Sources */,
 				BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */,
 				BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */,
+				BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */,
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
@@ -675,8 +687,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ForQualification/ForQualification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -696,8 +709,9 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ForQualification/ForQualification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualification/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
