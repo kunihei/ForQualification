@@ -12,8 +12,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="answerTextField" destination="wNr-aq-bTq" id="clJ-VX-yJq"/>
                 <outlet property="problemImage" destination="Qq8-fj-1yw" id="i1J-Cn-CV8"/>
                 <outlet property="problemstatement" destination="ySF-Bl-SIU" id="Z7T-YI-RgD"/>
+                <outlet property="select1" destination="3Dg-Y3-IuL" id="WFa-WC-d9I"/>
+                <outlet property="select10" destination="2WZ-g4-p22" id="7H0-4n-uKb"/>
+                <outlet property="select2" destination="pyZ-g2-NoT" id="0Eu-0A-poT"/>
+                <outlet property="select3" destination="ejo-UP-zPn" id="yBr-RY-NLx"/>
+                <outlet property="select4" destination="kTW-kk-Kwm" id="U8A-d8-lEP"/>
+                <outlet property="select5" destination="gcA-7F-ljN" id="B9B-WF-Y1s"/>
+                <outlet property="select6" destination="QRC-bY-JE0" id="xkh-Js-oNK"/>
+                <outlet property="select7" destination="XFd-iv-eA5" id="Das-S3-tuw"/>
+                <outlet property="select8" destination="VJe-X1-RMw" id="B60-WF-Ywv"/>
+                <outlet property="select9" destination="0t8-eR-0yI" id="EJz-dj-WDt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,10 +43,10 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOD-gl-jVJ">
-                    <rect key="frame" x="0.0" y="121" width="414" height="1605"/>
+                    <rect key="frame" x="0.0" y="121" width="414" height="1517"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AP-KK-5I8">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1597"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1497"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="VyI-yr-BjO">
                                     <rect key="frame" x="8" y="0.0" width="398" height="353"/>
@@ -416,28 +427,6 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-wG-eNH">
-                                    <rect key="frame" x="75" y="1505" width="265" height="84"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="84" id="1VK-rW-eTy"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                    <state key="normal" title="登録">
-                                        <color key="titleColor" name="TextColor"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="bW3-bs-DQj"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" name="BackgroundColor"/>
                             <constraints>
@@ -445,15 +434,12 @@
                                 <constraint firstAttribute="trailing" secondItem="xko-YU-6IS" secondAttribute="trailing" constant="8" id="6SI-fl-Xsy"/>
                                 <constraint firstItem="ZtK-o5-3gJ" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="8ei-Vx-5y0"/>
                                 <constraint firstItem="ZtK-o5-3gJ" firstAttribute="top" secondItem="VyI-yr-BjO" secondAttribute="bottom" constant="8" symbolic="YES" id="CFa-1B-ByI"/>
-                                <constraint firstAttribute="height" constant="1597" id="EyC-Y1-caw"/>
+                                <constraint firstAttribute="height" constant="1497" id="EyC-Y1-caw"/>
                                 <constraint firstItem="VyI-yr-BjO" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="Lff-C3-WlK"/>
                                 <constraint firstItem="VyI-yr-BjO" firstAttribute="top" secondItem="2AP-KK-5I8" secondAttribute="top" id="Ygi-SM-ADl"/>
-                                <constraint firstAttribute="trailing" secondItem="JFt-wG-eNH" secondAttribute="trailing" constant="74" id="hta-3s-pnd"/>
                                 <constraint firstAttribute="trailing" secondItem="VyI-yr-BjO" secondAttribute="trailing" constant="8" id="ij1-uG-vsn"/>
                                 <constraint firstAttribute="trailing" secondItem="ZtK-o5-3gJ" secondAttribute="trailing" constant="8" id="lwk-or-gVo"/>
                                 <constraint firstItem="xko-YU-6IS" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="8" id="o9z-lY-iaw"/>
-                                <constraint firstItem="JFt-wG-eNH" firstAttribute="leading" secondItem="2AP-KK-5I8" secondAttribute="leading" constant="75" id="uvw-6Y-EhX"/>
-                                <constraint firstItem="JFt-wG-eNH" firstAttribute="top" secondItem="xko-YU-6IS" secondAttribute="bottom" constant="28" id="wJ1-nG-5Mi"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -461,20 +447,46 @@
                     <constraints>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="top" id="SMz-Zf-Eex"/>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="leading" secondItem="HOD-gl-jVJ" secondAttribute="leading" id="gE2-mF-1QZ"/>
-                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" constant="8" id="sqN-kQ-rWB"/>
+                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" constant="20" id="sqN-kQ-rWB"/>
                         <constraint firstAttribute="trailing" secondItem="2AP-KK-5I8" secondAttribute="trailing" id="wqz-CF-rHI"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="FQe-Un-xEW"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="oEn-Cq-ROO"/>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFt-wG-eNH">
+                    <rect key="frame" x="74" y="1658" width="265" height="68"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="265" id="Sio-1p-HL5"/>
+                        <constraint firstAttribute="height" constant="68" id="u2l-rb-R7M"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                    <state key="normal" title="登録">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="bW3-bs-DQj"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
+                <constraint firstItem="JFt-wG-eNH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="9j4-f5-bh1"/>
                 <constraint firstItem="H1S-Yt-JqJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CFT-n3-VI0"/>
-                <constraint firstAttribute="bottom" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="34" id="NqR-tK-iiS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JFt-wG-eNH" secondAttribute="trailing" constant="75" id="FOd-bj-6h2"/>
+                <constraint firstAttribute="bottom" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="122" id="NqR-tK-iiS"/>
                 <constraint firstItem="H1S-Yt-JqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Pli-nS-BTi"/>
                 <constraint firstItem="2AP-KK-5I8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="T8d-7m-QQf"/>
+                <constraint firstItem="JFt-wG-eNH" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="20" id="qLG-O2-6gS"/>
                 <constraint firstItem="HOD-gl-jVJ" firstAttribute="top" secondItem="H1S-Yt-JqJ" secondAttribute="bottom" constant="8" symbolic="YES" id="saH-EQ-ta6"/>
                 <constraint firstItem="H1S-Yt-JqJ" firstAttribute="centerX" secondItem="HOD-gl-jVJ" secondAttribute="centerX" id="tMi-TK-LAE"/>
                 <constraint firstItem="HOD-gl-jVJ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xTl-EE-oCy"/>
