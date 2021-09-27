@@ -11,8 +11,10 @@ class ChallengeProblem: UIViewController {
 
     @IBOutlet weak var selectTextView: UITextView!
     @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var answerNextButton: UIButton!
     
     private let getSelectList = GetProblemSelect()
+    private let getProblemAnswerList = GetProblem_Answer()
     
     var pickerView = UIPickerView()
     private var problemCount = 0
@@ -24,15 +26,18 @@ class ChallengeProblem: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
         pickerView.delegate = self
         pickerView.dataSource = self
         selectTextView.isEditable = false
         selectTextView.text = "ここをタッチして正解を選んでください！"
+        answerNextButton.setTitle("決定", for: .normal)
+        answerNextButton.isEnabled = false
         pickerView.selectRow(0, inComponent: 0, animated: true)
+        getProblemAnswerList.getProblemList()
         getSelectList.getProblemSelect()
         problemCount = 0
         getSelectList.problemSelectEmptyDelete = []
+        getProblemAnswerList.problemList = []
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,8 +58,17 @@ class ChallengeProblem: UIViewController {
     @objc func done() {
         selectTextView.endEditing(true)
         selectTextView.text = "\(getSelectList.problemSelectEmptyDelete[pickerView.selectedRow(inComponent: 0)])"
+        answerNextButton.isEnabled = true
     }
 
+    @IBAction func answerNextButton(_ sender: Any) {
+        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
+            answerLabel.text = "正解"
+        } else {
+            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
+        }
+        answerNextButton.setTitle("次の問題へ", for: .normal)
+    }
     @IBAction func backButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
