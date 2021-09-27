@@ -9,10 +9,50 @@ import UIKit
 
 class ChallengeProblem: UIViewController {
 
+    @IBOutlet weak var selectTextView: UITextView!
+    @IBOutlet weak var answerLabel: UILabel!
+    
+    private let getSelectList = GetProblemSelect()
+    
+    var pickerView = UIPickerView()
+    private var problemCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        selectTextView.isEditable = false
+        selectTextView.text = "ここをタッチして正解を選んでください！"
+        pickerView.selectRow(0, inComponent: 0, animated: true)
+        getSelectList.getProblemSelect()
+        problemCount = 0
+        getSelectList.problemSelectEmptyDelete = []
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        doneBar()
+        getSelectList.selectEmptyDelete(problemCount: problemCount)
+    }
+    
+    func doneBar() {
+        pickerView.showsSelectionIndicator = true
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
+        let spacleItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
+        toolBar.setItems([spacleItem, doneItem], animated: true)
+        selectTextView.inputView = pickerView
+        selectTextView.inputAccessoryView = toolBar
+    }
+    
+    @objc func done() {
+        selectTextView.endEditing(true)
+        selectTextView.text = "\(getSelectList.problemSelectEmptyDelete[pickerView.selectedRow(inComponent: 0)])"
     }
 
     @IBAction func backButton(_ sender: Any) {
@@ -29,4 +69,30 @@ class ChallengeProblem: UIViewController {
     }
     */
 
+}
+
+extension ChallengeProblem: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let cellLabel = UILabel()
+        cellLabel.frame = CGRect(x: 0, y: 0, width: pickerView.rowSize(forComponent: 0).width, height: pickerView.rowSize(forComponent: 0).height)
+        cellLabel.textAlignment = .center
+        cellLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        cellLabel.backgroundColor = UIColor.darkGray
+        cellLabel.textColor = UIColor.white
+        cellLabel.text = getSelectList.problemSelectEmptyDelete[row]
+        
+        return cellLabel
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        getSelectList.problemSelectEmptyDelete.count
+
+    }
+    
+    
 }

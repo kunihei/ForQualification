@@ -19,6 +19,10 @@
 		BA09FC2D26E4446F006BEAD8 /* ForQualificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC2C26E4446F006BEAD8 /* ForQualificationTests.swift */; };
 		BA09FC3826E4446F006BEAD8 /* ForQualificationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC3726E4446F006BEAD8 /* ForQualificationUITests.swift */; };
 		BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */; };
+		BA0E33E02700662F002A3A48 /* ProblemSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33DF2700662F002A3A48 /* ProblemSelectModel.swift */; };
+		BA0E33E227008240002A3A48 /* GetProblemSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E127008240002A3A48 /* GetProblemSelect.swift */; };
+		BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
+		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
@@ -70,6 +74,10 @@
 		BA09FC3726E4446F006BEAD8 /* ForQualificationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForQualificationUITests.swift; sourceTree = "<group>"; };
 		BA09FC3926E4446F006BEAD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProblem.swift; sourceTree = "<group>"; };
+		BA0E33DF2700662F002A3A48 /* ProblemSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSelectModel.swift; sourceTree = "<group>"; };
+		BA0E33E127008240002A3A48 /* GetProblemSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblemSelect.swift; sourceTree = "<group>"; };
+		BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem_AnswerModel.swift; sourceTree = "<group>"; };
+		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
@@ -232,6 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */,
+				BA0E33DF2700662F002A3A48 /* ProblemSelectModel.swift */,
+				BA0E33E127008240002A3A48 /* GetProblemSelect.swift */,
+				BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */,
+				BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -504,10 +516,14 @@
 				BAD7048926EC610600508AE7 /* RegisterProblem.swift in Sources */,
 				BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */,
 				BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */,
+				BA0E33E02700662F002A3A48 /* ProblemSelectModel.swift in Sources */,
 				BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */,
+				BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */,
+				BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */,
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
+				BA0E33E227008240002A3A48 /* GetProblemSelect.swift in Sources */,
 				BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

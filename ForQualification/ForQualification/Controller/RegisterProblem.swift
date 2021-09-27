@@ -28,11 +28,13 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
     @IBOutlet weak var answerTextField: UITextView!
     
     private let userUid = Auth.auth().currentUser?.uid
+    private var selectList:[UITextView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         problemstatement.delegate = self
         navigationController?.isNavigationBarHidden = false
+        selectList = [self.select1, self.select2, self.select3, self.select4, self.select5, self.select6, self.select7, self.select8, self.select9, self.select10]
         // Do any additional setup after loading the view.
     }
     
@@ -52,16 +54,9 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         }
         problemstatement.text = ""
         answerTextField.text = ""
-        select1.text = ""
-        select2.text = ""
-        select3.text = ""
-        select4.text = ""
-        select5.text = ""
-        select6.text = ""
-        select7.text = ""
-        select8.text = ""
-        select9.text = ""
-        select10.text = ""
+        for i in 0..<selectList.count {
+            selectList[i].text = ""
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -73,40 +68,10 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
             self.answerTextField.resignFirstResponder()
         }
         
-        if self.select1.isFirstResponder {
-            self.select1.resignFirstResponder()
-        }
-        
-        if self.select2.isFirstResponder {
-            self.select2.resignFirstResponder()
-        }
-        
-        if self.select3.isFirstResponder {
-            self.select3.resignFirstResponder()
-        }
-        
-        if self.select4.isFirstResponder {
-            self.select4.resignFirstResponder()
-        }
-        
-        if self.select5.isFirstResponder {
-            self.select6.resignFirstResponder()
-        }
-        
-        if self.select7.isFirstResponder {
-            self.select7.resignFirstResponder()
-        }
-        
-        if self.select8.isFirstResponder {
-            self.select8.resignFirstResponder()
-        }
-        
-        if self.select9.isFirstResponder {
-            self.select9.resignFirstResponder()
-        }
-        
-        if self.select10.isFirstResponder {
-            self.select10.resignFirstResponder()
+        for i in 0..<selectList.count {
+            if self.selectList[i].isFirstResponder {
+                self.selectList[i].resignFirstResponder()
+            }
         }
     }
     

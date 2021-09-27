@@ -29,14 +29,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="59" translatesAutoresizingMaskIntoConstraints="NO" id="I9t-Ud-phS">
-                    <rect key="frame" x="22" y="269" width="370" height="358"/>
+                    <rect key="frame" x="22" y="389" width="370" height="358"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4IG-yd-z6d">
                             <rect key="frame" x="0.0" y="0.0" width="370" height="80"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="370" id="XyF-s7-OeE"/>
-                                <constraint firstAttribute="height" constant="80" id="wOJ-ql-BEj"/>
+                                <constraint firstAttribute="width" constant="370" id="idF-vY-cck"/>
+                                <constraint firstAttribute="height" constant="80" id="jHO-TA-fQN"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
                             <state key="normal" title="問題登録">
@@ -58,8 +58,8 @@
                             <rect key="frame" x="0.0" y="139" width="370" height="80"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="370" id="Mwn-Ag-8rX"/>
-                                <constraint firstAttribute="height" constant="80" id="hfG-bb-fZZ"/>
+                                <constraint firstAttribute="height" constant="80" id="iuu-p1-2ZF"/>
+                                <constraint firstAttribute="width" constant="370" id="uNs-Xu-XSZ"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="問題挑戦">
@@ -80,8 +80,8 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-CX-teD">
                             <rect key="frame" x="0.0" y="278" width="370" height="80"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="370" id="JWR-kH-fjf"/>
-                                <constraint firstAttribute="height" constant="80" id="fan-1p-iJm"/>
+                                <constraint firstAttribute="width" constant="370" id="oJr-qF-BoQ"/>
+                                <constraint firstAttribute="height" constant="80" id="uoY-2D-5sI"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,12 +106,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I9t-Ud-phS" secondAttribute="trailing" constant="22" id="701-5D-Uf5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6nf-06-b35" secondAttribute="trailing" constant="20" id="8cq-K3-9hb"/>
-                <constraint firstItem="I9t-Ud-phS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="KKQ-Pi-7I8"/>
+                <constraint firstAttribute="bottom" secondItem="I9t-Ud-phS" secondAttribute="bottom" constant="149" id="HEa-XT-TNw"/>
                 <constraint firstItem="6nf-06-b35" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Pda-P4-w9q"/>
-                <constraint firstItem="I9t-Ud-phS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="gdb-dM-Wmx"/>
                 <constraint firstItem="6nf-06-b35" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="59" id="rOu-yM-au9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="I9t-Ud-phS" secondAttribute="trailing" constant="22" id="tyq-KO-tfu"/>
+                <constraint firstItem="I9t-Ud-phS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="vTe-09-6SA"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
