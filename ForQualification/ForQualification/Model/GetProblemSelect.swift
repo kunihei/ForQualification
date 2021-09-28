@@ -37,6 +37,7 @@ class GetProblemSelect {
     }
     
     func selectEmptyDelete(problemCount: Int) {
+        problemSelectList = []
         problemSelectEmptyDelete = []
         for i in 0..<selectList.count {
             if i == problemCount {
