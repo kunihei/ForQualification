@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ChallengeProblem: UIViewController {
 
@@ -14,6 +15,8 @@ class ChallengeProblem: UIViewController {
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var problemCountLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var problemTextView: UITextView!
+    @IBOutlet weak var problemImage: UIImageView!
     
     private let getSelectList = GetProblemSelect()
     private let getProblemAnswerList = GetProblem_Answer()
@@ -30,6 +33,7 @@ class ChallengeProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectTextView.isEditable = false
+        problemTextView.isEditable = false
         nextButton.isHidden = true
         pickerView.selectRow(0, inComponent: 0, animated: true)
         getProblemAnswerList.getProblemList()
@@ -44,6 +48,12 @@ class ChallengeProblem: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         doneBar()
+        problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
+        if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
+            problemImage.sd_setImage(with: URL(string: getProblemAnswerList.problemList[problemCount].problemImageData), completed: nil)
+        } else {
+            problemImage.isHidden = true
+        }
         getSelectList.selectEmptyDelete(problemCount: problemCount)
     }
     
@@ -77,7 +87,13 @@ class ChallengeProblem: UIViewController {
     }
 
     @IBAction func answerButton(_ sender: Any) {
-        errAlert()
+        if selectTextView.text == "ここをタッチして正解を選んでください！" {
+            let alert: UIAlertController = UIAlertController(title: "未選択", message: "選択肢から答えを選んで下さい！", preferredStyle: UIAlertController.Style.alert)
+            let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(confirmAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
         
         if problemCount == getProblemAnswerList.problemList.count - 1 {
             nextButton.setTitle("採点画面へ", for: .normal)
@@ -98,20 +114,17 @@ class ChallengeProblem: UIViewController {
         }
     }
     
-    func errAlert() {
-        if selectTextView.text == "ここをタッチして正解を選んでください！" {
-            let alert: UIAlertController = UIAlertController(title: "未選択", message: "選択肢から答えを選んで下さい！", preferredStyle: UIAlertController.Style.alert)
-            let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel)
-            alert.addAction(confirmAction)
-            present(alert, animated: true, completion: nil)
-            return
-        }
-    }
-    
     func nextProblem() {
         if problemCount < getProblemAnswerList.problemList.count - 1 {
             problemCount += 1
             initialValue()
+            problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
+            if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
+                problemImage.isHidden = false
+                problemImage.sd_setImage(with: URL(string: getProblemAnswerList.problemList[problemCount].problemImageData), completed: nil)
+            } else {
+                problemImage.isHidden = true
+            }
             getSelectList.selectEmptyDelete(problemCount: problemCount)
             doneBar()
             pickerView.selectRow(0, inComponent: 0, animated: true)

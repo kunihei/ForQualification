@@ -9,6 +9,10 @@ import UIKit
 
 class MenuProblem: UIViewController {
 
+    @IBOutlet weak var createButton: UIButton!
+    @IBOutlet weak var challengeButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +21,10 @@ class MenuProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        let boaderColor = UIColor(named: "TextColor")
+        createButton.layer.borderColor = boaderColor?.cgColor
+        challengeButton.layer.borderColor = boaderColor?.cgColor
+        editButton.layer.borderColor = boaderColor?.cgColor
     }
 
     @IBAction func createButton(_ sender: Any) {

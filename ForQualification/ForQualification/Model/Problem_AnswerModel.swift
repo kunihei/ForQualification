@@ -8,5 +8,7 @@
 import Foundation
 
 struct Problem_AnswerModel {
+    var problem: String
+    var problemImageData: String
     var answer: String
 }

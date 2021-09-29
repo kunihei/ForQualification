@@ -25,11 +25,15 @@ class GetProblem_Answer {
                 for doc in snapshotDoc {
                     let data = doc.data()
                     if self.currentUserId == data["userId"] as? String {
-                        if let answer = data["answer"] {
-                            self.problemList.append(Problem_AnswerModel(answer: answer as! String))
+                        if let problem = data["problem"], let problemImageData = data["problemImage"], let answer = data["answer"] {
+                            self.problemList.append(Problem_AnswerModel(problem: problem as! String, problemImageData: problemImageData as! String, answer: answer as! String))
+                            
+                        } else if let problem = data["problem"], let answer = data["answer"] {
+                            self.problemList.append(Problem_AnswerModel(problem: problem as! String, problemImageData: "", answer: answer as! String))
                         }
                     }
                 }
+                self.problemList.reverse()
             }
         }
     }
