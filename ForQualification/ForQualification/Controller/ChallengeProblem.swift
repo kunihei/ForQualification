@@ -22,6 +22,7 @@ class ChallengeProblem: UIViewController {
     private let getProblemAnswerList = GetProblem_Answer()
     
     var pickerView = UIPickerView()
+    var shuffleModeFlag = false
     private var lastFlag = false
     private var problemCount = 0
     private var correctAnswerCount = 0
@@ -37,6 +38,7 @@ class ChallengeProblem: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
         selectTextView.isEditable = false
         problemTextView.isEditable = false
         nextButton.isHidden = true
@@ -56,6 +58,9 @@ class ChallengeProblem: UIViewController {
         imageCheck()
         problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
         getSelectList.selectEmptyDelete(problemCount: problemCount)
+        if shuffleModeFlag {
+            getSelectList.problemSelectEmptyDelete.shuffle()
+        }
     }
     
     func imageCheck() {
@@ -150,6 +155,9 @@ class ChallengeProblem: UIViewController {
             problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
             imageCheck()
             getSelectList.selectEmptyDelete(problemCount: problemCount)
+            if shuffleModeFlag {
+                getSelectList.problemSelectEmptyDelete.shuffle()
+            }
             doneBar()
             pickerView.selectRow(0, inComponent: 0, animated: true)
         }
