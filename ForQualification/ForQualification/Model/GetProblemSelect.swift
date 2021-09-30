@@ -32,6 +32,7 @@ class GetProblemSelect {
                         }
                     }
                 }
+                self.selectList.reverse()
             }
         }
     }

@@ -11,7 +11,7 @@ class MenuChallengeProblem: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -25,6 +25,10 @@ class MenuChallengeProblem: UIViewController {
         navigationController?.pushViewController(challengeView, animated: true)
     }
     
+    @IBAction func menuBackButton(_ sender: Any) {
+        let menuView = MenuProblem()
+        navigationController?.pushViewController(menuView, animated: true)
+    }
     /*
     // MARK: - Navigation
 
