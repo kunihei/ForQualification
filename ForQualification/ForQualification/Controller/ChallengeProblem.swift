@@ -24,12 +24,17 @@ class ChallengeProblem: UIViewController {
     var pickerView = UIPickerView()
     private var lastFlag = false
     private var problemCount = 0
+    private var correctAnswerCount = 0
+    private var incorrectAnswerCount = 0
+    private var averageCount = 0.0
+    private var averageTotal = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectTextView.isEditable = false
@@ -38,8 +43,8 @@ class ChallengeProblem: UIViewController {
         pickerView.selectRow(0, inComponent: 0, animated: true)
         getProblemAnswerList.getProblemList()
         getSelectList.getProblemSelect()
-        problemCount = 0
         initialValue()
+        resetCount()
         getSelectList.problemSelectEmptyDelete = []
         getProblemAnswerList.problemList = []
     }
@@ -48,13 +53,26 @@ class ChallengeProblem: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         doneBar()
+        imageCheck()
         problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
+        getSelectList.selectEmptyDelete(problemCount: problemCount)
+    }
+    
+    func imageCheck() {
         if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
+            problemImage.isHidden = false
             problemImage.sd_setImage(with: URL(string: getProblemAnswerList.problemList[problemCount].problemImageData), completed: nil)
         } else {
             problemImage.isHidden = true
         }
-        getSelectList.selectEmptyDelete(problemCount: problemCount)
+    }
+    
+    func resetCount() {
+        problemCount = 0
+        averageCount = 0.0
+        averageTotal = 0.0
+        correctAnswerCount = 0
+        incorrectAnswerCount = 0
     }
     
     func initialValue() {
@@ -83,7 +101,6 @@ class ChallengeProblem: UIViewController {
     func notPickerView(){
         selectTextView.inputView = .none
         selectTextView.inputAccessoryView = .none
-        selectTextView.isEditable = false
     }
 
     @IBAction func answerButton(_ sender: Any) {
@@ -95,23 +112,35 @@ class ChallengeProblem: UIViewController {
             return
         }
         
-        if problemCount == getProblemAnswerList.problemList.count - 1 {
-            nextButton.setTitle("採点画面へ", for: .normal)
-            lastFlag = true
+        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
+            answerLabel.text = "正解"
+            correctAnswerCount += 1
+            print("kuni正解")
+            print(correctAnswerCount)
+        } else {
+            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
+            incorrectAnswerCount += 1
+            print("kuni不正解")
+            print(incorrectAnswerCount)
         }
-        
-        checkTheAnswer()
+        checkLastProblem()
         notPickerView()
         nextButton.isHidden = false
         answerButton.isEnabled = false
     }
     
-    func checkTheAnswer() {
-        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
-            answerLabel.text = "正解"
-        } else {
-            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
+    func checkLastProblem() {
+        if problemCount == getProblemAnswerList.problemList.count - 1 {
+            problemCountLabel.text = "問題終了"
+            nextButton.setTitle("採点画面へ", for: .normal)
+            lastFlag = true
+            averageCount = Double(correctAnswerCount) / Double(getProblemAnswerList.problemList.count)
+            averageTotal = averageCount * 100.0
         }
+    }
+    
+    func checkTheAnswer() {
+        
     }
     
     func nextProblem() {
@@ -119,12 +148,7 @@ class ChallengeProblem: UIViewController {
             problemCount += 1
             initialValue()
             problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
-            if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
-                problemImage.isHidden = false
-                problemImage.sd_setImage(with: URL(string: getProblemAnswerList.problemList[problemCount].problemImageData), completed: nil)
-            } else {
-                problemImage.isHidden = true
-            }
+            imageCheck()
             getSelectList.selectEmptyDelete(problemCount: problemCount)
             doneBar()
             pickerView.selectRow(0, inComponent: 0, animated: true)
@@ -134,6 +158,9 @@ class ChallengeProblem: UIViewController {
     func lastProblem() {
         if lastFlag {
             let resultView = ResultProblem()
+            resultView.correctAnswerCount = correctAnswerCount
+            resultView.incorrectAnswerCount = incorrectAnswerCount
+            resultView.averageTotal = Int(averageTotal)
             navigationController?.pushViewController(resultView, animated: true)
         }
     }
