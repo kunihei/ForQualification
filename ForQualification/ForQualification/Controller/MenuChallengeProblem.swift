@@ -18,10 +18,11 @@ class MenuChallengeProblem: UIViewController {
 
     @IBAction func nomalButton(_ sender: Any) {
         let challengeView = ChallengeProblem()
-        navigationController?.pushViewController(challengeView, animated: true)
-    }
-    @IBAction func shuffleButton(_ sender: Any) {
-        let challengeView = ChallengeProblem()
+        if (sender as AnyObject).tag! == 2 {
+            challengeView.shuffleModeFlag = true
+        } else {
+            challengeView.shuffleModeFlag = false
+        }
         navigationController?.pushViewController(challengeView, animated: true)
     }
     

@@ -24,6 +24,7 @@
 		BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
+		BA0E33ED2705E4BB002A3A48 /* ShuffleChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EC2705E4BB002A3A48 /* ShuffleChallengeProblem.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
@@ -80,6 +81,7 @@
 		BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem_AnswerModel.swift; sourceTree = "<group>"; };
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BA0E33EC2705E4BB002A3A48 /* ShuffleChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleChallengeProblem.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
@@ -178,10 +180,10 @@
 		BA09FC1426E4446E006BEAD8 /* ForQualification */ = {
 			isa = PBXGroup;
 			children = (
-				BA0E33E927048E54002A3A48 /* CustomClass */,
 				BAD704E626EDDFB300508AE7 /* ForQualification.entitlements */,
 				BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */,
 				BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */,
+				BA0E33E927048E54002A3A48 /* CustomClass */,
 				BAD704E726EDE81100508AE7 /* Model */,
 				BAD7047D26EC40DD00508AE7 /* View */,
 				BAD7048226EC427200508AE7 /* Controller */,
@@ -243,6 +245,7 @@
 				BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */,
 				BA09FC1926E4446E006BEAD8 /* ViewController.swift */,
 				BAD7047E26EC426100508AE7 /* MenuProblem.swift */,
+				BA0E33EC2705E4BB002A3A48 /* ShuffleChallengeProblem.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				BA0E33E02700662F002A3A48 /* ProblemSelectModel.swift in Sources */,
 				BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */,
 				BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */,
+				BA0E33ED2705E4BB002A3A48 /* ShuffleChallengeProblem.swift in Sources */,
 				BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */,
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
