@@ -7,16 +7,38 @@
 
 import UIKit
 
-class EditProblem: UIViewController {
+class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    private let getProblemList = GetProblem_Answer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+        getProblemList.problemList = []
+        getProblemList.getProblemList()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        getProblemList.problemList.count
+    }
 
-    @IBAction func backButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        return cell
     }
     
     /*

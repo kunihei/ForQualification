@@ -24,12 +24,15 @@ class GetProblem_Answer {
             if let snapshotDoc = snapshot?.documents {
                 for doc in snapshotDoc {
                     let data = doc.data()
+                    let documentID = doc.documentID
+                    print(documentID)
+                    print("kuni")
                     if self.currentUserId == data["userId"] as? String {
-                        if let problem = data["problem"], let problemImageData = data["problemImage"], let answer = data["answer"] {
-                            self.problemList.append(Problem_AnswerModel(problem: problem as! String, problemImageData: problemImageData as! String, answer: answer as! String))
+                        if let problem = data["problem"] as? String, let problemImageData = data["problemImage"] as? String, let answer = data["answer"] as? String, let documentID = documentID as? String {
+                            self.problemList.append(Problem_AnswerModel(problem: problem, problemImageData: problemImageData, answer: answer, documentID: documentID))
                             
-                        } else if let problem = data["problem"], let answer = data["answer"] {
-                            self.problemList.append(Problem_AnswerModel(problem: problem as! String, problemImageData: "", answer: answer as! String))
+                        } else if let problem = data["problem"] as? String, let answer = data["answer"] as? String, let documentID = documentID as? String {
+                            self.problemList.append(Problem_AnswerModel(problem: problem, problemImageData: "", answer: answer, documentID: documentID))
                         }
                     }
                 }
