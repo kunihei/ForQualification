@@ -87,6 +87,7 @@ class ChallengeProblem: UIViewController {
 
     }
     
+    //ドラムロール作成
     func doneBar() {
         pickerView.showsSelectionIndicator = true
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 35))
@@ -117,17 +118,7 @@ class ChallengeProblem: UIViewController {
             return
         }
         
-        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
-            answerLabel.text = "正解"
-            correctAnswerCount += 1
-            print("kuni正解")
-            print(correctAnswerCount)
-        } else {
-            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
-            incorrectAnswerCount += 1
-            print("kuni不正解")
-            print(incorrectAnswerCount)
-        }
+        checkTheAnswer()
         checkLastProblem()
         notPickerView()
         nextButton.isHidden = false
@@ -145,7 +136,13 @@ class ChallengeProblem: UIViewController {
     }
     
     func checkTheAnswer() {
-        
+        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
+            answerLabel.text = "正解"
+            correctAnswerCount += 1
+        } else {
+            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
+            incorrectAnswerCount += 1
+        }
     }
     
     func nextProblem() {
