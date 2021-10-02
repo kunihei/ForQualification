@@ -19,22 +19,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="問題編集・削除" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cj-qH-i6B">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題編集・削除" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cj-qH-i6B">
                     <rect key="frame" x="20" y="44" width="374" height="76"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="374" id="20v-5i-ROd"/>
+                        <constraint firstAttribute="height" constant="76" id="buo-gT-Ghu"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-Jn-aY5">
-                    <rect key="frame" x="0.0" y="128" width="414" height="744"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-Jn-aY5">
+                    <rect key="frame" x="0.0" y="128" width="414" height="768"/>
                     <color key="sectionIndexColor" name="TextColor"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="AxM-vP-3HC"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="top" secondItem="7cj-qH-i6B" secondAttribute="bottom" constant="8" symbolic="YES" id="Eoc-ME-gWJ"/>
+                <constraint firstItem="7cj-qH-i6B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="IEH-Bi-CBX"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7cj-qH-i6B" secondAttribute="trailing" constant="20" id="KFi-MV-VDw"/>
+                <constraint firstItem="7cj-qH-i6B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="W1q-9B-I9g"/>
+                <constraint firstAttribute="bottom" secondItem="ZZu-Jn-aY5" secondAttribute="bottom" id="c1l-T6-ltu"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qhu-EJ-Hvd"/>
+            </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
