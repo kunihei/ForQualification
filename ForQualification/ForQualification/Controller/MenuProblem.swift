@@ -28,18 +28,27 @@ class MenuProblem: UIViewController {
     }
 
     @IBAction func createButton(_ sender: Any) {
-        let registerView = RegisterProblem()
-        navigationController?.pushViewController(registerView, animated: true)
+        createButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let registerView = RegisterProblem()
+            self.navigationController?.pushViewController(registerView, animated: true)
+        }
     }
     
     @IBAction func challengeButton(_ sender: Any) {
-        let MenuChallengeView = MenuChallengeProblem()
-        navigationController?.pushViewController(MenuChallengeView, animated: true)
+        challengeButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let MenuChallengeView = MenuChallengeProblem()
+            self.navigationController?.pushViewController(MenuChallengeView, animated: true)
+        }
     }
     
     @IBAction func editButton(_ sender: Any) {
-        let editView = EditProblem()
-        navigationController?.pushViewController(editView, animated: true)
+        editButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let editView = EditProblem()
+            self.navigationController?.pushViewController(editView, animated: true)
+        }
     }
     
     /*

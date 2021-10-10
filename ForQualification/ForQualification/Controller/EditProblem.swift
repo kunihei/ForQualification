@@ -14,6 +14,8 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var tableView: UITableView!
     
     private let getProblemList = GetProblem_Answer()
+    private let getProblemSelectList = GetProblemSelect()
+    
     private var problemList = [Problem_AnswerModel]()
     
     override func viewDidLoad() {
@@ -25,6 +27,8 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         getProblemList.problemList = []
+        getProblemSelectList.problemSelectEmptyDelete = []
+        getProblemSelectList.getProblemSelect()
         getProblemList.getProblemList()
         tableView.delegate = self
         tableView.dataSource = self
@@ -40,7 +44,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         //削除処理
         let deleteAction = UIContextualAction(style: .destructive, title: "削除") { (action, view, completionHandler) in
-            Firestore.firestore().collection("problems").document(self.getProblemList.problemList[indexPath.row].documentID).delete() { err in
+            Firestore.firestore().collection("problems").document(self.problemList[indexPath.row].documentID).delete() { err in
                 if let err = err {
                     print("削除に失敗しました", err)
                     return
@@ -50,7 +54,21 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
             completionHandler(true)
         }
-        return UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        let editAction = UIContextualAction(style: .normal, title: "編集") { (action, view, completionHandler) in
+            self.getProblemSelectList.selectEmptyDelete(problemCount: indexPath.row)
+            let registerView = RegisterProblem()
+            registerView.editFlag = true
+            registerView.documentId = self.problemList[indexPath.row].documentID
+            registerView.problem = self.problemList[indexPath.row].problem
+            registerView.problemImageData = self.problemList[indexPath.row].problemImageData
+            registerView.selects = self.getProblemSelectList.problemSelectEmptyDelete
+            registerView.answer = self.problemList[indexPath.row].answer
+            self.navigationController?.pushViewController(registerView, animated: true)
+            
+            completionHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

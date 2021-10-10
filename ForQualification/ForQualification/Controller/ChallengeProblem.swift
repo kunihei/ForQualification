@@ -47,8 +47,6 @@ class ChallengeProblem: UIViewController {
         getSelectList.getProblemSelect()
         initialValue()
         resetCount()
-        getSelectList.problemSelectEmptyDelete = []
-        getProblemAnswerList.problemList = []
     }
     
     override func viewDidAppear(_ animated: Bool) {

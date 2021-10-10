@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import Firebase
+import SDWebImage
 import FirebaseStorage
 import FirebaseFirestore
 
@@ -25,10 +26,17 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
     @IBOutlet weak var select8: UITextView!
     @IBOutlet weak var select9: UITextView!
     @IBOutlet weak var select10: UITextView!
+    @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var answerTextField: UITextView!
     
     private let userUid = Auth.auth().currentUser?.uid
     private var selectList:[UITextView] = []
+    var documentId = String()
+    var editFlag = false
+    var problem = String()
+    var problemImageData = String()
+    var selects = [String]()
+    var answer = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,22 +46,64 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func registerButton(_ sender: Any) {
-        
-        guard let userId = userUid else { return }
-        
-        if let problemImageConversion = problemImage.image {
-            
-            let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-            let createProblem = CreateProblem(problemstatement: problemstatement.text, problemImageData: problemImageData!, answer: answerTextField.text, select1: select1.text, select2: select2.text, select3: select3.text, select4: select4.text, select5: select5.text, select6: select6.text, select7: select7.text, select8: select8.text, select9: select9.text, select10: select10.text, userId: userId)
-            createProblem.isImageCreateProblem()
-        } else {
-            
-            let createProblem = CreateProblem(problemstatement: problemstatement.text, answer: answerTextField.text, select1: select1.text, select2: select2.text, select3: select3.text, select4: select4.text, select5: select5.text, select6: select6.text, select7: select7.text, select8: select8.text, select9: select9.text, select10: select10.text, userId: userId)
-            createProblem.noImageCreateProblem()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        for i in 0..<selectList.count {
+            selectList[i].layer.cornerRadius = 5
         }
+        if editFlag {
+            settingButton.setTitle("更新", for: .normal)
+            problemstatement.text = problem
+            answerTextField.text = answer
+            if problemImageData != "" {
+                problemImage.sd_setImage(with: URL(string: problemImageData), completed: nil)
+            }
+            for i in 0..<selects.count {
+                selectList[i].text = selects[i]
+            }
+        }
+    }
+    
+    @IBAction func settingButton(_ sender: Any) {
+        
+        if editFlag {
+            print("更新")
+        } else {
+            guard let userId = userUid else { return }
+            
+            if let problemImageConversion = problemImage.image {
+                let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+                thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
+            } else {
+                noPictureDatas(userId: userId)
+            }
+            resetValues()
+            successAlert()
+        }
+    }
+    
+    func successAlert() {
+        let alert = UIAlertController(title: "登録完了", message: "問題の登録に成功しました。", preferredStyle: UIAlertController.Style.alert)
+        let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(confirmAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func thereIsPictureDatas(userId: String, problemImageData: Data) {
+        let createProblem = CreateProblem(problemstatement: problemstatement.text, problemImageData: problemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
+        createProblem.isImageCreateProblem()
+    }
+    
+    func noPictureDatas(userId: String) {
+        let createProblem = CreateProblem(problemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
+        createProblem.noImageCreateProblem()
+    }
+    
+    
+    func resetValues() {
         problemstatement.text = ""
         answerTextField.text = ""
+        problemImage.image = UIImage(named: "")
         for i in 0..<selectList.count {
             selectList[i].text = ""
         }
@@ -93,6 +143,7 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
 
 }
 
+// カメラ＆アルバムを使用
 extension RegisterProblem: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func doCamera() {
         let sourceType:UIImagePickerController.SourceType = .camera
