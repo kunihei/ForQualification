@@ -15,6 +15,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     private let getProblemList = GetProblem_Answer()
     private let getProblemSelectList = GetProblemSelect()
+    private let userUid = Auth.auth().currentUser?.uid
     
     private var problemList = [Problem_AnswerModel]()
     
@@ -27,6 +28,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         getProblemList.problemList = []
+        problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
         getProblemSelectList.getProblemSelect()
         getProblemList.getProblemList()

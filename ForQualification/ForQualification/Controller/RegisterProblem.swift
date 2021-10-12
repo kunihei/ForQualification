@@ -65,12 +65,16 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func settingButton(_ sender: Any) {
-        
+        guard let userId = userUid else { return }
         if editFlag {
-            print("更新")
+            if let problemImageConversion = problemImage.image {
+                let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+                editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
+            } else {
+                editNoPictureDatas(userId: userId, documentId: documentId)
+            }
+            editSuccessAlert()
         } else {
-            guard let userId = userUid else { return }
-            
             if let problemImageConversion = problemImage.image {
                 let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
                 thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
@@ -82,6 +86,7 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         }
     }
     
+    // 登録完了したらアラートを表示
     func successAlert() {
         let alert = UIAlertController(title: "登録完了", message: "問題の登録に成功しました。", preferredStyle: UIAlertController.Style.alert)
         let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
@@ -89,17 +94,42 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         present(alert, animated: true, completion: nil)
     }
     
+    //更新完了したらアラートを表示
+    func editSuccessAlert() {
+        let alert = UIAlertController(title: "更新完了", message: "問題の更新に成功しました。", preferredStyle: UIAlertController.Style.alert)
+        let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action in
+            let editProblemView = EditProblem()
+            self.navigationController?.pushViewController(editProblemView, animated: true)
+        }
+        alert.addAction(confirmAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    //　画像ありの情報をFirebaseに更新
+    func editThereIsPictureDatas(userId: String, documentId: String, editProblemImageData: Data) {
+        let isImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, problemImageData: editProblemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
+        isImageUpdateProblem.isImageUpdateProblem()
+    }
+    
+    //　画像なしの情報をFirebaseに更新
+    func editNoPictureDatas(userId: String, documentId: String) {
+        let noImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
+        noImageUpdateProblem.noImageupdateProblem()
+    }
+    
+    // 画像ありの情報をFirebaseに登録
     func thereIsPictureDatas(userId: String, problemImageData: Data) {
         let createProblem = CreateProblem(problemstatement: problemstatement.text, problemImageData: problemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
         createProblem.isImageCreateProblem()
     }
     
+    // 画像なしの情報をFirebaseに登録
     func noPictureDatas(userId: String) {
         let createProblem = CreateProblem(problemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
         createProblem.noImageCreateProblem()
     }
     
-    
+    // 登録後全ての値を空にする
     func resetValues() {
         problemstatement.text = ""
         answerTextField.text = ""
