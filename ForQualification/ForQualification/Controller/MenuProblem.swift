@@ -41,7 +41,7 @@ class MenuProblem: UIViewController {
     
     @IBAction func challengeButton(_ sender: Any) {
         if getProblem.problemList.isEmpty {
-            let alert = UIAlertController(title: "問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "挑戦する問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
             let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
                 let settingView = SettingProblem()
                 self.navigationController?.pushViewController(settingView, animated: true)
@@ -59,7 +59,7 @@ class MenuProblem: UIViewController {
     
     @IBAction func editButton(_ sender: Any) {
         if getProblem.problemList.isEmpty {
-            let alert = UIAlertController(title: "問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title: "編集する問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
             let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
                 let settingView = SettingProblem()
                 self.navigationController?.pushViewController(settingView, animated: true)

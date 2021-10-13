@@ -65,20 +65,54 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func settingButton(_ sender: Any) {
+        let proAnsEmptyFlag = problemAnswerEmptyValue()
+        let selectEmptyFlag = selectEmptyValue()
+        
+        if selectEmptyFlag {
+            let alert = UIAlertController(title: "未入力", message: "選択肢を2つ以上入力して下さい。", preferredStyle: UIAlertController.Style.alert)
+            let emptyAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive)
+            alert.addAction(emptyAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        if proAnsEmptyFlag {
+            let alert = UIAlertController(title: "未入力", message: "問題文又は解答文が空です。", preferredStyle: UIAlertController.Style.alert)
+            let emptyAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive)
+            alert.addAction(emptyAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
         guard let userId = userUid else { return }
         if editFlag {
-            if let problemImageConversion = problemImage.image {
-                judgmentThereImageEditProblem(problemImageConversion: problemImageConversion, userId: userId)
-            } else {
-                judgmentNoImageEditProblem(userId: userId)
-            }
+            judgmentEditProblem(userId: userId)
         } else {
-            if let problemImageConversion = problemImage.image {
-                judgmentThereImageCreateProblem(problemImageConversion: problemImageConversion, userId: userId)
-            } else {
-                judgmentNoImageCreateProblem(userId: userId)
+            judgmentCreateProblem(userId: userId)
+        }
+    }
+    
+    // 選択肢の空判定
+    func selectEmptyValue() -> Bool {
+        var emptyCount = 0
+        var selectEmptyFlag = false
+        for i in 0..<selectList.count {
+            if selectList[i].text.isEmpty {
+                emptyCount += 1
             }
         }
+        if emptyCount > 8 {
+            selectEmptyFlag = true
+        }
+        return selectEmptyFlag
+    }
+    
+    // 問題文と解答文の空判定
+    func problemAnswerEmptyValue() -> Bool {
+        var emptyFlag = false
+        if (problemstatement.text.isEmpty || answerTextField.text.isEmpty) {
+            emptyFlag = true
+        }
+        return emptyFlag
     }
     
     // 登録の成否の判定表示
@@ -91,6 +125,18 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         }
     }
     
+    // irebageに登録の成否判断
+    func judgmentCreateProblem(userId: String) {
+        if let problemImageConversion = problemImage.image {
+            let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+            let judgmentFlag = thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
+            judgmentRegistFlag(judgmentFlag: judgmentFlag)
+        } else {
+            let judgmentFlag = noPictureDatas(userId: userId)
+            judgmentRegistFlag(judgmentFlag: judgmentFlag)
+        }
+    }
+    
     // 更新の成否の判定表示
     func judgmentEditFlag(judgmentFlag: Bool) {
         if judgmentFlag {
@@ -100,30 +146,16 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         }
     }
     
-    // 画像なしのFirebage登録判断
-    func judgmentNoImageCreateProblem(userId: String) {
-        let judgmentFlag = noPictureDatas(userId: userId)
-        judgmentRegistFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // 画像ありのFirebage登録判断
-    func judgmentThereImageCreateProblem(problemImageConversion: UIImage, userId: String) {
-        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-        let judgmentFlag = thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
-        judgmentRegistFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // 画像なしのFirebase更新判断
-    func judgmentNoImageEditProblem(userId: String) {
-        let judgmentFlag = editNoPictureDatas(userId: userId, documentId: documentId)
-        judgmentEditFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // 画像ありのFirebage更新判断
-    func judgmentThereImageEditProblem(problemImageConversion: UIImage, userId: String) {
-        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-        let judgmentFlag = editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
-        judgmentEditFlag(judgmentFlag: judgmentFlag)
+    // Firebaseに更新の成否判断
+    func judgmentEditProblem(userId: String) {
+        if let problemImageConversion = problemImage.image {
+            let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+            let judgmentFlag = editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
+            judgmentEditFlag(judgmentFlag: judgmentFlag)
+        } else {
+            let judgmentFlag = editNoPictureDatas(userId: userId, documentId: documentId)
+            judgmentEditFlag(judgmentFlag: judgmentFlag)
+        }
     }
     
     // エラーメッセージ
