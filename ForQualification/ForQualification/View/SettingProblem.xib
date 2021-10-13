@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterProblem" customModule="ForQualification" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
                 <outlet property="answerTextField" destination="wNr-aq-bTq" id="clJ-VX-yJq"/>
                 <outlet property="problemImage" destination="Qq8-fj-1yw" id="i1J-Cn-CV8"/>
@@ -25,6 +25,7 @@
                 <outlet property="select7" destination="XFd-iv-eA5" id="Das-S3-tuw"/>
                 <outlet property="select8" destination="VJe-X1-RMw" id="B60-WF-Ywv"/>
                 <outlet property="select9" destination="0t8-eR-0yI" id="EJz-dj-WDt"/>
+                <outlet property="settingButton" destination="JFt-wG-eNH" id="ZcH-RR-hmM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -488,7 +489,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="bW3-bs-DQj"/>
+                        <action selector="settingButton:" destination="-1" eventType="touchUpInside" id="zOi-D9-CZy"/>
                     </connections>
                 </button>
             </subviews>

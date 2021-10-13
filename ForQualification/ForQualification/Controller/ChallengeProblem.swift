@@ -47,8 +47,6 @@ class ChallengeProblem: UIViewController {
         getSelectList.getProblemSelect()
         initialValue()
         resetCount()
-        getSelectList.problemSelectEmptyDelete = []
-        getProblemAnswerList.problemList = []
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +61,7 @@ class ChallengeProblem: UIViewController {
         }
     }
     
+    // UIImageViewの表示・非表示のチェック
     func imageCheck() {
         if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
             problemImage.isHidden = false
@@ -72,6 +71,7 @@ class ChallengeProblem: UIViewController {
         }
     }
     
+    // 採点結果で使用する数値
     func resetCount() {
         problemCount = 0
         averageCount = 0.0
@@ -80,6 +80,7 @@ class ChallengeProblem: UIViewController {
         incorrectAnswerCount = 0
     }
     
+    // 表示ラベルの初期化
     func initialValue() {
         problemCountLabel.text = "第\(problemCount + 1)問"
         selectTextView.text = "ここをタッチして正解を選んでください！"
@@ -125,6 +126,7 @@ class ChallengeProblem: UIViewController {
         answerButton.isEnabled = false
     }
     
+    // 最終問題解答後に表示
     func checkLastProblem() {
         if problemCount == getProblemAnswerList.problemList.count - 1 {
             problemCountLabel.text = "問題終了"
@@ -135,6 +137,7 @@ class ChallengeProblem: UIViewController {
         }
     }
     
+    // 正解の判断
     func checkTheAnswer() {
         if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
             answerLabel.text = "正解"
@@ -145,6 +148,7 @@ class ChallengeProblem: UIViewController {
         }
     }
     
+    // 次の問題に進める
     func nextProblem() {
         if problemCount < getProblemAnswerList.problemList.count - 1 {
             problemCount += 1
@@ -160,6 +164,7 @@ class ChallengeProblem: UIViewController {
         }
     }
     
+    // 採点結果をResultProblemに値を渡し画面遷移
     func lastProblem() {
         if lastFlag {
             let resultView = ResultProblem()

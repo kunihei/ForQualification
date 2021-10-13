@@ -25,8 +25,6 @@ class GetProblem_Answer {
                 for doc in snapshotDoc {
                     let data = doc.data()
                     let documentID = doc.documentID
-                    print(documentID)
-                    print("kuni")
                     if self.currentUserId == data["userId"] as? String {
                         if let problem = data["problem"] as? String, let problemImageData = data["problemImage"] as? String, let answer = data["answer"] as? String, let documentID = documentID as? String {
                             self.problemList.append(Problem_AnswerModel(problem: problem, problemImageData: problemImageData, answer: answer, documentID: documentID))

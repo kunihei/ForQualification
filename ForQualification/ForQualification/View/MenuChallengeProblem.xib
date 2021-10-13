@@ -10,6 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuChallengeProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="menuBackButton" destination="4Bl-Y2-Anq" id="E9S-vP-aqp"/>
+                <outlet property="nomalButton" destination="vwa-BE-MPr" id="sv4-cA-tyk"/>
+                <outlet property="shuffleButton" destination="kMB-zl-Iw6" id="LJV-eu-5Wh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

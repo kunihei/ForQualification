@@ -13,6 +13,8 @@ class MenuProblem: UIViewController {
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
+    private let getProblem = GetProblem_Answer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +23,8 @@ class MenuProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        getProblem.problemList = []
+        getProblem.getProblemList()
         let boaderColor = UIColor(named: "TextColor")
         createButton.layer.borderColor = boaderColor?.cgColor
         challengeButton.layer.borderColor = boaderColor?.cgColor
@@ -28,18 +32,47 @@ class MenuProblem: UIViewController {
     }
 
     @IBAction func createButton(_ sender: Any) {
-        let registerView = RegisterProblem()
-        navigationController?.pushViewController(registerView, animated: true)
+        createButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let settingView = SettingProblem()
+            self.navigationController?.pushViewController(settingView, animated: true)
+        }
     }
     
     @IBAction func challengeButton(_ sender: Any) {
-        let MenuChallengeView = MenuChallengeProblem()
-        navigationController?.pushViewController(MenuChallengeView, animated: true)
+        if getProblem.problemList.isEmpty {
+            let alert = UIAlertController(title: "問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
+            let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
+                let settingView = SettingProblem()
+                self.navigationController?.pushViewController(settingView, animated: true)
+            }
+            alert.addAction(errAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        challengeButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let MenuChallengeView = MenuChallengeProblem()
+            self.navigationController?.pushViewController(MenuChallengeView, animated: true)
+        }
     }
     
     @IBAction func editButton(_ sender: Any) {
-        let editView = EditProblem()
-        navigationController?.pushViewController(editView, animated: true)
+        if getProblem.problemList.isEmpty {
+            let alert = UIAlertController(title: "問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
+            let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
+                let settingView = SettingProblem()
+                self.navigationController?.pushViewController(settingView, animated: true)
+            }
+            alert.addAction(errAction)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        editButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let editView = EditProblem()
+            self.navigationController?.pushViewController(editView, animated: true)
+        }
     }
     
     /*
