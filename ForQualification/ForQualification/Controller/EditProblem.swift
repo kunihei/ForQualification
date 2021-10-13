@@ -59,14 +59,14 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let editAction = UIContextualAction(style: .normal, title: "編集") { (action, view, completionHandler) in
             self.getProblemSelectList.selectEmptyDelete(problemCount: indexPath.row)
-            let registerView = RegisterProblem()
-            registerView.editFlag = true
-            registerView.documentId = self.problemList[indexPath.row].documentID
-            registerView.problem = self.problemList[indexPath.row].problem
-            registerView.problemImageData = self.problemList[indexPath.row].problemImageData
-            registerView.selects = self.getProblemSelectList.problemSelectEmptyDelete
-            registerView.answer = self.problemList[indexPath.row].answer
-            self.navigationController?.pushViewController(registerView, animated: true)
+            let settingView = SettingProblem()
+            settingView.editFlag = true
+            settingView.documentId = self.problemList[indexPath.row].documentID
+            settingView.problem = self.problemList[indexPath.row].problem
+            settingView.problemImageData = self.problemList[indexPath.row].problemImageData
+            settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
+            settingView.answer = self.problemList[indexPath.row].answer
+            self.navigationController?.pushViewController(settingView, animated: true)
             
             completionHandler(true)
         }

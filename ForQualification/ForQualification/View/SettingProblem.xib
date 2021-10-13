@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterProblem" customModule="ForQualification" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
                 <outlet property="answerTextField" destination="wNr-aq-bTq" id="clJ-VX-yJq"/>
                 <outlet property="problemImage" destination="Qq8-fj-1yw" id="i1J-Cn-CV8"/>

@@ -53,7 +53,7 @@ class UpdateProblem {
         self.selectList.append(select10)
     }
     
-    func isImageUpdateProblem() {
+    func isImageUpdateProblem() -> Bool {
         if !self.editProblemImageData.isEmpty {
             let desertRef = Storage.storage().reference().child("problemImages").child("\(userId + documentId).jpg")
             desertRef.delete { err in
@@ -99,9 +99,10 @@ class UpdateProblem {
                 }
             }
         }
+        return true
     }
     
-    func noImageupdateProblem() {
+    func noImageupdateProblem() -> Bool {
         Firestore.firestore().collection("problems").document(self.documentId).updateData([
             "problem"     : self.editProblemstatement,
             "problemImage": "",
@@ -124,5 +125,6 @@ class UpdateProblem {
                 return
             }
         }
+        return true
     }
 }

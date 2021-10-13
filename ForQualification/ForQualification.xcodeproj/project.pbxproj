@@ -28,8 +28,8 @@
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
 		BAD7048626EC5ACA00508AE7 /* MenuChallengeProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */; };
-		BAD7048926EC610600508AE7 /* RegisterProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* RegisterProblem.swift */; };
-		BAD7048A26EC610600508AE7 /* RegisterProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048826EC610600508AE7 /* RegisterProblem.xib */; };
+		BAD7048926EC610600508AE7 /* SettingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* SettingProblem.swift */; };
+		BAD7048A26EC610600508AE7 /* SettingProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048826EC610600508AE7 /* SettingProblem.xib */; };
 		BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */; };
 		BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */; };
 		BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7049926ECA79600508AE7 /* EditProblem.swift */; };
@@ -85,8 +85,8 @@
 		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
 		BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuChallengeProblem.xib; sourceTree = "<group>"; };
-		BAD7048726EC610600508AE7 /* RegisterProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProblem.swift; sourceTree = "<group>"; };
-		BAD7048826EC610600508AE7 /* RegisterProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterProblem.xib; sourceTree = "<group>"; };
+		BAD7048726EC610600508AE7 /* SettingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProblem.swift; sourceTree = "<group>"; };
+		BAD7048826EC610600508AE7 /* SettingProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingProblem.xib; sourceTree = "<group>"; };
 		BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProblem.swift; sourceTree = "<group>"; };
 		BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChallengeProblem.xib; sourceTree = "<group>"; };
 		BAD7049926ECA79600508AE7 /* EditProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProblem.swift; sourceTree = "<group>"; };
@@ -227,7 +227,7 @@
 				BA09FC1B26E4446E006BEAD8 /* Main.storyboard */,
 				BAD7047F26EC426100508AE7 /* MenuProblem.xib */,
 				BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */,
-				BAD7048826EC610600508AE7 /* RegisterProblem.xib */,
+				BAD7048826EC610600508AE7 /* SettingProblem.xib */,
 				BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */,
 				BAD7049A26ECA79600508AE7 /* EditProblem.xib */,
 				BAD704E126EDC04A00508AE7 /* ResultProblem.xib */,
@@ -241,7 +241,7 @@
 				BAD7049926ECA79600508AE7 /* EditProblem.swift */,
 				BAD704E026EDC04A00508AE7 /* ResultProblem.swift */,
 				BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */,
-				BAD7048726EC610600508AE7 /* RegisterProblem.swift */,
+				BAD7048726EC610600508AE7 /* SettingProblem.swift */,
 				BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */,
 				BA09FC1926E4446E006BEAD8 /* ViewController.swift */,
 				BAD7047E26EC426100508AE7 /* MenuProblem.swift */,
@@ -371,7 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAD7048A26EC610600508AE7 /* RegisterProblem.xib in Resources */,
+				BAD7048A26EC610600508AE7 /* SettingProblem.xib in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
 				BA09FC1F26E4446F006BEAD8 /* Assets.xcassets in Resources */,
@@ -528,7 +528,7 @@
 				BA09FC1A26E4446E006BEAD8 /* ViewController.swift in Sources */,
 				BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */,
 				BAF68F0B2711D04000BF1CA3 /* UpdateProblem.swift in Sources */,
-				BAD7048926EC610600508AE7 /* RegisterProblem.swift in Sources */,
+				BAD7048926EC610600508AE7 /* SettingProblem.swift in Sources */,
 				BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */,
 				BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */,
 				BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */,

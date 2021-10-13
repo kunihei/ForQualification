@@ -12,7 +12,7 @@ import SDWebImage
 import FirebaseStorage
 import FirebaseFirestore
 
-class RegisterProblem: UIViewController, UITextViewDelegate {
+class SettingProblem: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var problemstatement: UITextView!
     @IBOutlet weak var problemImage: UIImageView!
@@ -68,26 +68,74 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         guard let userId = userUid else { return }
         if editFlag {
             if let problemImageConversion = problemImage.image {
-                let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-                editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
+                judgmentThereImageEditProblem(problemImageConversion: problemImageConversion, userId: userId)
             } else {
-                editNoPictureDatas(userId: userId, documentId: documentId)
+                judgmentNoImageEditProblem(userId: userId)
             }
-            editSuccessAlert()
         } else {
             if let problemImageConversion = problemImage.image {
-                let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-                thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
+                judgmentThereImageCreateProblem(problemImageConversion: problemImageConversion, userId: userId)
             } else {
-                noPictureDatas(userId: userId)
+                judgmentNoImageCreateProblem(userId: userId)
             }
-            resetValues()
-            successAlert()
         }
     }
     
+    // 登録の成否の判定表示
+    func judgmentRegistFlag(judgmentFlag: Bool) {
+        if judgmentFlag {
+            resetValues()
+            createSuccessAlert()
+        } else {
+            errorAlert()
+        }
+    }
+    
+    // 更新の成否の判定表示
+    func judgmentEditFlag(judgmentFlag: Bool) {
+        if judgmentFlag {
+            editSuccessAlert()
+        } else {
+            errorAlert()
+        }
+    }
+    
+    // 画像なしのFirebage登録判断
+    func judgmentNoImageCreateProblem(userId: String) {
+        let judgmentFlag = noPictureDatas(userId: userId)
+        judgmentRegistFlag(judgmentFlag: judgmentFlag)
+    }
+    
+    // 画像ありのFirebage登録判断
+    func judgmentThereImageCreateProblem(problemImageConversion: UIImage, userId: String) {
+        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+        let judgmentFlag = thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
+        judgmentRegistFlag(judgmentFlag: judgmentFlag)
+    }
+    
+    // 画像なしのFirebase更新判断
+    func judgmentNoImageEditProblem(userId: String) {
+        let judgmentFlag = editNoPictureDatas(userId: userId, documentId: documentId)
+        judgmentEditFlag(judgmentFlag: judgmentFlag)
+    }
+    
+    // 画像ありのFirebage更新判断
+    func judgmentThereImageEditProblem(problemImageConversion: UIImage, userId: String) {
+        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+        let judgmentFlag = editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
+        judgmentEditFlag(judgmentFlag: judgmentFlag)
+    }
+    
+    // エラーメッセージ
+    func errorAlert() {
+        let alert = UIAlertController(title: "登録失敗", message: "問題の登録に失敗しました。", preferredStyle: UIAlertController.Style.alert)
+        let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel)
+        alert.addAction(confirmAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // 登録完了したらアラートを表示
-    func successAlert() {
+    func createSuccessAlert() {
         let alert = UIAlertController(title: "登録完了", message: "問題の登録に成功しました。", preferredStyle: UIAlertController.Style.alert)
         let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(confirmAction)
@@ -106,27 +154,27 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
     }
     
     //　画像ありの情報をFirebaseに更新
-    func editThereIsPictureDatas(userId: String, documentId: String, editProblemImageData: Data) {
+    func editThereIsPictureDatas(userId: String, documentId: String, editProblemImageData: Data) -> Bool {
         let isImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, problemImageData: editProblemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
-        isImageUpdateProblem.isImageUpdateProblem()
+        return isImageUpdateProblem.isImageUpdateProblem()
     }
     
     //　画像なしの情報をFirebaseに更新
-    func editNoPictureDatas(userId: String, documentId: String) {
+    func editNoPictureDatas(userId: String, documentId: String) -> Bool {
         let noImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
-        noImageUpdateProblem.noImageupdateProblem()
+        return noImageUpdateProblem.noImageupdateProblem()
     }
     
     // 画像ありの情報をFirebaseに登録
-    func thereIsPictureDatas(userId: String, problemImageData: Data) {
+    func thereIsPictureDatas(userId: String, problemImageData: Data) -> Bool {
         let createProblem = CreateProblem(problemstatement: problemstatement.text, problemImageData: problemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
-        createProblem.isImageCreateProblem()
+        return createProblem.isImageCreateProblem()
     }
     
     // 画像なしの情報をFirebaseに登録
-    func noPictureDatas(userId: String) {
+    func noPictureDatas(userId: String) -> Bool {
         let createProblem = CreateProblem(problemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, userId: userId)
-        createProblem.noImageCreateProblem()
+        return createProblem.noImageCreateProblem()
     }
     
     // 登録後全ての値を空にする
@@ -139,6 +187,7 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
         }
     }
     
+    // キーボードを閉じる
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.problemstatement.isFirstResponder {
             self.problemstatement.resignFirstResponder()
@@ -174,7 +223,7 @@ class RegisterProblem: UIViewController, UITextViewDelegate {
 }
 
 // カメラ＆アルバムを使用
-extension RegisterProblem: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SettingProblem: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func doCamera() {
         let sourceType:UIImagePickerController.SourceType = .camera
         

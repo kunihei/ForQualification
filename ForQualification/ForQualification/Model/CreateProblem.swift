@@ -50,7 +50,7 @@ class CreateProblem {
         self.selectList.append(select10)
     }
     
-    func isImageCreateProblem() {
+    func isImageCreateProblem() -> Bool {
         if !self.problemImageData.isEmpty {
             let problemImageRef = Storage.storage().reference().child("problemImages").child("\(userId + problemstatement).jpg")
             problemImageRef.putData(problemImageData, metadata: nil) { metaData, err in
@@ -89,10 +89,11 @@ class CreateProblem {
                 }
             }
         }
+        return true
     }
     
     
-    func noImageCreateProblem() {
+    func noImageCreateProblem() -> Bool {
         Firestore.firestore().collection("problems").addDocument(data: [
             "problem"     : self.problemstatement,
             "answer"      : self.answer,
@@ -115,5 +116,6 @@ class CreateProblem {
                 return
             }
         }
+        return true
     }
 }
