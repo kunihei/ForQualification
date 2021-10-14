@@ -96,7 +96,10 @@ class SettingProblem: UIViewController, UITextViewDelegate {
      }
     
     @IBAction func settingButton(_ sender: Any) {
-        emptySetting()
+        let emptyFlag = emptySetting()
+        if !emptyFlag {
+            return
+        }
         guard let userId = userUid else { return }
         if editFlag {
             judgmentEditProblem(userId: userId)
@@ -106,7 +109,7 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     }
     
     // 問題文・解答文が空か・選択肢が２つ以上入力されていないとアラートを表示
-    func emptySetting() {
+    func emptySetting() -> Bool {
         var emptyCount = 0
         for i in 0..<selectList.count {
             if selectList[i].text.isEmpty {
@@ -117,32 +120,31 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         let selectEmptyFlag = selectEmptyValue(emptyCount: emptyCount)
         if proAnsEmptyFlag {
             alert(title: "未入力", message: "問題文又は解答文が空です。")
-            return
+            return false
         }
         if selectEmptyFlag {
             alert(title: "未入力", message: "選択肢を2つ以上入力して下さい。")
-            return
+            return false
         }
+        return true
     }
     
     // 選択肢の空判定
     func selectEmptyValue(emptyCount: Int) -> Bool {
         let limitEmptyCount = 8
-        var selectEmptyFlag = false
         if emptyCount > limitEmptyCount {
-            selectEmptyFlag = true
+            return true
         }
-        return selectEmptyFlag
+        return false
     }
     
     // 問題文と解答文の空判定
     func problemAnswerEmptyValue(problemstatementCount: Int, answerCount: Int) -> Bool {
-        var emptyFlag = false
         let zeroWordCount = 0
         if (problemstatementCount == zeroWordCount || answerCount == zeroWordCount) {
-            emptyFlag = true
+            return true
         }
-        return emptyFlag
+        return false
     }
     
     // 登録の成否の判定表示

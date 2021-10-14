@@ -21,15 +21,16 @@ class ChallengeProblem: UIViewController {
     private let getSelectList = GetProblemSelect()
     private let getProblemAnswerList = GetProblem_Answer()
     
-    var pickerView = UIPickerView()
-    var shuffleModeFlag = false
+    private var pickerView = UIPickerView()
+    private var problemList = [Problem_AnswerModel]()
     private var lastFlag = false
     private var problemCount = 0
     private var correctAnswerCount = 0
     private var incorrectAnswerCount = 0
     private var averageCount = 0.0
     private var averageTotal = 0.0
-    
+    var shuffleModeFlag = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +40,7 @@ class ChallengeProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        problemList = []
         selectTextView.isEditable = false
         problemTextView.isEditable = false
         nextButton.isHidden = true
@@ -52,9 +54,10 @@ class ChallengeProblem: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         pickerView.delegate = self
         pickerView.dataSource = self
+        problemList = getProblemAnswerList.problemList
         doneBar()
         imageCheck()
-        problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
+        problemTextView.text = problemList[problemCount].problem
         getSelectList.selectEmptyDelete(problemCount: problemCount)
         if shuffleModeFlag {
             getSelectList.problemSelectEmptyDelete.shuffle()
@@ -63,9 +66,9 @@ class ChallengeProblem: UIViewController {
     
     // UIImageViewの表示・非表示のチェック
     func imageCheck() {
-        if getProblemAnswerList.problemList[problemCount].problemImageData != "" {
+        if problemList[problemCount].problemImageData != "" {
             problemImage.isHidden = false
-            problemImage.sd_setImage(with: URL(string: getProblemAnswerList.problemList[problemCount].problemImageData), completed: nil)
+            problemImage.sd_setImage(with: URL(string: problemList[problemCount].problemImageData), completed: nil)
         } else {
             problemImage.isHidden = true
         }
@@ -128,32 +131,32 @@ class ChallengeProblem: UIViewController {
     
     // 最終問題解答後に表示
     func checkLastProblem() {
-        if problemCount == getProblemAnswerList.problemList.count - 1 {
+        if problemCount == problemList.count - 1 {
             problemCountLabel.text = "問題終了"
             nextButton.setTitle("採点画面へ", for: .normal)
             lastFlag = true
-            averageCount = Double(correctAnswerCount) / Double(getProblemAnswerList.problemList.count)
+            averageCount = Double(correctAnswerCount) / Double(problemList.count)
             averageTotal = averageCount * 100.0
         }
     }
     
     // 正解の判断
     func checkTheAnswer() {
-        if selectTextView.text == getProblemAnswerList.problemList[problemCount].answer {
+        if selectTextView.text == problemList[problemCount].answer {
             answerLabel.text = "正解"
             correctAnswerCount += 1
         } else {
-            answerLabel.text = "正解は「\(getProblemAnswerList.problemList[problemCount].answer)」"
+            answerLabel.text = "正解は「\(problemList[problemCount].answer)」"
             incorrectAnswerCount += 1
         }
     }
     
     // 次の問題に進める
     func nextProblem() {
-        if problemCount < getProblemAnswerList.problemList.count - 1 {
+        if problemCount < problemList.count - 1 {
             problemCount += 1
             initialValue()
-            problemTextView.text = getProblemAnswerList.problemList[problemCount].problem
+            problemTextView.text = problemList[problemCount].problem
             imageCheck()
             getSelectList.selectEmptyDelete(problemCount: problemCount)
             if shuffleModeFlag {

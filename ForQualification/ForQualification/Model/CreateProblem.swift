@@ -110,7 +110,8 @@ class CreateProblem {
             "select9"     : self.selectList[8],
             "select10"    : self.selectList[9],
             "userId"      : self.userId,
-            "createAt"    : Date().timeIntervalSince1970
+            "createAt"    : createAt,
+            "updateAt"    : Date().timeIntervalSince1970
         ]) {(err) in
             
             if err != nil {

@@ -13,6 +13,7 @@ import FirebaseStorage
 class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuBackButton: CustomButton!
     
     private let getProblemList = GetProblem_Answer()
     private let getProblemSelectList = GetProblemSelect()
@@ -27,7 +28,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         getProblemList.problemList = []
         problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
@@ -95,6 +96,13 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.textLabel?.text = problemList[indexPath.row].problem
         
         return cell
+    }
+    @IBAction func menuBackButton(_ sender: Any) {
+        menuBackButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let menuView = MenuProblem()
+            self.navigationController?.pushViewController(menuView, animated: true)
+        }
     }
     
     /*
