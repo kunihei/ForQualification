@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -43,9 +44,17 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+
         //削除処理
         let deleteAction = UIContextualAction(style: .destructive, title: "削除") { (action, view, completionHandler) in
+            guard let userId = self.userUid else {return}
+            let desertRef = Storage.storage().reference().child("problemImages").child("\(userId + String(self.problemList[indexPath.row].createAt)).jpg")
+            desertRef.delete { err in
+                if let err = err {
+                    print("画像の削除に失敗しました。", err)
+                    return
+                }
+            }
             Firestore.firestore().collection("problems").document(self.problemList[indexPath.row].documentID).delete() { err in
                 if let err = err {
                     print("削除に失敗しました", err)
@@ -66,6 +75,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
             settingView.problemImageData = self.problemList[indexPath.row].problemImageData
             settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
             settingView.answer = self.problemList[indexPath.row].answer
+            settingView.createAt = self.problemList[indexPath.row].createAt
             self.navigationController?.pushViewController(settingView, animated: true)
             
             completionHandler(true)

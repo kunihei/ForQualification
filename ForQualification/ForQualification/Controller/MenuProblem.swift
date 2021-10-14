@@ -41,13 +41,7 @@ class MenuProblem: UIViewController {
     
     @IBAction func challengeButton(_ sender: Any) {
         if getProblem.problemList.isEmpty {
-            let alert = UIAlertController(title: "挑戦する問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
-            let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
-                let settingView = SettingProblem()
-                self.navigationController?.pushViewController(settingView, animated: true)
-            }
-            alert.addAction(errAction)
-            present(alert, animated: true, completion: nil)
+            alert(title: "挑戦する問題がありません！", message: "問題を登録して下さい")
             return
         }
         challengeButton.pulsate()
@@ -59,13 +53,7 @@ class MenuProblem: UIViewController {
     
     @IBAction func editButton(_ sender: Any) {
         if getProblem.problemList.isEmpty {
-            let alert = UIAlertController(title: "編集する問題がありません！", message: "問題を登録して下さい", preferredStyle: UIAlertController.Style.alert)
-            let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
-                let settingView = SettingProblem()
-                self.navigationController?.pushViewController(settingView, animated: true)
-            }
-            alert.addAction(errAction)
-            present(alert, animated: true, completion: nil)
+            alert(title: "編集する問題がありません！", message: "問題を登録して下さい")
             return
         }
         editButton.pulsate()
@@ -73,6 +61,16 @@ class MenuProblem: UIViewController {
             let editView = EditProblem()
             self.navigationController?.pushViewController(editView, animated: true)
         }
+    }
+    
+    func alert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let errAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { action in
+            let settingView = SettingProblem()
+            self.navigationController?.pushViewController(settingView, animated: true)
+        }
+        alert.addAction(errAction)
+        present(alert, animated: true, completion: nil)
     }
     
     /*

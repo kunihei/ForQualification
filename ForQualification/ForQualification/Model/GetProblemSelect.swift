@@ -17,7 +17,7 @@ class GetProblemSelect {
     var problemSelectEmptyDelete = [String]()
     
     func getProblemSelect() {
-        Firestore.firestore().collection("problems").order(by: "createAt").addSnapshotListener { snapshot, err in
+        Firestore.firestore().collection("problems").order(by: "updateAt").addSnapshotListener { snapshot, err in
             if let err = err {
                 print("選択肢の取得に失敗しました。", err)
                 return
