@@ -8,10 +8,12 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var menuBackButton: CustomButton!
     
     private let getProblemList = GetProblem_Answer()
     private let getProblemSelectList = GetProblemSelect()
@@ -26,7 +28,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
+        navigationController?.isNavigationBarHidden = true
         getProblemList.problemList = []
         problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
@@ -43,9 +45,17 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+
         //削除処理
         let deleteAction = UIContextualAction(style: .destructive, title: "削除") { (action, view, completionHandler) in
+            guard let userId = self.userUid else {return}
+            let desertRef = Storage.storage().reference().child("problemImages").child("\(userId + String(self.problemList[indexPath.row].createAt)).jpg")
+            desertRef.delete { err in
+                if let err = err {
+                    print("画像の削除に失敗しました。", err)
+                    return
+                }
+            }
             Firestore.firestore().collection("problems").document(self.problemList[indexPath.row].documentID).delete() { err in
                 if let err = err {
                     print("削除に失敗しました", err)
@@ -66,6 +76,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
             settingView.problemImageData = self.problemList[indexPath.row].problemImageData
             settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
             settingView.answer = self.problemList[indexPath.row].answer
+            settingView.createAt = self.problemList[indexPath.row].createAt
             self.navigationController?.pushViewController(settingView, animated: true)
             
             completionHandler(true)
@@ -85,6 +96,13 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.textLabel?.text = problemList[indexPath.row].problem
         
         return cell
+    }
+    @IBAction func menuBackButton(_ sender: Any) {
+        menuBackButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let menuView = MenuProblem()
+            self.navigationController?.pushViewController(menuView, animated: true)
+        }
     }
     
     /*

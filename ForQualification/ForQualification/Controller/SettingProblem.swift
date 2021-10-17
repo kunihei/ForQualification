@@ -13,7 +13,7 @@ import FirebaseStorage
 import FirebaseFirestore
 
 class SettingProblem: UIViewController, UITextViewDelegate {
-
+    
     @IBOutlet weak var problemstatement: UITextView!
     @IBOutlet weak var problemImage: UIImageView!
     @IBOutlet weak var select1: UITextView!
@@ -37,6 +37,7 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     var problemImageData = String()
     var selects = [String]()
     var answer = String()
+    var createAt = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,9 +49,17 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        closeKeyboard(textView: problemstatement)
+        closeKeyboard(textView: answerTextField)
         for i in 0..<selectList.count {
             selectList[i].layer.cornerRadius = 5
+            closeKeyboard(textView: selectList[i])
         }
+        editProblem(editFlag: editFlag)
+    }
+    
+    // 更新画面作成
+    func editProblem(editFlag: Bool) {
         if editFlag {
             settingButton.setTitle("更新", for: .normal)
             problemstatement.text = problem
@@ -64,30 +73,99 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         }
     }
     
+    // textView入力時キーボードを閉じるボタン表示
+    func closeKeyboard(textView: UITextView) {
+        // ツールバー生成
+        let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 40))
+        // スタイルを設定
+        toolBar.barStyle = UIBarStyle.default
+        // 画面幅に合わせてサイズを変更
+        toolBar.sizeToFit()
+        // 閉じるボタンを右に配置するためのスペース?
+        let spacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        // 閉じるボタン
+        let commitButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(commitButtonTapped))
+        // スペース、閉じるボタンを右側に配置
+        toolBar.items = [spacer, commitButton]
+        // textViewのキーボードにツールバーを設定
+        textView.inputAccessoryView = toolBar
+    }
+    
+    @objc func commitButtonTapped() {
+         self.view.endEditing(true)
+     }
+    
     @IBAction func settingButton(_ sender: Any) {
+        let emptyFlag = emptySetting()
+        if !emptyFlag {
+            return
+        }
         guard let userId = userUid else { return }
         if editFlag {
-            if let problemImageConversion = problemImage.image {
-                judgmentThereImageEditProblem(problemImageConversion: problemImageConversion, userId: userId)
-            } else {
-                judgmentNoImageEditProblem(userId: userId)
-            }
+            judgmentEditProblem(userId: userId)
         } else {
-            if let problemImageConversion = problemImage.image {
-                judgmentThereImageCreateProblem(problemImageConversion: problemImageConversion, userId: userId)
-            } else {
-                judgmentNoImageCreateProblem(userId: userId)
+            judgmentCreateProblem(userId: userId)
+        }
+    }
+    
+    // 問題文・解答文が空か・選択肢が２つ以上入力されていないとアラートを表示
+    func emptySetting() -> Bool {
+        var emptyCount = 0
+        for i in 0..<selectList.count {
+            if selectList[i].text.isEmpty {
+                emptyCount += 1
             }
         }
+        let proAnsEmptyFlag = problemAnswerEmptyValue(problemstatementCount: problemstatement.text.count, answerCount: answerTextField.text.count)
+        let selectEmptyFlag = selectEmptyValue(emptyCount: emptyCount)
+        if proAnsEmptyFlag {
+            alert(title: "未入力", message: "問題文又は解答文が空です。")
+            return false
+        }
+        if selectEmptyFlag {
+            alert(title: "未入力", message: "選択肢を2つ以上入力して下さい。")
+            return false
+        }
+        return true
+    }
+    
+    // 選択肢の空判定
+    func selectEmptyValue(emptyCount: Int) -> Bool {
+        let limitEmptyCount = 8
+        if emptyCount > limitEmptyCount {
+            return true
+        }
+        return false
+    }
+    
+    // 問題文と解答文の空判定
+    func problemAnswerEmptyValue(problemstatementCount: Int, answerCount: Int) -> Bool {
+        let zeroWordCount = 0
+        if (problemstatementCount == zeroWordCount || answerCount == zeroWordCount) {
+            return true
+        }
+        return false
     }
     
     // 登録の成否の判定表示
     func judgmentRegistFlag(judgmentFlag: Bool) {
         if judgmentFlag {
             resetValues()
-            createSuccessAlert()
+            alert(title: "登録完了", message: "問題の登録に成功しました。")
         } else {
-            errorAlert()
+            alert(title: "登録失敗", message: "問題の登録に失敗しました。")
+        }
+    }
+    
+    // irebageに登録の成否判断
+    func judgmentCreateProblem(userId: String) {
+        if let problemImageConversion = problemImage.image {
+            let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+            let judgmentFlag = thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
+            judgmentRegistFlag(judgmentFlag: judgmentFlag)
+        } else {
+            let judgmentFlag = noPictureDatas(userId: userId)
+            judgmentRegistFlag(judgmentFlag: judgmentFlag)
         }
     }
     
@@ -96,47 +174,26 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         if judgmentFlag {
             editSuccessAlert()
         } else {
-            errorAlert()
+            alert(title: "更新失敗", message: "問題の更新に失敗しました。")
+            return
         }
     }
     
-    // 画像なしのFirebage登録判断
-    func judgmentNoImageCreateProblem(userId: String) {
-        let judgmentFlag = noPictureDatas(userId: userId)
-        judgmentRegistFlag(judgmentFlag: judgmentFlag)
+    // Firebaseに更新の成否判断
+    func judgmentEditProblem(userId: String) {
+        if let problemImageConversion = problemImage.image {
+            let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
+            let judgmentFlag = editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
+            judgmentEditFlag(judgmentFlag: judgmentFlag)
+        } else {
+            let judgmentFlag = editNoPictureDatas(userId: userId, documentId: documentId)
+            judgmentEditFlag(judgmentFlag: judgmentFlag)
+        }
     }
     
-    // 画像ありのFirebage登録判断
-    func judgmentThereImageCreateProblem(problemImageConversion: UIImage, userId: String) {
-        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-        let judgmentFlag = thereIsPictureDatas(userId: userId, problemImageData: problemImageData!)
-        judgmentRegistFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // 画像なしのFirebase更新判断
-    func judgmentNoImageEditProblem(userId: String) {
-        let judgmentFlag = editNoPictureDatas(userId: userId, documentId: documentId)
-        judgmentEditFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // 画像ありのFirebage更新判断
-    func judgmentThereImageEditProblem(problemImageConversion: UIImage, userId: String) {
-        let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
-        let judgmentFlag = editThereIsPictureDatas(userId: userId, documentId: documentId, editProblemImageData: problemImageData!)
-        judgmentEditFlag(judgmentFlag: judgmentFlag)
-    }
-    
-    // エラーメッセージ
-    func errorAlert() {
-        let alert = UIAlertController(title: "登録失敗", message: "問題の登録に失敗しました。", preferredStyle: UIAlertController.Style.alert)
-        let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .cancel)
-        alert.addAction(confirmAction)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // 登録完了したらアラートを表示
-    func createSuccessAlert() {
-        let alert = UIAlertController(title: "登録完了", message: "問題の登録に成功しました。", preferredStyle: UIAlertController.Style.alert)
+    // アラート表示
+    func alert(title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let confirmAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
         alert.addAction(confirmAction)
         present(alert, animated: true, completion: nil)
@@ -155,13 +212,13 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     
     //　画像ありの情報をFirebaseに更新
     func editThereIsPictureDatas(userId: String, documentId: String, editProblemImageData: Data) -> Bool {
-        let isImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, problemImageData: editProblemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
+        let isImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, problemImageData: editProblemImageData, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId, createAt: createAt)
         return isImageUpdateProblem.isImageUpdateProblem()
     }
     
     //　画像なしの情報をFirebaseに更新
     func editNoPictureDatas(userId: String, documentId: String) -> Bool {
-        let noImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId)
+        let noImageUpdateProblem = UpdateProblem(editProblemstatement: problemstatement.text, answer: answerTextField.text, select1: selectList[0].text, select2: selectList[1].text, select3: selectList[2].text, select4: selectList[3].text, select5: selectList[4].text, select6: selectList[5].text, select7: selectList[6].text, select8: selectList[7].text, select9: selectList[8].text, select10: selectList[9].text, documentId: documentId, userId: userId, createAt: createAt)
         return noImageUpdateProblem.noImageupdateProblem()
     }
     
@@ -211,15 +268,15 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 // カメラ＆アルバムを使用

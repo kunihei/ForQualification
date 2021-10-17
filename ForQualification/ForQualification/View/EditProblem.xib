@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="menuBackButton" destination="RYd-6T-Hvr" id="4Ab-wD-vJh"/>
                 <outlet property="tableView" destination="ZZu-Jn-aY5" id="9lq-Qu-lAa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,21 +31,61 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-Jn-aY5">
-                    <rect key="frame" x="0.0" y="128" width="414" height="768"/>
+                    <rect key="frame" x="0.0" y="128" width="414" height="676"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="414" id="240-qf-X9e"/>
+                        <constraint firstAttribute="height" constant="676" id="V1J-DJ-DD0"/>
+                    </constraints>
                     <color key="sectionIndexColor" name="TextColor"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYd-6T-Hvr" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
+                    <rect key="frame" x="101" y="812" width="212" height="50"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="212" id="f7b-Uh-Kte"/>
+                        <constraint firstAttribute="height" constant="50" id="o1g-Lu-sue"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="メニューに戻る">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.29999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="TextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="menuBackButton:" destination="-1" eventType="touchUpInside" id="NW7-bW-4tY"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="AxM-vP-3HC"/>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="top" secondItem="7cj-qH-i6B" secondAttribute="bottom" constant="8" symbolic="YES" id="Eoc-ME-gWJ"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2TY-rF-rtz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RYd-6T-Hvr" secondAttribute="trailing" constant="101" id="HzV-FH-Bqy"/>
                 <constraint firstItem="7cj-qH-i6B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="IEH-Bi-CBX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7cj-qH-i6B" secondAttribute="trailing" constant="20" id="KFi-MV-VDw"/>
+                <constraint firstAttribute="bottom" secondItem="RYd-6T-Hvr" secondAttribute="bottom" constant="34" id="V1l-Io-bq7"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VDf-2I-zQZ"/>
                 <constraint firstItem="7cj-qH-i6B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="W1q-9B-I9g"/>
-                <constraint firstAttribute="bottom" secondItem="ZZu-Jn-aY5" secondAttribute="bottom" id="c1l-T6-ltu"/>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qhu-EJ-Hvd"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="top" secondItem="7cj-qH-i6B" secondAttribute="bottom" constant="8" symbolic="YES" id="ede-mx-ocd"/>
+                <constraint firstItem="RYd-6T-Hvr" firstAttribute="top" secondItem="ZZu-Jn-aY5" secondAttribute="bottom" constant="8" symbolic="YES" id="lbM-WS-7Uk"/>
+                <constraint firstItem="RYd-6T-Hvr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="naD-d0-bmk"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>

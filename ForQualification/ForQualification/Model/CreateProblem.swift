@@ -16,6 +16,7 @@ class CreateProblem {
     var answer           = String()
     var selectList:[String] = []
     var userId           = String()
+    var createAt         = Date().timeIntervalSince1970
     
     init (problemstatement: String, answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, userId: String) {
         self.problemstatement = problemstatement
@@ -52,7 +53,7 @@ class CreateProblem {
     
     func isImageCreateProblem() -> Bool {
         if !self.problemImageData.isEmpty {
-            let problemImageRef = Storage.storage().reference().child("problemImages").child("\(userId + problemstatement).jpg")
+            let problemImageRef = Storage.storage().reference().child("problemImages").child("\(userId + String(createAt)).jpg")
             problemImageRef.putData(problemImageData, metadata: nil) { metaData, err in
                 if let err = err {
                     print("画像の保存に失敗しました。", err)
@@ -78,11 +79,12 @@ class CreateProblem {
                         "select9"     : self.selectList[8],
                         "select10"    : self.selectList[9],
                         "userId"      : self.userId,
-                        "createAt"    : Date().timeIntervalSince1970
+                        "createAt"    : self.createAt,
+                        "updateAt"    : Date().timeIntervalSince1970
                     ]) {(err) in
                         
-                        if err != nil {
-                            print("登録に失敗しました。", err)
+                        if let err = err {
+                            print("画像の削除に失敗しました。", err)
                             return
                         }
                     }
@@ -108,11 +110,12 @@ class CreateProblem {
             "select9"     : self.selectList[8],
             "select10"    : self.selectList[9],
             "userId"      : self.userId,
-            "createAt"    : Date().timeIntervalSince1970
+            "createAt"    : createAt,
+            "updateAt"    : Date().timeIntervalSince1970
         ]) {(err) in
             
-            if err != nil {
-                print("登録に失敗しました。", err)
+            if let err = err {
+                print("画像の削除に失敗しました。", err)
                 return
             }
         }

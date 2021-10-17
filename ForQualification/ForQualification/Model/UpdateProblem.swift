@@ -17,12 +17,14 @@ class UpdateProblem {
     var selectList:[String] = []
     var documentId          = String()
     var userId              = String()
+    var createAt            = Double()
     
-    init(editProblemstatement: String,  answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, documentId: String, userId: String) {
+    init(editProblemstatement: String,  answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, documentId: String, userId: String, createAt: Double) {
         self.editProblemstatement = editProblemstatement
         self.answer               = answer
         self.documentId           = documentId
         self.userId               = userId
+        self.createAt             = createAt
         self.selectList.append(select1)
         self.selectList.append(select2)
         self.selectList.append(select3)
@@ -35,12 +37,13 @@ class UpdateProblem {
         self.selectList.append(select10)
     }
     
-    init (editProblemstatement: String, problemImageData: Data, answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, documentId: String, userId: String) {
+    init (editProblemstatement: String, problemImageData: Data, answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, documentId: String, userId: String, createAt: Double) {
         self.editProblemstatement = editProblemstatement
         self.editProblemImageData = problemImageData
-        self.answer           = answer
-        self.documentId       = documentId
-        self.userId           = userId
+        self.answer               = answer
+        self.documentId           = documentId
+        self.userId               = userId
+        self.createAt             = createAt
         self.selectList.append(select1)
         self.selectList.append(select2)
         self.selectList.append(select3)
@@ -55,14 +58,14 @@ class UpdateProblem {
     
     func isImageUpdateProblem() -> Bool {
         if !self.editProblemImageData.isEmpty {
-            let desertRef = Storage.storage().reference().child("problemImages").child("\(userId + documentId).jpg")
+            let desertRef = Storage.storage().reference().child("problemImages").child("\(userId + String(createAt)).jpg")
             desertRef.delete { err in
                 if let err = err {
                     print("画像の削除に失敗しました。", err)
                     return
                 }
             }
-            let editProblemImageRef = Storage.storage().reference().child("problemImages").child("\(userId + documentId).jpg")
+            let editProblemImageRef = Storage.storage().reference().child("problemImages").child("\(userId + String(createAt)).jpg")
             editProblemImageRef.putData(editProblemImageData, metadata: nil) { metaData, err in
                 if let err = err {
                     print("画像のアップロードに失敗しました", err)
@@ -89,7 +92,7 @@ class UpdateProblem {
                         "select9"     : self.selectList[8],
                         "select10"    : self.selectList[9],
                         "userId"      : self.userId,
-                        "createAt"    : Date().timeIntervalSince1970
+                        "updateAt"    : Date().timeIntervalSince1970
                     ]) { err in
                         if let err = err {
                             print("更新に失敗しました", err)
@@ -118,7 +121,7 @@ class UpdateProblem {
             "select9"     : self.selectList[8],
             "select10"    : self.selectList[9],
             "userId"      : self.userId,
-            "createAt"    : Date().timeIntervalSince1970
+            "updateAt"    : Date().timeIntervalSince1970
         ]) { err in
             if let err = err {
                 print("更新に失敗しました", err)
