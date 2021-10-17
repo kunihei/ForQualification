@@ -14,7 +14,6 @@ class ChallengeProblem: UIViewController {
     @IBOutlet weak var answerLabel: UILabel!
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var problemCountLabel: UILabel!
-    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var problemTextView: UITextView!
     @IBOutlet weak var problemImage: UIImageView!
     
@@ -23,12 +22,13 @@ class ChallengeProblem: UIViewController {
     
     private var pickerView = UIPickerView()
     private var problemList = [Problem_AnswerModel]()
-    private var lastFlag = false
     private var problemCount = 0
     private var correctAnswerCount = 0
     private var incorrectAnswerCount = 0
     private var averageCount = 0.0
     private var averageTotal = 0.0
+    private var lastFlag = false
+    private var nextFlag = false
     var shuffleModeFlag = false
 
     override func viewDidLoad() {
@@ -43,7 +43,6 @@ class ChallengeProblem: UIViewController {
         problemList = []
         selectTextView.isEditable = false
         problemTextView.isEditable = false
-        nextButton.isHidden = true
         pickerView.selectRow(0, inComponent: 0, animated: true)
         getProblemAnswerList.getProblemList()
         getSelectList.getProblemSelect()
@@ -121,19 +120,23 @@ class ChallengeProblem: UIViewController {
             present(alert, animated: true, completion: nil)
             return
         }
+        if nextFlag {
+            nextButton()
+            nextFlag = false
+            return
+        }
         
-        checkTheAnswer()
+        answerButton.setTitle("次の問題へ", for: .normal)
+        nextFlag = checkTheAnswer()
         checkLastProblem()
         notPickerView()
-        nextButton.isHidden = false
-        answerButton.isEnabled = false
     }
     
     // 最終問題解答後に表示
     func checkLastProblem() {
         if problemCount == problemList.count - 1 {
             problemCountLabel.text = "問題終了"
-            nextButton.setTitle("採点画面へ", for: .normal)
+            answerButton.setTitle("採点画面へ", for: .normal)
             lastFlag = true
             averageCount = Double(correctAnswerCount) / Double(problemList.count)
             averageTotal = averageCount * 100.0
@@ -141,7 +144,7 @@ class ChallengeProblem: UIViewController {
     }
     
     // 正解の判断
-    func checkTheAnswer() {
+    func checkTheAnswer() -> Bool {
         if selectTextView.text == problemList[problemCount].answer {
             answerLabel.text = "正解"
             correctAnswerCount += 1
@@ -149,6 +152,7 @@ class ChallengeProblem: UIViewController {
             answerLabel.text = "正解は「\(problemList[problemCount].answer)」"
             incorrectAnswerCount += 1
         }
+        return true
     }
     
     // 次の問題に進める
@@ -178,11 +182,10 @@ class ChallengeProblem: UIViewController {
         }
     }
     
-    @IBAction func nextButton(_ sender: Any) {
+    func nextButton() {
         nextProblem()
-        nextButton.isHidden = true
-        answerButton.isEnabled = true
         lastProblem()
+        answerButton.setTitle("決定", for: .normal)
     }
     /*
     // MARK: - Navigation
@@ -206,7 +209,8 @@ extension ChallengeProblem: UIPickerViewDataSource, UIPickerViewDelegate {
         let cellLabel = UILabel()
         cellLabel.frame = CGRect(x: 0, y: 0, width: pickerView.rowSize(forComponent: 0).width, height: pickerView.rowSize(forComponent: 0).height)
         cellLabel.textAlignment = .center
-        cellLabel.font = UIFont.boldSystemFont(ofSize: 30)
+        cellLabel.numberOfLines = 0
+        cellLabel.font = UIFont.boldSystemFont(ofSize: 20)
         cellLabel.backgroundColor = UIColor.darkGray
         cellLabel.textColor = UIColor.white
         cellLabel.text = getSelectList.problemSelectEmptyDelete[row]

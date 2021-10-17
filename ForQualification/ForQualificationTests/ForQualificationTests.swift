@@ -9,7 +9,11 @@ import XCTest
 @testable import ForQualification
 
 class ForQualificationTests: XCTestCase {
+    let settingProblem = SettingProblem()
 
+    let problemCount = 50
+    let answerCpunt = 60
+    let selctEmptyCount = 8
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -19,6 +23,10 @@ class ForQualificationTests: XCTestCase {
     }
 
     func testExample() throws {
+        let problemAnswerEmptyValue = self.settingProblem.problemAnswerEmptyValue(problemstatementCount: problemCount, answerCount: answerCpunt)
+        let selectEmptyValue = self.settingProblem.selectEmptyValue(emptyCount: selctEmptyCount)
+        XCTAssertEqual(problemAnswerEmptyValue, false)
+        XCTAssertEqual(selectEmptyValue, false)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

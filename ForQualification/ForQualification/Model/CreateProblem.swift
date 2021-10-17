@@ -83,8 +83,8 @@ class CreateProblem {
                         "updateAt"    : Date().timeIntervalSince1970
                     ]) {(err) in
                         
-                        if err != nil {
-                            print("登録に失敗しました。", err)
+                        if let err = err {
+                            print("画像の削除に失敗しました。", err)
                             return
                         }
                     }
@@ -114,8 +114,8 @@ class CreateProblem {
             "updateAt"    : Date().timeIntervalSince1970
         ]) {(err) in
             
-            if err != nil {
-                print("登録に失敗しました。", err)
+            if let err = err {
+                print("画像の削除に失敗しました。", err)
                 return
             }
         }

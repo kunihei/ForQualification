@@ -26,6 +26,22 @@
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
 		BA53D7842718EEE900DC820F /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7832718EEE900DC820F /* CustomTextView.swift */; };
 		BA53D7862718F1C500DC820F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7852718F1C500DC820F /* CustomLabel.swift */; };
+		BAD416F3271B0C0900F30BA0 /* SettingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* SettingProblem.swift */; };
+		BAD416F5271B0C0F00F30BA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC1926E4446E006BEAD8 /* ViewController.swift */; };
+		BAD416F6271B0C1200F30BA0 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
+		BAD416F7271B0D9B00F30BA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
+		BAD416F8271B0D9E00F30BA0 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7832718EEE900DC820F /* CustomTextView.swift */; };
+		BAD416F9271B0DA100F30BA0 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7852718F1C500DC820F /* CustomLabel.swift */; };
+		BAD416FA271B0DA400F30BA0 /* CreateProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33DD26FE9C94002A3A48 /* CreateProblem.swift */; };
+		BAD416FB271B0DA700F30BA0 /* ProblemSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33DF2700662F002A3A48 /* ProblemSelectModel.swift */; };
+		BAD416FC271B0DAA00F30BA0 /* GetProblemSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E127008240002A3A48 /* GetProblemSelect.swift */; };
+		BAD416FD271B0DAD00F30BA0 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
+		BAD416FE271B0DB000F30BA0 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
+		BAD416FF271B0DB300F30BA0 /* UpdateProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF68F0A2711D04000BF1CA3 /* UpdateProblem.swift */; };
+		BAD41703271BA26600F30BA0 /* EditProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7049926ECA79600508AE7 /* EditProblem.swift */; };
+		BAD41704271BA26A00F30BA0 /* ResultProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD704E026EDC04A00508AE7 /* ResultProblem.swift */; };
+		BAD41705271BA26D00F30BA0 /* ChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */; };
+		BAD41706271BA27300F30BA0 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
@@ -557,6 +573,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA09FC2D26E4446F006BEAD8 /* ForQualificationTests.swift in Sources */,
+				BAD416FE271B0DB000F30BA0 /* GetProblem_Answer.swift in Sources */,
+				BAD416F9271B0DA100F30BA0 /* CustomLabel.swift in Sources */,
+				BAD416FA271B0DA400F30BA0 /* CreateProblem.swift in Sources */,
+				BAD416F7271B0D9B00F30BA0 /* CustomButton.swift in Sources */,
+				BAD41705271BA26D00F30BA0 /* ChallengeProblem.swift in Sources */,
+				BAD41704271BA26A00F30BA0 /* ResultProblem.swift in Sources */,
+				BAD416F6271B0C1200F30BA0 /* MenuProblem.swift in Sources */,
+				BAD416FD271B0DAD00F30BA0 /* Problem_AnswerModel.swift in Sources */,
+				BAD416FB271B0DA700F30BA0 /* ProblemSelectModel.swift in Sources */,
+				BAD416F8271B0D9E00F30BA0 /* CustomTextView.swift in Sources */,
+				BAD416F5271B0C0F00F30BA0 /* ViewController.swift in Sources */,
+				BAD416F3271B0C0900F30BA0 /* SettingProblem.swift in Sources */,
+				BAD41703271BA26600F30BA0 /* EditProblem.swift in Sources */,
+				BAD416FC271B0DAA00F30BA0 /* GetProblemSelect.swift in Sources */,
+				BAD416FF271B0DB300F30BA0 /* UpdateProblem.swift in Sources */,
+				BAD41706271BA27300F30BA0 /* MenuChallengeProblem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,8 +802,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualificationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -792,8 +825,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualificationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
