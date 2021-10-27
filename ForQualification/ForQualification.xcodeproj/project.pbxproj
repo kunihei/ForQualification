@@ -24,6 +24,12 @@
 		BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
+		BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
+		BA51F0E9272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
+		BA51F0F22724508100F2EEEC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51F0F02724508100F2EEEC /* SignUpView.swift */; };
+		BA51F0F32724508100F2EEEC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51F0F02724508100F2EEEC /* SignUpView.swift */; };
+		BA51F0F42724508100F2EEEC /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0F12724508100F2EEEC /* SignUpView.xib */; };
+		BA51F0F52724508100F2EEEC /* SignUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0F12724508100F2EEEC /* SignUpView.xib */; };
 		BA53D7842718EEE900DC820F /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7832718EEE900DC820F /* CustomTextView.swift */; };
 		BA53D7862718F1C500DC820F /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7852718F1C500DC820F /* CustomLabel.swift */; };
 		BAD416F3271B0C0900F30BA0 /* SettingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* SettingProblem.swift */; };
@@ -42,6 +48,7 @@
 		BAD41704271BA26A00F30BA0 /* ResultProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD704E026EDC04A00508AE7 /* ResultProblem.swift */; };
 		BAD41705271BA26D00F30BA0 /* ChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */; };
 		BAD41706271BA27300F30BA0 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
+		BAD55B572720DAA40065A48F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD55B562720DAA30065A48F /* LoginView.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
@@ -99,8 +106,12 @@
 		BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem_AnswerModel.swift; sourceTree = "<group>"; };
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BA51F0E5272233F400F2EEEC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		BA51F0F02724508100F2EEEC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		BA51F0F12724508100F2EEEC /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
 		BA53D7832718EEE900DC820F /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		BA53D7852718F1C500DC820F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		BAD55B562720DAA30065A48F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
@@ -253,6 +264,8 @@
 				BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */,
 				BAD7049A26ECA79600508AE7 /* EditProblem.xib */,
 				BAD704E126EDC04A00508AE7 /* ResultProblem.xib */,
+				BA51F0E5272233F400F2EEEC /* LoginView.xib */,
+				BA51F0F12724508100F2EEEC /* SignUpView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -260,6 +273,7 @@
 		BAD7048226EC427200508AE7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA51F0F02724508100F2EEEC /* SignUpView.swift */,
 				BAD7049926ECA79600508AE7 /* EditProblem.swift */,
 				BAD704E026EDC04A00508AE7 /* ResultProblem.swift */,
 				BAD7048B26EC6CCA00508AE7 /* ChallengeProblem.swift */,
@@ -267,6 +281,7 @@
 				BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */,
 				BA09FC1926E4446E006BEAD8 /* ViewController.swift */,
 				BAD7047E26EC426100508AE7 /* MenuProblem.swift */,
+				BAD55B562720DAA30065A48F /* LoginView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -396,7 +411,9 @@
 				BAD7048A26EC610600508AE7 /* SettingProblem.xib in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
+				BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */,
 				BA09FC1F26E4446F006BEAD8 /* Assets.xcassets in Resources */,
+				BA51F0F42724508100F2EEEC /* SignUpView.xib in Resources */,
 				BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */,
 				BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */,
 				BAD7048626EC5ACA00508AE7 /* MenuChallengeProblem.xib in Resources */,
@@ -410,6 +427,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA51F0F52724508100F2EEEC /* SignUpView.xib in Resources */,
+				BA51F0E9272233F400F2EEEC /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +575,7 @@
 				BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */,
 				BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */,
 				BA0E33E02700662F002A3A48 /* ProblemSelectModel.swift in Sources */,
+				BA51F0F22724508100F2EEEC /* SignUpView.swift in Sources */,
 				BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */,
 				BA53D7842718EEE900DC820F /* CustomTextView.swift in Sources */,
 				BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */,
@@ -563,6 +583,7 @@
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
+				BAD55B572720DAA40065A48F /* LoginView.swift in Sources */,
 				BA0E33E227008240002A3A48 /* GetProblemSelect.swift in Sources */,
 				BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */,
 			);
@@ -577,6 +598,7 @@
 				BAD416F9271B0DA100F30BA0 /* CustomLabel.swift in Sources */,
 				BAD416FA271B0DA400F30BA0 /* CreateProblem.swift in Sources */,
 				BAD416F7271B0D9B00F30BA0 /* CustomButton.swift in Sources */,
+				BA51F0F32724508100F2EEEC /* SignUpView.swift in Sources */,
 				BAD41705271BA26D00F30BA0 /* ChallengeProblem.swift in Sources */,
 				BAD41704271BA26A00F30BA0 /* ResultProblem.swift in Sources */,
 				BAD416F6271B0C1200F30BA0 /* MenuProblem.swift in Sources */,
@@ -801,6 +823,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualificationTests/Info.plist;
@@ -824,6 +847,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8ARG4D8LX2;
 				INFOPLIST_FILE = ForQualificationTests/Info.plist;

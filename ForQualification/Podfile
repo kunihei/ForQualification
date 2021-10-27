@@ -13,6 +13,7 @@ target 'ForQualification' do
   pod 'Firebase/Firestore'
   pod 'SDWebImage', '~> 5.0'
   pod 'PKHUD', '~> 5.0'
+  pod 'Firebase/DynamicLinks'
 
   target 'ForQualificationTests' do
     inherit! :search_paths

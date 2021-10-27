@@ -42,7 +42,8 @@ class MenuChallengeProblem: UIViewController {
     @IBAction func menuBackButton(_ sender: Any) {
         menuBackButton.pulsate()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let menuView = MenuProblem()
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuView = storyBoard.instantiateViewController(withIdentifier: "main")
             self.navigationController?.pushViewController(menuView, animated: true)
         }
     }

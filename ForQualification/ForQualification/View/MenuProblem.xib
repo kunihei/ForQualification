@@ -8,11 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuProblem" customModule="ForQualification" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
-                <outlet property="challengeButton" destination="w7a-fJ-wy0" id="mh2-Ya-DqD"/>
-                <outlet property="createButton" destination="4IG-yd-z6d" id="27c-Kr-bi0"/>
-                <outlet property="editButton" destination="K7b-CX-teD" id="23F-4R-4pa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -62,9 +59,6 @@
                                     <real key="value" value="0.29999999999999999"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="createButton:" destination="-1" eventType="touchUpInside" id="VER-gK-Nak"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7a-fJ-wy0" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="139" width="370" height="80"/>
@@ -94,9 +88,6 @@
                                     <real key="value" value="0.29999999999999999"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="challengeButton:" destination="-1" eventType="touchUpInside" id="KsS-WZ-ixr"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-CX-teD" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="278" width="370" height="80"/>
@@ -126,9 +117,6 @@
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="editButton:" destination="-1" eventType="touchUpInside" id="mPu-VS-WNx"/>
-                            </connections>
                         </button>
                     </subviews>
                 </stackView>
