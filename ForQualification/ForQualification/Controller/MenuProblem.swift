@@ -43,7 +43,6 @@ class MenuProblem: UIViewController {
         getProblem.problemList = []
         getProblem.getProblemList()
         
-        if Auth.auth().currentUser?.email == nil { logoutBtn.isHidden = true }
     }
     
     @IBAction func createButton(_ sender: Any) {
@@ -62,8 +61,6 @@ class MenuProblem: UIViewController {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if mainRegist() { return }
-        if unauthenticated() { return }
         if getProblem.problemList.isEmpty {
             settingViewAlert(title: "挑戦する問題がありません！", message: "問題を登録して下さい")
             return
@@ -80,8 +77,6 @@ class MenuProblem: UIViewController {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if mainRegist() { return }
-        if unauthenticated() { return }
         if getProblem.problemList.isEmpty {
             settingViewAlert(title: "編集する問題がありません！", message: "問題を登録して下さい")
             return
@@ -138,19 +133,6 @@ class MenuProblem: UIViewController {
             return true
         }
         return false
-    }
-    
-    @IBAction func logout(_ sender: Any) {
-        if Auth.auth().currentUser != nil {
-            //ログアウト成功
-            do {
-                try Auth.auth().signOut()
-                //ログアウト失敗
-            } catch let signOutError as NSError {
-                print (signOutError)
-            }
-        }
-        logoutBtn.isHidden = true
     }
     
     /*

@@ -50,7 +50,6 @@
 		BAD41706271BA27300F30BA0 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
 		BAD55B572720DAA40065A48F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD55B562720DAA30065A48F /* LoginView.swift */; };
 		BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
-		BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7047F26EC426100508AE7 /* MenuProblem.xib */; };
 		BAD7048526EC5ACA00508AE7 /* MenuChallengeProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */; };
 		BAD7048626EC5ACA00508AE7 /* MenuChallengeProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */; };
 		BAD7048926EC610600508AE7 /* SettingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* SettingProblem.swift */; };
@@ -113,7 +112,6 @@
 		BA53D7852718F1C500DC820F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BAD55B562720DAA30065A48F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
-		BAD7047F26EC426100508AE7 /* MenuProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuProblem.xib; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
 		BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuChallengeProblem.xib; sourceTree = "<group>"; };
 		BAD7048726EC610600508AE7 /* SettingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProblem.swift; sourceTree = "<group>"; };
@@ -258,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				BA09FC1B26E4446E006BEAD8 /* Main.storyboard */,
-				BAD7047F26EC426100508AE7 /* MenuProblem.xib */,
 				BAD7048426EC5ACA00508AE7 /* MenuChallengeProblem.xib */,
 				BAD7048826EC610600508AE7 /* SettingProblem.xib */,
 				BAD7048C26EC6CCA00508AE7 /* ChallengeProblem.xib */,
@@ -414,7 +411,6 @@
 				BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */,
 				BA09FC1F26E4446F006BEAD8 /* Assets.xcassets in Resources */,
 				BA51F0F42724508100F2EEEC /* SignUpView.xib in Resources */,
-				BAD7048126EC426100508AE7 /* MenuProblem.xib in Resources */,
 				BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */,
 				BAD7048626EC5ACA00508AE7 /* MenuChallengeProblem.xib in Resources */,
 				BAD704E326EDC04A00508AE7 /* ResultProblem.xib in Resources */,

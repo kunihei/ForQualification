@@ -129,56 +129,20 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="358" id="KcA-2h-RWS"/>
-                                    <constraint firstAttribute="width" constant="370" id="YT8-Ff-gMT"/>
+                                    <constraint firstAttribute="height" constant="358" id="J3r-u7-Hg8"/>
+                                    <constraint firstAttribute="width" constant="370" id="bzo-2Z-hy5"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKY-0O-dJj" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                                <rect key="frame" x="22" y="787" width="140" height="46"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="36P-0Y-owL"/>
-                                    <constraint firstAttribute="width" constant="140" id="afU-uB-V0t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="ログアウト">
-                                    <color key="titleColor" name="TextColor"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="0.29999999999999999"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" name="TextColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="logout:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mMY-Dp-MTy"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nKY-0O-dJj" secondAttribute="trailing" constant="252" id="FHw-pz-s4N"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8za-ih-OxP" secondAttribute="trailing" constant="22" id="LU6-uy-GyI"/>
                             <constraint firstItem="8wX-G7-gE7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="M3y-9E-8Y8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nKY-0O-dJj" secondAttribute="bottom" constant="29" id="NET-r0-qsA"/>
-                            <constraint firstItem="8za-ih-OxP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="Rmt-4w-jjn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8wX-G7-gE7" secondAttribute="trailing" constant="20" id="YPp-1z-TTu"/>
                             <constraint firstItem="8wX-G7-gE7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="c78-Sk-Xdd"/>
-                            <constraint firstItem="nKY-0O-dJj" firstAttribute="top" secondItem="8za-ih-OxP" secondAttribute="bottom" constant="40" id="fh0-vJ-rJp"/>
-                            <constraint firstItem="nKY-0O-dJj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="kQH-Ej-F6q"/>
+                            <constraint firstAttribute="bottom" secondItem="8za-ih-OxP" secondAttribute="bottom" constant="149" id="pK5-qy-qpT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8za-ih-OxP" secondAttribute="trailing" constant="22" id="sKO-cb-v3a"/>
+                            <constraint firstItem="8za-ih-OxP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="wwc-SW-dh9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2qr-Ci-YAt"/>
@@ -186,7 +150,6 @@
                         <outlet property="challengeButton" destination="7Xr-cE-FD9" id="TbH-3j-mnF"/>
                         <outlet property="createButton" destination="yBk-1N-dDk" id="bRU-Z8-Ce6"/>
                         <outlet property="editButton" destination="cGR-gc-7Ac" id="Ttb-EW-uca"/>
-                        <outlet property="logoutBtn" destination="nKY-0O-dJj" id="Jju-3z-hzA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
