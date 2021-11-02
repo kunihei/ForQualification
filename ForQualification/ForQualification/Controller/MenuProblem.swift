@@ -17,8 +17,6 @@ class MenuProblem: UIViewController {
     
     private let getProblem = GetProblem_Answer()
     
-    private var problemList = [Problem_AnswerModel]()
-    
     private var userId = String()
     
     override func viewDidLoad() {
@@ -42,13 +40,7 @@ class MenuProblem: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         
-        problemList = []
         getProblem.getProblemList()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        problemList = getProblem.problemList
     }
     
     @IBAction func createButton(_ sender: Any) {
@@ -67,7 +59,7 @@ class MenuProblem: UIViewController {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if problemList.isEmpty {
+        if getProblem.problemList.isEmpty {
             settingViewAlert(title: "挑戦する問題がありません！", message: "問題を登録して下さい")
             return
         }
@@ -83,7 +75,7 @@ class MenuProblem: UIViewController {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if problemList.isEmpty {
+        if getProblem.problemList.isEmpty {
             settingViewAlert(title: "編集する問題がありません！", message: "問題を登録して下さい")
             return
         }
