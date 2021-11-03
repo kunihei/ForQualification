@@ -13,7 +13,6 @@ class MenuProblem: UIViewController {
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var logoutBtn: CustomButton!
     
     private let getProblem = GetProblem_Answer()
     
