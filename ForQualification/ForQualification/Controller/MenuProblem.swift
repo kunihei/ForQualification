@@ -5,14 +5,18 @@
 //  Created by 祥平 on 2021/09/11.
 //
 
+import GoogleMobileAds
 import UIKit
 import FirebaseAuth
+import AdSupport
+import AppTrackingTransparency
 
-class MenuProblem: UIViewController {
+class MenuProblem: UIViewController, GADBannerViewDelegate {
     
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     private let getProblem = GetProblem_Answer()
     
@@ -20,6 +24,13 @@ class MenuProblem: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trackingAlert()
+        
+        bannerView.adUnitID = "ca-app-pub-3279976203462809/3585101848"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        bannerView.load(GADRequest())
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
@@ -40,6 +51,49 @@ class MenuProblem: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         getProblem.getProblemList()
+    }
+    
+    private func trackingAlert() {
+        if #available(iOS 14, *) {
+            switch ATTrackingManager.trackingAuthorizationStatus {
+            case .authorized:
+                print("Allow Tracking")
+                print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+            case .denied:
+                print("😭拒否")
+            case .restricted:
+                print("🥺制限")
+            case .notDetermined:
+                showRequestTrackingAuthorizationAlert()
+            @unknown default:
+                fatalError()
+            }
+        } else {// iOS14未満
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                print("Allow Tracking")
+                print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+            } else {
+                print("🥺制限")
+            }
+        }
+    }
+    
+    ///Alert表示
+    private func showRequestTrackingAuthorizationAlert() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
+                switch status {
+                case .authorized:
+                    print("🎉")
+                    //IDFA取得
+                    print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
+                case .denied, .restricted, .notDetermined:
+                    print("😭")
+                @unknown default:
+                    fatalError()
+                }
+            })
+        }
     }
     
     @IBAction func createButton(_ sender: Any) {

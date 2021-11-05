@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -129,24 +130,36 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="358" id="J3r-u7-Hg8"/>
-                                    <constraint firstAttribute="width" constant="370" id="bzo-2Z-hy5"/>
+                                    <constraint firstAttribute="height" constant="358" id="Rcx-TO-g1W"/>
+                                    <constraint firstAttribute="width" constant="370" id="nb2-OF-cxx"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpJ-Tl-W9V" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="812" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="QWa-7t-48K"/>
+                                    <constraint firstAttribute="height" constant="50" id="teo-M1-R7Q"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="BackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="8za-ih-OxP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="Chs-QM-gpb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mpJ-Tl-W9V" secondAttribute="trailing" constant="47" id="HBv-4D-9Hc"/>
                             <constraint firstItem="8wX-G7-gE7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="59" id="M3y-9E-8Y8"/>
+                            <constraint firstItem="mpJ-Tl-W9V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="XxQ-xn-Ztf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8wX-G7-gE7" secondAttribute="trailing" constant="20" id="YPp-1z-TTu"/>
+                            <constraint firstItem="mpJ-Tl-W9V" firstAttribute="top" secondItem="8za-ih-OxP" secondAttribute="bottom" constant="65" id="YeG-xL-Cz7"/>
                             <constraint firstItem="8wX-G7-gE7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="c78-Sk-Xdd"/>
-                            <constraint firstAttribute="bottom" secondItem="8za-ih-OxP" secondAttribute="bottom" constant="149" id="pK5-qy-qpT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8za-ih-OxP" secondAttribute="trailing" constant="22" id="sKO-cb-v3a"/>
-                            <constraint firstItem="8za-ih-OxP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="wwc-SW-dh9"/>
+                            <constraint firstAttribute="bottom" secondItem="mpJ-Tl-W9V" secondAttribute="bottom" constant="34" id="mHl-Fo-kD3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8za-ih-OxP" secondAttribute="trailing" constant="22" id="nHp-mK-wCI"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2qr-Ci-YAt"/>
                     <connections>
+                        <outlet property="bannerView" destination="mpJ-Tl-W9V" id="kFR-1v-xcB"/>
                         <outlet property="challengeButton" destination="7Xr-cE-FD9" id="TbH-3j-mnF"/>
                         <outlet property="createButton" destination="yBk-1N-dDk" id="bRU-Z8-Ce6"/>
                         <outlet property="editButton" destination="cGR-gc-7Ac" id="Ttb-EW-uca"/>
@@ -182,5 +195,8 @@
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

@@ -5,11 +5,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuChallengeProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="bannerView" destination="8tA-WT-LF6" id="81x-Gi-eMF"/>
                 <outlet property="menuBackButton" destination="4Bl-Y2-Anq" id="E9S-vP-aqp"/>
                 <outlet property="nomalButton" destination="vwa-BE-MPr" id="sv4-cA-tyk"/>
                 <outlet property="shuffleButton" destination="kMB-zl-Iw6" id="LJV-eu-5Wh"/>
@@ -31,8 +33,49 @@
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-Y2-Anq" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
+                    <rect key="frame" x="74" y="701" width="267" height="70"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="267" id="6r8-7k-ab0"/>
+                        <constraint firstAttribute="height" constant="70" id="9WC-VD-EPq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="メニューに戻る">
+                        <color key="titleColor" name="TextColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" name="TextColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.29999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="menuBackButton:" destination="-1" eventType="touchUpInside" id="cgy-9k-8Ko"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-WT-LF6" customClass="GADBannerView">
+                    <rect key="frame" x="47" y="812" width="320" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="7jc-Ey-xZo"/>
+                        <constraint firstAttribute="height" constant="50" id="ctj-W8-frK"/>
+                    </constraints>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="8eG-YI-DZa">
-                    <rect key="frame" x="22" y="417" width="370" height="227"/>
+                    <rect key="frame" x="22" y="384" width="370" height="227"/>
                     <subviews>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwa-BE-MPr" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="370" height="80"/>
@@ -99,53 +142,27 @@
                             </connections>
                         </button>
                     </subviews>
-                </stackView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-Y2-Anq" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                    <rect key="frame" x="74" y="749" width="267" height="70"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="3z5-UE-JcP"/>
-                        <constraint firstAttribute="width" constant="267" id="kJv-kJ-NhJ"/>
+                        <constraint firstAttribute="width" constant="370" id="BsI-Wa-Obo"/>
+                        <constraint firstAttribute="height" constant="227" id="znj-Kt-mCs"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="メニューに戻る">
-                        <color key="titleColor" name="TextColor"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="TextColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                            <real key="value" value="0.29999999999999999"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="menuBackButton:" destination="-1" eventType="touchUpInside" id="cgy-9k-8Ko"/>
-                    </connections>
-                </button>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackgroundColor"/>
             <constraints>
-                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="top" secondItem="8eG-YI-DZa" secondAttribute="bottom" constant="105" id="1QJ-i8-p2s"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="D9e-L8-hoD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="A85-Md-via"/>
+                <constraint firstItem="8tA-WT-LF6" firstAttribute="top" secondItem="4Bl-Y2-Anq" secondAttribute="bottom" constant="41" id="DVV-be-l4A"/>
+                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="top" secondItem="8eG-YI-DZa" secondAttribute="bottom" constant="90" id="LkP-Sn-gI3"/>
                 <constraint firstItem="FL2-zP-sWB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NIG-gx-NVn"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Bl-Y2-Anq" secondAttribute="trailing" constant="73" id="Pme-Eg-1G4"/>
-                <constraint firstItem="8eG-YI-DZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="fLW-UR-eI7"/>
+                <constraint firstItem="8tA-WT-LF6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="Uc8-DP-jXc"/>
+                <constraint firstItem="8eG-YI-DZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="XBg-Kz-pYJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8tA-WT-LF6" secondAttribute="trailing" constant="47" id="XfP-hk-Qzz"/>
+                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="fsG-ba-cw6"/>
+                <constraint firstAttribute="bottom" secondItem="8tA-WT-LF6" secondAttribute="bottom" constant="34" id="gKM-Ky-TFr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Bl-Y2-Anq" secondAttribute="trailing" constant="73" id="gZJ-kp-lhW"/>
                 <constraint firstItem="FL2-zP-sWB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="i2Y-j1-Ns3"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FL2-zP-sWB" secondAttribute="trailing" constant="20" id="kUM-5c-6bX"/>
-                <constraint firstAttribute="bottom" secondItem="4Bl-Y2-Anq" secondAttribute="bottom" constant="77" id="rru-0S-Yzq"/>
-                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="z2D-9E-fT6"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
@@ -157,5 +174,8 @@
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

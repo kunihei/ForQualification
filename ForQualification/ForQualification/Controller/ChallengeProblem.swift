@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import PKHUD
 
 class ChallengeProblem: UIViewController {
 
@@ -40,6 +41,7 @@ class ChallengeProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        HUD.show(.progress)
         problemList = []
         selectTextView.isEditable = false
         problemTextView.isEditable = false
@@ -61,6 +63,7 @@ class ChallengeProblem: UIViewController {
         if shuffleModeFlag {
             getSelectList.problemSelectEmptyDelete.shuffle()
         }
+        HUD.hide()
     }
     
     // UIImageViewの表示・非表示のチェック

@@ -5,17 +5,24 @@
 //  Created by 祥平 on 2021/09/11.
 //
 
+import GoogleMobileAds
 import UIKit
 
-class MenuChallengeProblem: UIViewController {
+class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
     
     @IBOutlet weak var nomalButton: CustomButton!
     @IBOutlet weak var shuffleButton: CustomButton!
     @IBOutlet weak var menuBackButton: CustomButton!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bannerView.adUnitID = "ca-app-pub-3279976203462809/1649822190"
+        bannerView.rootViewController = self
+        bannerView.delegate = self
+        
+        bannerView.load(GADRequest())
         // Do any additional setup after loading the view.
     }
     

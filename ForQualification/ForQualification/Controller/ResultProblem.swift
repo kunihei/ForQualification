@@ -5,9 +5,10 @@
 //  Created by 祥平 on 2021/09/12.
 //
 
+import GoogleMobileAds
 import UIKit
 
-class ResultProblem: UIViewController {
+class ResultProblem: UIViewController, GADFullScreenContentDelegate {
     
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var incorrectAnswerCountLabel: UILabel!
@@ -16,9 +17,21 @@ class ResultProblem: UIViewController {
     var correctAnswerCount = Int()
     var incorrectAnswerCount = Int()
     var averageTotal = Int()
+    
+    private var interstitial: GADInterstitialAd?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3279976203462809/1824656986", request: request) { [self] ad, err in
+            if let err = err {
+                print("Failed to load interstitial ad with error: \(err.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        }
         correctAnswerCountLabel.text = "\(correctAnswerCount)問"
         incorrectAnswerCountLabel.text = "\(incorrectAnswerCount)問"
         averageTotalLabel.text = "\(averageTotal)%"
@@ -31,6 +44,9 @@ class ResultProblem: UIViewController {
     }
 
     @IBAction func menuBack(_ sender: Any) {
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        }
         let menuChallengeView = MenuChallengeProblem()
         navigationController?.pushViewController(menuChallengeView, animated: true)
     }
