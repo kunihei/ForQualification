@@ -13,6 +13,11 @@ class ResultProblem: UIViewController, GADFullScreenContentDelegate {
     @IBOutlet weak var correctAnswerCountLabel: UILabel!
     @IBOutlet weak var incorrectAnswerCountLabel: UILabel!
     @IBOutlet weak var averageTotalLabel: UILabel!
+    @IBOutlet weak var resulutLabel: UILabel!
+    @IBOutlet weak var correctLabel: UILabel!
+    @IBOutlet weak var incorrectLabel: UILabel!
+    @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var menuBackBtn: CustomButton!
     
     var correctAnswerCount = Int()
     var incorrectAnswerCount = Int()

@@ -41,6 +41,8 @@ class ChallengeProblem: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
+        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+        else { lightMode() }
         HUD.show(.progress)
         problemList = []
         selectTextView.isEditable = false
@@ -64,6 +66,58 @@ class ChallengeProblem: UIViewController {
             getSelectList.problemSelectEmptyDelete.shuffle()
         }
         HUD.hide()
+    }
+    
+    func darkMode() {
+        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        
+        selectTextView.textColor = UIColor.white
+        selectTextView.layer.borderColor = UIColor.white.cgColor
+        selectTextView.layer.shadowColor = UIColor.white.cgColor
+        selectTextView.backgroundColor = UIColor.darkGray
+        
+        answerLabel.textColor = UIColor.white
+        answerLabel.layer.borderColor = UIColor.white.cgColor
+        answerLabel.layer.shadowColor = UIColor.white.cgColor
+        answerLabel.backgroundColor = UIColor.darkGray
+        
+        problemCountLabel.textColor = UIColor.white
+        
+        problemTextView.textColor = UIColor.white
+        problemTextView.layer.borderColor = UIColor.white.cgColor
+        problemTextView.layer.shadowColor = UIColor.white.cgColor
+        problemTextView.backgroundColor = UIColor.darkGray
+        
+        answerButton.setTitleColor(UIColor.white, for: .normal)
+        answerButton.layer.borderColor = UIColor.white.cgColor
+        answerButton.layer.shadowColor = UIColor.white.cgColor
+        answerButton.backgroundColor = UIColor.darkGray
+    }
+    
+    func lightMode() {
+        view.backgroundColor = UIColor.white
+        
+        selectTextView.textColor = UIColor.black
+        selectTextView.layer.borderColor = UIColor.black.cgColor
+        selectTextView.layer.shadowColor = UIColor.black.cgColor
+        selectTextView.backgroundColor = UIColor.lightGray
+        
+        answerLabel.textColor = UIColor.black
+        answerLabel.layer.borderColor = UIColor.black.cgColor
+        answerLabel.layer.shadowColor = UIColor.black.cgColor
+        answerLabel.backgroundColor = UIColor.lightGray
+        
+        problemCountLabel.textColor = UIColor.black
+        
+        problemTextView.textColor = UIColor.black
+        problemTextView.layer.borderColor = UIColor.black.cgColor
+        problemTextView.layer.shadowColor = UIColor.black.cgColor
+        problemTextView.backgroundColor = UIColor.lightGray
+        
+        answerButton.setTitleColor(UIColor.black, for: .normal)
+        answerButton.layer.borderColor = UIColor.black.cgColor
+        answerLabel.layer.shadowColor = UIColor.black.cgColor
+        answerButton.backgroundColor = UIColor.lightGray
     }
     
     // UIImageViewの表示・非表示のチェック

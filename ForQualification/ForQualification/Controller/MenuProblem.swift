@@ -17,6 +17,8 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var menuLabel: UILabel!
+    @IBOutlet weak var configurationBtn: UIButton!
     
     private let getProblem = GetProblem_Answer()
     
@@ -34,16 +36,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if userId == "" {
-            Auth.auth().signInAnonymously { authResult, err in
-                if let err = err {
-                    print("匿名ログインに失敗しました", err)
-                    return
-                }
-                guard let user = authResult?.user else {return}
-                UserDefaults.standard.set(user.uid, forKey: "userId")
-            }
-        }
+        if userId == "" { createAccount() }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +44,58 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         navigationController?.isNavigationBarHidden = true
         
         getProblem.getProblemList()
+        
+        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+        else { lightMode() }
+    }
+    
+    func createAccount() {
+        Auth.auth().signInAnonymously { authResult, err in
+            if let err = err {
+                print("匿名ログインに失敗しました", err)
+                return
+            }
+            guard let user = authResult?.user else {return}
+            UserDefaults.standard.set(user.uid, forKey: "userId")
+        }
+    }
+    
+    func darkMode() {
+        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        
+        createButton.setTitleColor(UIColor.white, for: .normal)
+        createButton.layer.borderColor = UIColor.white.cgColor
+        createButton.layer.shadowColor = UIColor.white.cgColor
+        
+        challengeButton.setTitleColor(UIColor.white, for: .normal)
+        challengeButton.layer.borderColor = UIColor.white.cgColor
+        challengeButton.layer.shadowColor = UIColor.white.cgColor
+        
+        editButton.setTitleColor(UIColor.white, for: .normal)
+        editButton.layer.borderColor = UIColor.white.cgColor
+        editButton.layer.shadowColor = UIColor.white.cgColor
+        
+        menuLabel.textColor = UIColor.white
+        configurationBtn.setImage(UIImage(named: "設定の歯車White"), for: .normal)
+    }
+    
+    func lightMode() {
+        view.backgroundColor = UIColor.white
+        
+        createButton.setTitleColor(UIColor.black, for: .normal)
+        createButton.layer.borderColor = UIColor.black.cgColor
+        createButton.layer.shadowColor = UIColor.black.cgColor
+        
+        challengeButton.setTitleColor(UIColor.black, for: .normal)
+        challengeButton.layer.borderColor = UIColor.black.cgColor
+        challengeButton.layer.shadowColor = UIColor.black.cgColor
+        
+        editButton.setTitleColor(UIColor.black, for: .normal)
+        editButton.layer.borderColor = UIColor.black.cgColor
+        editButton.layer.shadowColor = UIColor.black.cgColor
+        
+        menuLabel.textColor = UIColor.black
+        configurationBtn.setImage(UIImage(named: "設定の歯車"), for: .normal)
     }
     
     private func trackingAlert() {
@@ -140,6 +185,12 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         }
     }
     
+    @IBAction func configuration(_ sender: Any) {
+        //　設定画面に遷移する
+        let configurationView = ConfigurationView()
+        navigationController?.pushViewController(configurationView, animated: true)
+        
+    }
     func mailCheckAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let mailCheckAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)

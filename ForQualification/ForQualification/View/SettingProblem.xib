@@ -12,20 +12,37 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="answerLabel" destination="w26-Mx-iUr" id="J7j-sy-5cC"/>
                 <outlet property="answerTextField" destination="wNr-aq-bTq" id="clJ-VX-yJq"/>
+                <outlet property="cameraBtn" destination="aBf-Yo-0YX" id="xt8-Rs-e3f"/>
+                <outlet property="explanationLabel" destination="0kQ-tg-TGs" id="4NZ-sx-Uiq"/>
                 <outlet property="problemImage" destination="ZzA-Kz-F3r" id="F76-IE-OPj"/>
+                <outlet property="problemLabel" destination="H1S-Yt-JqJ" id="CbL-04-2wl"/>
                 <outlet property="problemstatement" destination="JgI-bX-yLN" id="1ud-oA-bi0"/>
                 <outlet property="select1" destination="3Dg-Y3-IuL" id="WFa-WC-d9I"/>
                 <outlet property="select10" destination="2WZ-g4-p22" id="7H0-4n-uKb"/>
+                <outlet property="select10Label" destination="Lah-cl-uGe" id="gKQ-Fj-SUJ"/>
+                <outlet property="select1Label" destination="F4G-SP-5eN" id="fcI-QI-vLa"/>
                 <outlet property="select2" destination="pyZ-g2-NoT" id="0Eu-0A-poT"/>
+                <outlet property="select2Label" destination="48z-jQ-jZR" id="X6w-eJ-DnZ"/>
                 <outlet property="select3" destination="ejo-UP-zPn" id="yBr-RY-NLx"/>
+                <outlet property="select3Label" destination="lIv-Ss-gZV" id="c3x-ep-gEu"/>
                 <outlet property="select4" destination="kTW-kk-Kwm" id="U8A-d8-lEP"/>
+                <outlet property="select4Label" destination="X4s-kB-3SL" id="mV2-qG-DcW"/>
                 <outlet property="select5" destination="gcA-7F-ljN" id="B9B-WF-Y1s"/>
+                <outlet property="select5Label" destination="d4A-gU-gOf" id="Lu1-gh-Uc6"/>
                 <outlet property="select6" destination="QRC-bY-JE0" id="xkh-Js-oNK"/>
+                <outlet property="select6Label" destination="AOV-i9-1vr" id="nva-El-0rY"/>
                 <outlet property="select7" destination="XFd-iv-eA5" id="Das-S3-tuw"/>
+                <outlet property="select7Label" destination="JeS-Uh-gPN" id="pJV-mh-INw"/>
                 <outlet property="select8" destination="VJe-X1-RMw" id="B60-WF-Ywv"/>
+                <outlet property="select8Label" destination="qaK-B6-swd" id="zlb-6e-hoI"/>
                 <outlet property="select9" destination="0t8-eR-0yI" id="EJz-dj-WDt"/>
+                <outlet property="select9Label" destination="GIv-X8-CsN" id="nUR-VE-6xB"/>
+                <outlet property="selectsLabel" destination="iAL-5E-7qP" id="Kqx-gF-MHU"/>
                 <outlet property="settingButton" destination="JFt-wG-eNH" id="ZcH-RR-hmM"/>
+                <outlet property="settingView" destination="2AP-KK-5I8" id="5Gj-wW-0lz"/>
+                <outlet property="smallProblemLabel" destination="adv-VG-DsG" id="I0g-xL-zFM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -44,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOD-gl-jVJ">
-                    <rect key="frame" x="0.0" y="121" width="414" height="1757"/>
+                    <rect key="frame" x="0.0" y="121" width="414" height="1749"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2AP-KK-5I8">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="1749"/>
@@ -71,7 +88,7 @@
                                                         <constraint firstAttribute="height" constant="46" id="KO1-05-J21"/>
                                                         <constraint firstAttribute="width" constant="302" id="fIV-Cd-T64"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                     <color key="textColor" name="TextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -645,7 +662,7 @@
                     <constraints>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="top" id="SMz-Zf-Eex"/>
                         <constraint firstItem="2AP-KK-5I8" firstAttribute="leading" secondItem="HOD-gl-jVJ" secondAttribute="leading" id="gE2-mF-1QZ"/>
-                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" constant="8" id="sqN-kQ-rWB"/>
+                        <constraint firstAttribute="bottom" secondItem="2AP-KK-5I8" secondAttribute="bottom" id="sqN-kQ-rWB"/>
                         <constraint firstAttribute="trailing" secondItem="2AP-KK-5I8" secondAttribute="trailing" id="wqz-CF-rHI"/>
                     </constraints>
                     <viewLayoutGuide key="contentLayoutGuide" id="FQe-Un-xEW"/>
@@ -691,12 +708,12 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="BackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="JFt-wG-eNH" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="28" id="AvS-HP-zI7"/>
+                <constraint firstItem="JFt-wG-eNH" firstAttribute="top" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="36" id="AvS-HP-zI7"/>
                 <constraint firstItem="H1S-Yt-JqJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CFT-n3-VI0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JFt-wG-eNH" secondAttribute="trailing" constant="117" id="Njk-DS-82X"/>
-                <constraint firstAttribute="bottom" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="122" id="NqR-tK-iiS"/>
+                <constraint firstAttribute="bottom" secondItem="HOD-gl-jVJ" secondAttribute="bottom" constant="130" id="NqR-tK-iiS"/>
                 <constraint firstItem="H1S-Yt-JqJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Pli-nS-BTi"/>
                 <constraint firstAttribute="bottom" secondItem="JFt-wG-eNH" secondAttribute="bottom" constant="34" id="Qhq-mb-q1E"/>
                 <constraint firstItem="2AP-KK-5I8" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="T8d-7m-QQf"/>
