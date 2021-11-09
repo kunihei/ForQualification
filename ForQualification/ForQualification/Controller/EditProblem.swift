@@ -12,6 +12,7 @@ import FirebaseStorage
 
 class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menuBackButton: CustomButton!
     
@@ -29,6 +30,8 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+        else { lightMode() }
         getProblemList.problemList = []
         problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
@@ -42,6 +45,30 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidAppear(animated)
         problemList = getProblemList.problemList
         tableView.reloadData()
+    }
+    
+    func darkMode() {
+        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        tableView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        tableView.separatorColor = UIColor.white
+        
+        editLabel.textColor = UIColor.white
+        
+        menuBackButton.setTitleColor(UIColor.white, for: .normal)
+        menuBackButton.layer.borderColor = UIColor.white.cgColor
+        menuBackButton.layer.shadowColor = UIColor.white.cgColor
+    }
+    
+    func lightMode() {
+        view.backgroundColor = UIColor.white
+        tableView.backgroundColor = UIColor.white
+        tableView.separatorColor = UIColor.black
+        
+        editLabel.textColor = UIColor.black
+        
+        menuBackButton.setTitleColor(UIColor.black, for: .normal)
+        menuBackButton.layer.borderColor = UIColor.black.cgColor
+        menuBackButton.layer.shadowColor = UIColor.black.cgColor
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -94,6 +121,14 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
         cell.selectionStyle = .none
         cell.textLabel?.text = problemList[indexPath.row].problem
+        
+        if UserDefaults.standard.bool(forKey: "colorFlag") == true {
+            cell.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+            cell.textLabel?.textColor = UIColor.white
+        } else {
+            cell.backgroundColor = UIColor.white
+            cell.textLabel?.textColor = UIColor.black
+        }
         
         return cell
     }

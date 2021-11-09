@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="bannerView" destination="8tA-WT-LF6" id="81x-Gi-eMF"/>
                 <outlet property="menuBackButton" destination="4Bl-Y2-Anq" id="E9S-vP-aqp"/>
+                <outlet property="modeLabel" destination="FL2-zP-sWB" id="sYo-Rw-6F2"/>
                 <outlet property="nomalButton" destination="vwa-BE-MPr" id="sv4-cA-tyk"/>
                 <outlet property="shuffleButton" destination="kMB-zl-Iw6" id="LJV-eu-5Wh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -149,7 +150,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="BackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="A85-Md-via"/>
                 <constraint firstItem="8tA-WT-LF6" firstAttribute="top" secondItem="4Bl-Y2-Anq" secondAttribute="bottom" constant="41" id="DVV-be-l4A"/>
@@ -168,9 +169,6 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

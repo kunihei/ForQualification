@@ -14,6 +14,21 @@ import FirebaseFirestore
 
 class SettingProblem: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var select1Label: UILabel!
+    @IBOutlet weak var select2Label: UILabel!
+    @IBOutlet weak var select3Label: UILabel!
+    @IBOutlet weak var select4Label: UILabel!
+    @IBOutlet weak var select5Label: UILabel!
+    @IBOutlet weak var select6Label: UILabel!
+    @IBOutlet weak var select7Label: UILabel!
+    @IBOutlet weak var select8Label: UILabel!
+    @IBOutlet weak var select9Label: UILabel!
+    @IBOutlet weak var select10Label: UILabel!
+    @IBOutlet weak var explanationLabel: UILabel!
+    @IBOutlet weak var selectsLabel: UILabel!
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var smallProblemLabel: UILabel!
+    @IBOutlet weak var problemLabel: UILabel!
     @IBOutlet weak var problemstatement: UITextView!
     @IBOutlet weak var problemImage: UIImageView!
     @IBOutlet weak var select1: UITextView!
@@ -28,9 +43,12 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     @IBOutlet weak var select10: UITextView!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var answerTextField: UITextView!
+    @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var settingView: UIView!
     
     private let userUid = Auth.auth().currentUser?.uid
     private var selectList:[UITextView] = []
+    private var selectLabelList:[UILabel] = []
     var documentId = String()
     var editFlag = false
     var problem = String()
@@ -44,6 +62,7 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         problemstatement.delegate = self
         navigationController?.isNavigationBarHidden = false
         selectList = [self.select1, self.select2, self.select3, self.select4, self.select5, self.select6, self.select7, self.select8, self.select9, self.select10]
+        selectLabelList = [select1Label, select2Label, select3Label, select4Label, select5Label, select6Label, select7Label, select8Label, select9Label, select10Label]
         // Do any additional setup after loading the view.
     }
     
@@ -52,10 +71,83 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         closeKeyboard(textView: problemstatement)
         closeKeyboard(textView: answerTextField)
         for i in 0..<selectList.count {
-            selectList[i].layer.cornerRadius = 5
             closeKeyboard(textView: selectList[i])
         }
         editProblem(editFlag: editFlag)
+        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+        else{ lightMode() }
+    }
+    
+    func darkMode() {
+        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        settingView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
+        
+        settingButton.setTitleColor(UIColor.white, for: .normal)
+        settingButton.layer.borderColor = UIColor.white.cgColor
+        settingButton.layer.shadowColor = UIColor.white.cgColor
+        
+        cameraBtn.setImage(UIImage(named: "カメラのアイコンWhite"), for: .normal)
+        
+        smallProblemLabel.textColor = UIColor.white
+        answerLabel.textColor = UIColor.white
+        selectsLabel.textColor = UIColor.white
+        explanationLabel.textColor = UIColor.white
+        problemLabel.textColor = UIColor.white
+        
+        problemstatement.textColor = UIColor.white
+        problemstatement.layer.borderColor = UIColor.white.cgColor
+        problemstatement.layer.shadowColor = UIColor.white.cgColor
+        problemstatement.backgroundColor = UIColor.darkGray
+        
+        answerTextField.textColor = UIColor.white
+        answerTextField.layer.borderColor = UIColor.white.cgColor
+        answerTextField.layer.shadowColor = UIColor.white.cgColor
+        answerTextField.backgroundColor = UIColor.darkGray
+        
+        for i in 0..<selectList.count {
+            selectList[i].textColor = UIColor.white
+            selectList[i].layer.borderColor = UIColor.white.cgColor
+            selectList[i].layer.shadowColor = UIColor.white.cgColor
+            selectList[i].backgroundColor = UIColor.darkGray
+            
+            selectLabelList[i].textColor = UIColor.white
+        }
+    }
+    
+    func lightMode() {
+        view.backgroundColor = UIColor.white
+        settingView.backgroundColor = UIColor.white
+        
+        settingButton.setTitleColor(UIColor.black, for: .normal)
+        settingButton.layer.borderColor = UIColor.black.cgColor
+        settingButton.layer.shadowColor = UIColor.black.cgColor
+        
+        cameraBtn.setImage(UIImage(named: "カメラのアイコン"), for: .normal)
+        
+        smallProblemLabel.textColor = UIColor.black
+        answerLabel.textColor = UIColor.black
+        selectsLabel.textColor = UIColor.black
+        explanationLabel.textColor = UIColor.black
+        problemLabel.textColor = UIColor.black
+        
+        problemstatement.textColor = UIColor.black
+        problemstatement.layer.borderColor = UIColor.black.cgColor
+        problemstatement.layer.shadowColor = UIColor.black.cgColor
+        problemstatement.backgroundColor = UIColor.lightGray
+        
+        answerTextField.textColor = UIColor.black
+        answerTextField.layer.borderColor = UIColor.black.cgColor
+        answerTextField.layer.shadowColor = UIColor.black.cgColor
+        answerTextField.backgroundColor = UIColor.lightGray
+        
+        for i in 0..<selectList.count {
+            selectList[i].textColor = UIColor.black
+            selectList[i].layer.borderColor = UIColor.black.cgColor
+            selectList[i].layer.shadowColor = UIColor.black.cgColor
+            selectList[i].backgroundColor = UIColor.lightGray
+            
+            selectLabelList[i].textColor = UIColor.black
+        }
     }
     
     // 更新画面作成

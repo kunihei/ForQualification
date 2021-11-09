@@ -17,7 +17,6 @@ class CustomTextView: UITextView {
     @IBInspectable var shadowRadius: CGFloat = 5.0
     
     // 枠
-    @IBInspectable var borderColor: UIColor = UIColor(named: "TextColor")!
     @IBInspectable var borderWidth: CGFloat = 1.0
     
     override func draw(_ rect: CGRect) {
@@ -26,13 +25,11 @@ class CustomTextView: UITextView {
         self.clipsToBounds = (cornerRadius > 0)
         
         // 影
-        self.layer.shadowColor = UIColor(named: "TextColor")?.cgColor
         self.layer.shadowOpacity = Float(shadowOpacity)
         self.layer.shadowRadius = shadowRadius
         self.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
         
         // 枠線
-        self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
         
         super.draw(rect)

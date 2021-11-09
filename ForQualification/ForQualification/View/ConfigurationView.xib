@@ -5,12 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConfigurationView" customModule="ForQualification" customModuleProvider="target">
             <connections>
+                <outlet property="configurationLabel" destination="vYj-8V-Teq" id="snK-Gz-EZO"/>
+                <outlet property="darkModeLabel" destination="ozw-EO-IUr" id="fTE-ew-sW3"/>
+                <outlet property="darkSwitch" destination="CbQ-Rj-i5J" id="j1B-VV-5Pv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,10 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-8V-Teq">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vYj-8V-Teq">
                     <rect key="frame" x="20" y="44" width="374" height="76"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="374" id="AX0-Ea-OX4"/>
+                        <constraint firstAttribute="height" constant="76" id="sjt-sj-Bpe"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
@@ -44,20 +49,39 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ダークモード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozw-EO-IUr">
-                    <rect key="frame" x="20" y="128" width="162" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ダークモード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozw-EO-IUr">
+                    <rect key="frame" x="71" y="149" width="162" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="162" id="YeZ-eR-eYH"/>
+                        <constraint firstAttribute="height" constant="31" id="gjZ-vM-zbV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                     <color key="textColor" name="TextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJj-bb-Yig">
-                    <rect key="frame" x="285" y="136" width="49" height="31"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CbQ-Rj-i5J">
+                    <rect key="frame" x="296" y="149" width="49" height="31"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="31" id="hdE-qw-qhD"/>
+                        <constraint firstAttribute="width" constant="47" id="sN2-la-vFd"/>
+                    </constraints>
+                    <connections>
+                        <action selector="darkModeSwitch:" destination="-1" eventType="valueChanged" id="X9V-2e-eMJ"/>
+                    </connections>
                 </switch>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vYj-8V-Teq" secondAttribute="trailing" constant="20" id="4ta-Kf-dp6"/>
+                <constraint firstItem="ozw-EO-IUr" firstAttribute="top" secondItem="vYj-8V-Teq" secondAttribute="bottom" constant="29" id="BTu-Kg-Skv"/>
+                <constraint firstItem="vYj-8V-Teq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="IxI-38-hy1"/>
+                <constraint firstItem="ozw-EO-IUr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="71" id="Jxz-fk-QNB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CbQ-Rj-i5J" secondAttribute="trailing" constant="71" id="KPO-os-UP7"/>
+                <constraint firstItem="CbQ-Rj-i5J" firstAttribute="leading" secondItem="ozw-EO-IUr" secondAttribute="trailing" constant="63" id="LQg-Bx-uwS"/>
+                <constraint firstItem="CbQ-Rj-i5J" firstAttribute="top" secondItem="vYj-8V-Teq" secondAttribute="bottom" constant="29" id="cNl-GA-wGt"/>
+                <constraint firstItem="vYj-8V-Teq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="hhy-UC-HjK"/>
+            </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="93.75"/>
         </view>
     </objects>
@@ -65,8 +89,5 @@
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
