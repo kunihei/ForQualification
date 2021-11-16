@@ -99,7 +99,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     }
     
     private func trackingAlert() {
-        if #available(iOS 14, *) {
+        if #available(iOS 15, *) {
             switch ATTrackingManager.trackingAuthorizationStatus {
             case .authorized:
                 print("Allow Tracking")
@@ -125,7 +125,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     
     ///Alert表示
     private func showRequestTrackingAuthorizationAlert() {
-        if #available(iOS 14, *) {
+        if #available(iOS 15, *) {
             ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
                 switch status {
                 case .authorized:

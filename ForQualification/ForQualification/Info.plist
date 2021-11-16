@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSUserTrackingUsageDescription</key>
-	<string>表示する広告を適切に選択するために使用します。</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -30,6 +28,8 @@
 	<string>問題文や画像を使用した問題の登録の際にカメラを使用します。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>問題文や画像を使用した問題の登録の際にアルバムを使用します。</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>表示する広告を適切に選択するために使用します。</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
