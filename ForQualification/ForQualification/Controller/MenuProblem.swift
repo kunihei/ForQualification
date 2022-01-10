@@ -13,6 +13,7 @@ import AppTrackingTransparency
 
 class MenuProblem: UIViewController, GADBannerViewDelegate {
     
+    // 変数一覧
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var challengeButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
