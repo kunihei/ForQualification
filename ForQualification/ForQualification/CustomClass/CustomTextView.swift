@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class CustomTextView: UITextView {
     
     // 角丸の半径(0で四角形)

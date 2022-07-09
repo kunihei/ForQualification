@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class CustomLabel: UILabel {
     @IBInspectable var cornerRadius: CGFloat = 10.0
     // 影

@@ -7,31 +7,68 @@
 
 import UIKit
 
+@IBDesignable
 class CustomButton: UIButton {
     
     // 角丸の半径(0で四角形)
-    @IBInspectable var cornerRadius: CGFloat = 10.0
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+        }
+    }
     
     // 影
-    @IBInspectable var shadowOpacity: CGFloat = 0.3
-    @IBInspectable var shadowRadius: CGFloat = 5.0
+    @IBInspectable var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
+        }
+    }
+    @IBInspectable var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+    @IBInspectable var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
+    }
+    @IBInspectable var shadowColor: UIColor? {
+        get {
+            if let color = layer.shadowColor {
+                return UIColor(cgColor: color)
+            }
+            return nil
+        }
+        set {
+            if let color = newValue {
+                layer.shadowColor = color.cgColor
+            } else {
+                layer.shadowColor = nil
+            }
+        }
+    }
     
     // 枠
-    @IBInspectable var borderWidth: CGFloat = 1.0
-    
-    override func draw(_ rect: CGRect) {
-        // 角丸
-        self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = (cornerRadius > 0)
-        
-        // 影
-        self.layer.shadowOpacity = Float(shadowOpacity)
-        self.layer.shadowRadius = shadowRadius
-        self.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
-        
-        // 枠線
-        self.layer.borderWidth = borderWidth
-        super.draw(rect)
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
     }
 }
 

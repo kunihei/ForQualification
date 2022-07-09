@@ -23,6 +23,7 @@
 		BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
+		BA50B39928790EF7002DC613 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA50B39828790EF7002DC613 /* Color.xcassets */; };
 		BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
 		BA51F0E9272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
 		BA51F0F22724508100F2EEEC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51F0F02724508100F2EEEC /* SignUpView.swift */; };
@@ -106,6 +107,7 @@
 		BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem_AnswerModel.swift; sourceTree = "<group>"; };
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BA50B39828790EF7002DC613 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		BA51F0E5272233F400F2EEEC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		BA51F0F02724508100F2EEEC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		BA51F0F12724508100F2EEEC /* SignUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpView.xib; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				BAD7047D26EC40DD00508AE7 /* View */,
 				BAD7048226EC427200508AE7 /* Controller */,
 				BA09FC1E26E4446F006BEAD8 /* Assets.xcassets */,
+				BA50B39828790EF7002DC613 /* Color.xcassets */,
 				BA09FC2026E4446F006BEAD8 /* LaunchScreen.storyboard */,
 				BA09FC2326E4446F006BEAD8 /* Info.plist */,
 				BAD704E426EDDD4500508AE7 /* GoogleService-Info.plist */,
@@ -411,6 +414,7 @@
 			files = (
 				BAD7048A26EC610600508AE7 /* SettingProblem.xib in Resources */,
 				BA8125EF272D7BBA007E9ED0 /* ConfigurationView.xib in Resources */,
+				BA50B39928790EF7002DC613 /* Color.xcassets in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
 				BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */,
