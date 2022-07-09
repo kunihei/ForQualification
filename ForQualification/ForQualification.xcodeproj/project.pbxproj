@@ -23,6 +23,7 @@
 		BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */; };
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
+		BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA13A5FA2879E9A0009AEEFE /* CustomView.swift */; };
 		BA50B39928790EF7002DC613 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA50B39828790EF7002DC613 /* Color.xcassets */; };
 		BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
 		BA51F0E9272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
@@ -107,6 +108,7 @@
 		BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem_AnswerModel.swift; sourceTree = "<group>"; };
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		BA13A5FA2879E9A0009AEEFE /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BA50B39828790EF7002DC613 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		BA51F0E5272233F400F2EEEC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		BA51F0F02724508100F2EEEC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				BA0E33EA27048E78002A3A48 /* CustomButton.swift */,
 				BA53D7832718EEE900DC820F /* CustomTextView.swift */,
 				BA53D7852718F1C500DC820F /* CustomLabel.swift */,
+				BA13A5FA2879E9A0009AEEFE /* CustomView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -575,6 +578,7 @@
 				BA53D7862718F1C500DC820F /* CustomLabel.swift in Sources */,
 				BA8125ED272D7BBA007E9ED0 /* ConfigurationView.swift in Sources */,
 				BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */,
+				BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */,
 				BAF68F0B2711D04000BF1CA3 /* UpdateProblem.swift in Sources */,
 				BAD7048926EC610600508AE7 /* SettingProblem.swift in Sources */,
 				BAD7049B26ECA79600508AE7 /* EditProblem.swift in Sources */,
