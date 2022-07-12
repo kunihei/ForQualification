@@ -19,7 +19,7 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bannerView.adUnitID = "ca-app-pub-3279976203462809/1649822190"
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"//"ca-app-pub-3279976203462809/1649822190"
         bannerView.rootViewController = self
         bannerView.delegate = self
         

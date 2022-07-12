@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -110,7 +109,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dg-Y3-IuL" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="7fd-hH-l4f"/>
                                                         <constraint firstAttribute="height" constant="80" id="faJ-bi-RtT"/>
@@ -153,7 +152,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyZ-g2-NoT" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="ngi-vr-IEy"/>
                                                         <constraint firstAttribute="width" constant="340" id="sbe-Mx-F7q"/>
@@ -196,7 +195,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejo-UP-zPn" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="em7-Sz-hh0"/>
                                                         <constraint firstAttribute="height" constant="80" id="qjK-Ur-o2y"/>
@@ -239,7 +238,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTW-kk-Kwm" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="EAm-iG-RgN"/>
                                                         <constraint firstAttribute="height" constant="80" id="jAz-fr-Ayo"/>
@@ -282,7 +281,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcA-7F-ljN" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Cbj-f2-KSU"/>
                                                         <constraint firstAttribute="width" constant="340" id="zuw-fA-DYP"/>
@@ -325,7 +324,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRC-bY-JE0" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="ece-fs-mTb"/>
                                                         <constraint firstAttribute="width" constant="340" id="noj-h1-M7i"/>
@@ -368,7 +367,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFd-iv-eA5" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="KOX-Qb-xvS"/>
                                                         <constraint firstAttribute="height" constant="80" id="pEc-FQ-sfD"/>
@@ -411,7 +410,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VJe-X1-RMw" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="1nx-w3-fNU"/>
                                                         <constraint firstAttribute="width" constant="340" id="5ln-bg-l6O"/>
@@ -454,7 +453,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0t8-eR-0yI" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="Abw-CF-TKd"/>
                                                         <constraint firstAttribute="height" constant="80" id="LaW-2M-l1B"/>
@@ -497,7 +496,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2WZ-g4-p22" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                                     <rect key="frame" x="58" y="0.0" width="340" height="80"/>
-                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="backgroundColor" name="TextFieldBackColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="340" id="Qs7-oi-wSV"/>
                                                         <constraint firstAttribute="height" constant="80" id="ahn-GU-ZZB"/>
@@ -543,7 +542,7 @@
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNr-aq-bTq" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="54" width="398" height="128"/>
-                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            <color key="backgroundColor" name="TextFieldBackColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="398" id="Kmc-c9-65a"/>
                                                 <constraint firstAttribute="height" constant="128" id="YwJ-Lx-mpt"/>
@@ -590,7 +589,7 @@
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JgI-bX-yLN" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="51" width="398" height="165"/>
-                                            <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            <color key="backgroundColor" name="TextFieldBackColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="398" id="EgL-BZ-iPP"/>
                                                 <constraint firstAttribute="height" constant="165" id="n96-vE-FDf"/>
@@ -621,6 +620,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZzA-Kz-F3r">
                                                     <rect key="frame" x="0.0" y="0.0" width="398" height="268"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="268" id="CD5-Cm-JXx"/>
                                                         <constraint firstAttribute="width" constant="398" id="O6b-1T-JVw"/>
@@ -706,13 +706,19 @@
                             <real key="value" value="0.29999999999999999"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="value" name="ShadowColor"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
                             <size key="value" width="5" height="5"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
                             <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color1">
+                            <color key="value" name="DecideStartColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                            <color key="value" name="DecideEndColor"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
@@ -750,11 +756,20 @@
         <namedColor name="BackgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="DecideEndColor">
+            <color red="1" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="DecideStartColor">
+            <color red="1" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ShadowColor">
+            <color red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TextColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="TextFieldBackColor">
+            <color red="0.8784313725490196" green="0.93725490196078431" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

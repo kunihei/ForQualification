@@ -12,7 +12,6 @@ class CustomButton: UIButton {
     
     @IBInspectable var color1: UIColor = UIColor.white
     @IBInspectable var color2: UIColor = UIColor.lightGray
-    @IBInspectable var gradientCornerRadius: CGFloat = 0
     @IBInspectable var position1: CGPoint = CGPoint(x: 0.5, y: 0)
     @IBInspectable var position2: CGPoint = CGPoint(x: 0.5, y: 1)
     override func draw(_ rect: CGRect) {
@@ -25,7 +24,7 @@ class CustomButton: UIButton {
         
         gradientLayer.startPoint = position1
         gradientLayer.endPoint = position2
-        gradientLayer.cornerRadius = gradientCornerRadius
+        gradientLayer.cornerRadius = self.layer.cornerRadius
         
         self.layer.insertSublayer(gradientLayer, at: 0)
     }

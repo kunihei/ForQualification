@@ -24,6 +24,8 @@
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
 		BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA13A5FA2879E9A0009AEEFE /* CustomView.swift */; };
+		BA466DAD287B0B83002F28CD /* ProblemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA466DAB287B0B83002F28CD /* ProblemCell.swift */; };
+		BA466DAE287B0B83002F28CD /* ProblemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA466DAC287B0B83002F28CD /* ProblemCell.xib */; };
 		BA50B39928790EF7002DC613 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA50B39828790EF7002DC613 /* Color.xcassets */; };
 		BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
 		BA51F0E9272233F400F2EEEC /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA51F0E5272233F400F2EEEC /* LoginView.xib */; };
@@ -109,6 +111,8 @@
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BA13A5FA2879E9A0009AEEFE /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		BA466DAB287B0B83002F28CD /* ProblemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemCell.swift; sourceTree = "<group>"; };
+		BA466DAC287B0B83002F28CD /* ProblemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemCell.xib; sourceTree = "<group>"; };
 		BA50B39828790EF7002DC613 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		BA51F0E5272233F400F2EEEC /* LoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		BA51F0F02724508100F2EEEC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -273,6 +277,7 @@
 				BA51F0E5272233F400F2EEEC /* LoginView.xib */,
 				BA51F0F12724508100F2EEEC /* SignUpView.xib */,
 				BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */,
+				BA466DAC287B0B83002F28CD /* ProblemCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 		BAD7048226EC427200508AE7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA466DAB287B0B83002F28CD /* ProblemCell.swift */,
 				BA8125EB272D7BBA007E9ED0 /* ConfigurationView.swift */,
 				BA51F0F02724508100F2EEEC /* SignUpView.swift */,
 				BAD7049926ECA79600508AE7 /* EditProblem.swift */,
@@ -420,6 +426,7 @@
 				BA50B39928790EF7002DC613 /* Color.xcassets in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
+				BA466DAE287B0B83002F28CD /* ProblemCell.xib in Resources */,
 				BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */,
 				BA09FC1F26E4446F006BEAD8 /* Assets.xcassets in Resources */,
 				BA51F0F42724508100F2EEEC /* SignUpView.xib in Resources */,
@@ -588,6 +595,7 @@
 				BA51F0F22724508100F2EEEC /* SignUpView.swift in Sources */,
 				BA0E33DE26FE9C94002A3A48 /* CreateProblem.swift in Sources */,
 				BA53D7842718EEE900DC820F /* CustomTextView.swift in Sources */,
+				BA466DAD287B0B83002F28CD /* ProblemCell.swift in Sources */,
 				BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */,
 				BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */,
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
@@ -798,7 +806,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shouhei.ForQualification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -821,7 +829,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.3;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shouhei.ForQualification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

@@ -10,7 +10,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class EditProblem: UIViewController {
 
     @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -24,7 +24,9 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "ProblemCell", bundle: nil), forCellReuseIdentifier: "ProblemCell")
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -37,8 +39,6 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         getProblemSelectList.problemSelectEmptyDelete = []
         getProblemSelectList.getProblemSelect()
         getProblemList.getProblemList()
-        tableView.delegate = self
-        tableView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +71,41 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         menuBackButton.layer.shadowColor = UIColor.black.cgColor
     }
     
+    func moveSettingView(index: Int) {
+        self.getProblemSelectList.selectEmptyDelete(problemCount: index)
+        let settingView = SettingProblem()
+        settingView.editFlag = true
+        settingView.documentId = self.problemList[index].documentID
+        settingView.problem = self.problemList[index].problem
+        settingView.problemImageData = self.problemList[index].problemImageData
+        settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
+        settingView.answer = self.problemList[index].answer
+        settingView.createAt = self.problemList[index].createAt
+        self.navigationController?.pushViewController(settingView, animated: true)
+    }
+    
+    @IBAction func menuBackButton(_ sender: Any) {
+        menuBackButton.pulsate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let menuView = storyBoard.instantiateViewController(withIdentifier: "main")
+            self.navigationController?.pushViewController(menuView, animated: true)
+        }
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+extension EditProblem: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
         //削除処理
@@ -95,17 +130,7 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
         
         let editAction = UIContextualAction(style: .normal, title: "編集") { (action, view, completionHandler) in
-            self.getProblemSelectList.selectEmptyDelete(problemCount: indexPath.row)
-            let settingView = SettingProblem()
-            settingView.editFlag = true
-            settingView.documentId = self.problemList[indexPath.row].documentID
-            settingView.problem = self.problemList[indexPath.row].problem
-            settingView.problemImageData = self.problemList[indexPath.row].problemImageData
-            settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
-            settingView.answer = self.problemList[indexPath.row].answer
-            settingView.createAt = self.problemList[indexPath.row].createAt
-            self.navigationController?.pushViewController(settingView, animated: true)
-            
+            self.moveSettingView(index: indexPath.row)
             completionHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
@@ -116,39 +141,22 @@ class EditProblem: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.numberOfLines = 0
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 20)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProblemCell", for: indexPath) as! ProblemCell
+        cell.setCell(problem: problemList[indexPath.row])
         cell.selectionStyle = .none
-        cell.textLabel?.text = problemList[indexPath.row].problem
-        
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true {
-            cell.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
-            cell.textLabel?.textColor = UIColor.white
-        } else {
-            cell.backgroundColor = UIColor.white
-            cell.textLabel?.textColor = UIColor.black
-        }
         
         return cell
     }
-    @IBAction func menuBackButton(_ sender: Any) {
-        menuBackButton.pulsate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let menuView = storyBoard.instantiateViewController(withIdentifier: "main")
-            self.navigationController?.pushViewController(menuView, animated: true)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        let cell = self.tableView.cellForRow(at: indexPath) as! ProblemCell
+        UIView.animate(withDuration: 0.2) {
+            cell.tapGestureView.alpha = 0.5
+        } completion: { result in
+            cell.tapGestureView.alpha = 0.0
+            self.moveSettingView(index: indexPath.row)
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
