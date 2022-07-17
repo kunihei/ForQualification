@@ -40,9 +40,9 @@ class ChallengeProblem: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-        else { lightMode() }
+        navigationController?.isNavigationBarHidden = true
+//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+//        else { lightMode() }
         HUD.show(.progress)
         problemList = []
         selectTextView.isEditable = false
@@ -168,7 +168,11 @@ class ChallengeProblem: UIViewController {
         selectTextView.inputView = .none
         selectTextView.inputAccessoryView = .none
     }
-
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func answerButton(_ sender: Any) {
         if selectTextView.text == "ここをタッチして正解を選んでください！" {
             let alert: UIAlertController = UIAlertController(title: "未選択", message: "選択肢から答えを選んで下さい！", preferredStyle: UIAlertController.Style.alert)
@@ -235,6 +239,10 @@ class ChallengeProblem: UIViewController {
             resultView.correctAnswerCount = correctAnswerCount
             resultView.incorrectAnswerCount = incorrectAnswerCount
             resultView.averageTotal = Int(averageTotal)
+            let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            backItem.tintColor = .black
+            navigationItem.backBarButtonItem = backItem
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
             navigationController?.pushViewController(resultView, animated: true)
         }
     }

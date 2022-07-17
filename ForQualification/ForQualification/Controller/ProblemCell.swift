@@ -31,6 +31,8 @@ class ProblemCell: UITableViewCell {
         answerLabel.text = problem.answer
         if problem.problemImageData != "" {
             problemImageView.sd_setImage(with: URL(string: problem.problemImageData))
+        } else {
+            problemImageView.image = UIImage(named: "no_image")
         }
     }
     

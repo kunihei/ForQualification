@@ -16,8 +16,6 @@
                 <outlet property="correctLabel" destination="cCK-Ko-Lao" id="C4l-8t-Ut0"/>
                 <outlet property="incorrectAnswerCountLabel" destination="jEX-P0-7vU" id="qCA-sq-dJI"/>
                 <outlet property="incorrectLabel" destination="OwA-TF-3Tc" id="I2B-iJ-yK9"/>
-                <outlet property="menuBackBtn" destination="ydb-M9-KIp" id="Tmy-HW-0lN"/>
-                <outlet property="resulutLabel" destination="Any-UC-SSS" id="s4I-2L-5dA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,65 +24,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採点結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Any-UC-SSS">
-                    <rect key="frame" x="20" y="44" width="374" height="75"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="374" id="Fwn-fd-hHt"/>
-                        <constraint firstAttribute="height" constant="75" id="b5H-LV-aao"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                    <color key="textColor" name="TextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydb-M9-KIp" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                    <rect key="frame" x="100" y="652" width="214" height="77"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="77" id="Wos-6z-MqM"/>
-                        <constraint firstAttribute="width" constant="214" id="cpt-db-Ehu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
-                    <state key="normal" title="メニューに戻る">
-                        <color key="titleColor" name="TextColor"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="TextColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                            <real key="value" value="0.29999999999999999"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                            <size key="value" width="5" height="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" name="ShadowColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color1">
-                            <color key="value" name="BackStartColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color2">
-                            <color key="value" name="BackEndColor"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="menuBack:" destination="-1" eventType="touchUpInside" id="ML1-ih-qVf"/>
-                    </connections>
-                </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="cJp-zA-e3c">
-                    <rect key="frame" x="43" y="203" width="329" height="235"/>
+                    <rect key="frame" x="43" y="330.5" width="329" height="235"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UdX-LN-Cqc">
                             <rect key="frame" x="0.0" y="0.0" width="329" height="57"/>
@@ -96,7 +37,7 @@
                                         <constraint firstAttribute="height" constant="57" id="yMT-A5-Sb0"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0問" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-ag-8gh">
@@ -106,7 +47,7 @@
                                         <constraint firstAttribute="height" constant="57" id="Zs7-em-Civ"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -125,7 +66,7 @@
                                         <constraint firstAttribute="width" constant="185" id="KzM-o3-aMh"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0問" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jEX-P0-7vU">
@@ -135,7 +76,7 @@
                                         <constraint firstAttribute="height" constant="57" id="Jxa-ua-AVf"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -154,7 +95,7 @@
                                         <constraint firstAttribute="width" constant="185" id="aIM-nc-Izz"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0a-7W-Lyc">
@@ -164,7 +105,7 @@
                                         <constraint firstAttribute="width" constant="136" id="zim-em-zOp"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
-                                    <color key="textColor" name="TextColor"/>
+                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
@@ -178,43 +119,84 @@
                         <constraint firstAttribute="height" constant="235" id="z41-AM-nVs"/>
                     </constraints>
                 </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="採点結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNv-jU-2Eq">
+                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-YF-ztx" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
+                    <rect key="frame" x="134.5" y="665.5" width="145" height="51"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="145" id="JFK-16-5XE"/>
+                        <constraint firstAttribute="height" constant="51" id="zTp-xq-f1b"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="トップに戻る">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="0.29999999999999999"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                            <color key="value" name="ShadowColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color1">
+                            <color key="value" name="DecideStartColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                            <color key="value" name="DecideEndColor"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="topButton:" destination="-1" eventType="touchUpInside" id="IMc-KF-Z6k"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="BackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ydb-M9-KIp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="8M3-hp-VNu"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Any-UC-SSS" secondAttribute="trailing" constant="20" id="Hlj-i9-DMN"/>
-                <constraint firstItem="cJp-zA-e3c" firstAttribute="top" secondItem="Any-UC-SSS" secondAttribute="bottom" constant="84" id="K2F-Y8-KQ3"/>
-                <constraint firstAttribute="bottom" secondItem="ydb-M9-KIp" secondAttribute="bottom" constant="167" id="PhC-Br-vKc"/>
+                <constraint firstItem="KZo-YF-ztx" firstAttribute="top" secondItem="cJp-zA-e3c" secondAttribute="bottom" constant="100" id="HCu-Ai-ECg"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cJp-zA-e3c" secondAttribute="trailing" constant="42" id="Xtd-G2-A0R"/>
-                <constraint firstItem="Any-UC-SSS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="aNs-Me-rkK"/>
+                <constraint firstItem="KZo-YF-ztx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bts-BW-WPI"/>
                 <constraint firstItem="cJp-zA-e3c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="ci0-JU-Cvv"/>
-                <constraint firstItem="Any-UC-SSS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="pua-tV-WN3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ydb-M9-KIp" secondAttribute="trailing" constant="100" id="tNp-bc-z50"/>
+                <constraint firstItem="cJp-zA-e3c" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="eKr-2L-boo"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>
     </objects>
     <designables>
-        <designable name="ydb-M9-KIp">
-            <size key="intrinsicContentSize" width="178" height="42"/>
+        <designable name="KZo-YF-ztx">
+            <size key="intrinsicContentSize" width="123" height="36"/>
         </designable>
     </designables>
     <resources>
-        <namedColor name="BackEndColor">
-            <color red="1" green="0.74901960784313726" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="DecideEndColor">
+            <color red="1" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="BackStartColor">
-            <color red="1" green="0.9882352941176471" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="DecideStartColor">
+            <color red="1" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ShadowColor">
             <color red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -3,16 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
-                <outlet property="editLabel" destination="7cj-qH-i6B" id="hAv-b5-oGt"/>
-                <outlet property="menuBackButton" destination="RYd-6T-Hvr" id="4Ab-wD-vJh"/>
                 <outlet property="tableView" destination="ZZu-Jn-aY5" id="9lq-Qu-lAa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,115 +18,22 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="問題編集・削除" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cj-qH-i6B">
-                    <rect key="frame" x="20" y="44" width="374" height="76"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="374" id="20v-5i-ROd"/>
-                        <constraint firstAttribute="height" constant="76" id="buo-gT-Ghu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                    <color key="textColor" name="TextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-Jn-aY5">
-                    <rect key="frame" x="0.0" y="128" width="414" height="676"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="414" id="240-qf-X9e"/>
-                        <constraint firstAttribute="height" constant="676" id="V1J-DJ-DD0"/>
-                    </constraints>
-                    <color key="sectionIndexColor" name="TextColor"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYd-6T-Hvr" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                    <rect key="frame" x="101" y="812" width="212" height="50"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="212" id="f7b-Uh-Kte"/>
-                        <constraint firstAttribute="height" constant="50" id="o1g-Lu-sue"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="メニューに戻る">
-                        <color key="titleColor" name="TextColor"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                            <real key="value" value="0.29999999999999999"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="TextColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" name="ShadowColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                            <size key="value" width="5" height="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color1">
-                            <color key="value" name="BackStartColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color2">
-                            <color key="value" name="BackEndColor"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="menuBackButton:" destination="-1" eventType="touchUpInside" id="NW7-bW-4tY"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="BackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2TY-rF-rtz"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RYd-6T-Hvr" secondAttribute="trailing" constant="101" id="HzV-FH-Bqy"/>
-                <constraint firstItem="7cj-qH-i6B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="IEH-Bi-CBX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7cj-qH-i6B" secondAttribute="trailing" constant="20" id="KFi-MV-VDw"/>
-                <constraint firstAttribute="bottom" secondItem="RYd-6T-Hvr" secondAttribute="bottom" constant="34" id="V1l-Io-bq7"/>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="VDf-2I-zQZ"/>
-                <constraint firstItem="7cj-qH-i6B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="W1q-9B-I9g"/>
-                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="top" secondItem="7cj-qH-i6B" secondAttribute="bottom" constant="8" symbolic="YES" id="ede-mx-ocd"/>
-                <constraint firstItem="RYd-6T-Hvr" firstAttribute="top" secondItem="ZZu-Jn-aY5" secondAttribute="bottom" constant="8" symbolic="YES" id="lbM-WS-7Uk"/>
-                <constraint firstItem="RYd-6T-Hvr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="101" id="naD-d0-bmk"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CXY-5e-NmS"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="N26-nr-t0G"/>
+                <constraint firstAttribute="bottom" secondItem="ZZu-Jn-aY5" secondAttribute="bottom" id="cVd-t7-4WY"/>
+                <constraint firstItem="ZZu-Jn-aY5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gAw-Ci-JAx"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
-    <designables>
-        <designable name="RYd-6T-Hvr">
-            <size key="intrinsicContentSize" width="143" height="36"/>
-        </designable>
-    </designables>
-    <resources>
-        <namedColor name="BackEndColor">
-            <color red="1" green="0.74901960784313726" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BackStartColor">
-            <color red="1" green="0.9882352941176471" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="ShadowColor">
-            <color red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

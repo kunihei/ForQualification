@@ -43,8 +43,8 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     @IBOutlet weak var select10: UITextView!
     @IBOutlet weak var settingButton: UIButton!
     @IBOutlet weak var answerTextField: UITextView!
-    @IBOutlet weak var cameraBtn: UIButton!
     @IBOutlet weak var settingView: UIView!
+    @IBOutlet weak var photoExplanationLabel: UILabel!
     
     private let userUid = Auth.auth().currentUser?.uid
     private var selectList:[UITextView] = []
@@ -59,6 +59,8 @@ class SettingProblem: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "問題登録"
+        photoExplanationLabel.text = "ここをタップして\n画像を選択してください"
         problemstatement.delegate = self
         navigationController?.isNavigationBarHidden = false
         selectList = [self.select1, self.select2, self.select3, self.select4, self.select5, self.select6, self.select7, self.select8, self.select9, self.select10]
@@ -74,8 +76,8 @@ class SettingProblem: UIViewController, UITextViewDelegate {
             closeKeyboard(textView: selectList[i])
         }
         editProblem(editFlag: editFlag)
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-        else{ lightMode() }
+//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+//        else{ lightMode() }
     }
     
     func darkMode() {
@@ -85,8 +87,6 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         settingButton.setTitleColor(UIColor.white, for: .normal)
         settingButton.layer.borderColor = UIColor.white.cgColor
         settingButton.layer.shadowColor = UIColor.white.cgColor
-        
-        cameraBtn.setImage(UIImage(named: "カメラのアイコンWhite"), for: .normal)
         
         smallProblemLabel.textColor = UIColor.white
         answerLabel.textColor = UIColor.white
@@ -121,8 +121,6 @@ class SettingProblem: UIViewController, UITextViewDelegate {
         settingButton.setTitleColor(UIColor.black, for: .normal)
         settingButton.layer.borderColor = UIColor.black.cgColor
         settingButton.layer.shadowColor = UIColor.black.cgColor
-        
-        cameraBtn.setImage(UIImage(named: "カメラのアイコン"), for: .normal)
         
         smallProblemLabel.textColor = UIColor.black
         answerLabel.textColor = UIColor.black
@@ -352,12 +350,9 @@ class SettingProblem: UIViewController, UITextViewDelegate {
             }
         }
     }
-    
-    @IBAction func photoButton(_ sender: Any) {
+    @IBAction func tapPhoto(_ sender: Any) {
         showAlert()
     }
-    
-    
     
     /*
      // MARK: - Navigation

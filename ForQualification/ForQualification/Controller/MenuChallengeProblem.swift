@@ -10,15 +10,14 @@ import UIKit
 
 class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
     
-    @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var nomalButton: CustomButton!
     @IBOutlet weak var shuffleButton: CustomButton!
-    @IBOutlet weak var menuBackButton: CustomButton!
     @IBOutlet weak var bannerView: GADBannerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "モード選択"
         bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"//"ca-app-pub-3279976203462809/1649822190"
         bannerView.rootViewController = self
         bannerView.delegate = self
@@ -29,10 +28,9 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
         
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-        else { lightMode() }
+//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+//        else { lightMode() }
     }
     
     @IBAction func nomalButton(_ sender: Any) {
@@ -50,15 +48,6 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         }
     }
     
-    @IBAction func menuBackButton(_ sender: Any) {
-        menuBackButton.pulsate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let menuView = storyBoard.instantiateViewController(withIdentifier: "main")
-            self.navigationController?.pushViewController(menuView, animated: true)
-        }
-    }
-    
     func darkMode() {
         view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
         
@@ -69,12 +58,6 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         shuffleButton.setTitleColor(UIColor.white, for: .normal)
         shuffleButton.layer.borderColor = UIColor.white.cgColor
         shuffleButton.layer.shadowColor = UIColor.white.cgColor
-        
-        menuBackButton.setTitleColor(UIColor.white, for: .normal)
-        menuBackButton.layer.borderColor = UIColor.white.cgColor
-        menuBackButton.layer.shadowColor = UIColor.white.cgColor
-        
-        modeLabel.textColor = .white
     }
     
     func lightMode() {
@@ -87,12 +70,6 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         shuffleButton.setTitleColor(UIColor.black, for: .normal)
         shuffleButton.layer.borderColor = UIColor.black.cgColor
         shuffleButton.layer.shadowColor = UIColor.black.cgColor
-        
-        menuBackButton.setTitleColor(UIColor.black, for: .normal)
-        menuBackButton.layer.borderColor = UIColor.black.cgColor
-        menuBackButton.layer.shadowColor = UIColor.black.cgColor
-        
-        modeLabel.textColor = .black
     }
     /*
      // MARK: - Navigation

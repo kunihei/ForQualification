@@ -12,10 +12,8 @@ import FirebaseStorage
 
 class EditProblem: UIViewController {
 
-    @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var menuBackButton: CustomButton!
-    
+
     private let getProblemList = GetProblem_Answer()
     private let getProblemSelectList = GetProblemSelect()
     private let userUid = Auth.auth().currentUser?.uid
@@ -24,6 +22,7 @@ class EditProblem: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "問題編集・削除"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "ProblemCell", bundle: nil), forCellReuseIdentifier: "ProblemCell")
@@ -31,9 +30,8 @@ class EditProblem: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-        else { lightMode() }
+//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+//        else { lightMode() }
         getProblemList.problemList = []
         problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
@@ -51,24 +49,12 @@ class EditProblem: UIViewController {
         view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
         tableView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
         tableView.separatorColor = UIColor.white
-        
-        editLabel.textColor = UIColor.white
-        
-        menuBackButton.setTitleColor(UIColor.white, for: .normal)
-        menuBackButton.layer.borderColor = UIColor.white.cgColor
-        menuBackButton.layer.shadowColor = UIColor.white.cgColor
     }
     
     func lightMode() {
         view.backgroundColor = UIColor.white
         tableView.backgroundColor = UIColor.white
         tableView.separatorColor = UIColor.black
-        
-        editLabel.textColor = UIColor.black
-        
-        menuBackButton.setTitleColor(UIColor.black, for: .normal)
-        menuBackButton.layer.borderColor = UIColor.black.cgColor
-        menuBackButton.layer.shadowColor = UIColor.black.cgColor
     }
     
     func moveSettingView(index: Int) {
@@ -82,15 +68,6 @@ class EditProblem: UIViewController {
         settingView.answer = self.problemList[index].answer
         settingView.createAt = self.problemList[index].createAt
         self.navigationController?.pushViewController(settingView, animated: true)
-    }
-    
-    @IBAction func menuBackButton(_ sender: Any) {
-        menuBackButton.pulsate()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let menuView = storyBoard.instantiateViewController(withIdentifier: "main")
-            self.navigationController?.pushViewController(menuView, animated: true)
-        }
     }
     
     /*
@@ -142,6 +119,7 @@ extension EditProblem: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProblemCell", for: indexPath) as! ProblemCell
+        print("kuni_problemList: \(problemList)")
         cell.setCell(problem: problemList[indexPath.row])
         cell.selectionStyle = .none
         

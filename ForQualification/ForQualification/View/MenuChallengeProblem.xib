@@ -12,8 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuChallengeProblem" customModule="ForQualification" customModuleProvider="target">
             <connections>
                 <outlet property="bannerView" destination="8tA-WT-LF6" id="81x-Gi-eMF"/>
-                <outlet property="menuBackButton" destination="4Bl-Y2-Anq" id="E9S-vP-aqp"/>
-                <outlet property="modeLabel" destination="FL2-zP-sWB" id="sYo-Rw-6F2"/>
                 <outlet property="nomalButton" destination="vwa-BE-MPr" id="sv4-cA-tyk"/>
                 <outlet property="shuffleButton" destination="kMB-zl-Iw6" id="LJV-eu-5Wh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,61 +22,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="モード選択" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FL2-zP-sWB">
-                    <rect key="frame" x="20" y="44" width="374" height="77"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="77" id="Ba8-mK-31B"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                    <color key="textColor" name="TextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Bl-Y2-Anq" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                    <rect key="frame" x="74" y="701" width="267" height="70"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="267" id="6r8-7k-ab0"/>
-                        <constraint firstAttribute="height" constant="70" id="9WC-VD-EPq"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                    <state key="normal" title="メニューに戻る">
-                        <color key="titleColor" name="TextColor"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" name="TextColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                            <real key="value" value="0.29999999999999999"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                            <color key="value" name="ShadowColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
-                            <real key="value" value="10"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color2">
-                            <color key="value" name="BackEndColor"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="color1">
-                            <color key="value" name="BackStartColor"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="menuBackButton:" destination="-1" eventType="touchUpInside" id="cgy-9k-8Ko"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-WT-LF6" customClass="GADBannerView">
                     <rect key="frame" x="47" y="812" width="320" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -99,14 +42,14 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="普通モード">
-                                <color key="titleColor" name="TextColor"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" name="TextColor"/>
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                     <real key="value" value="2"/>
@@ -146,14 +89,14 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                             <state key="normal" title="選択肢シャッフルモード">
-                                <color key="titleColor" name="TextColor"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="5"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                    <color key="value" name="TextColor"/>
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                     <real key="value" value="2"/>
@@ -193,28 +136,19 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" name="BackgroundColor"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="A85-Md-via"/>
-                <constraint firstItem="8tA-WT-LF6" firstAttribute="top" secondItem="4Bl-Y2-Anq" secondAttribute="bottom" constant="41" id="DVV-be-l4A"/>
-                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="top" secondItem="8eG-YI-DZa" secondAttribute="bottom" constant="90" id="LkP-Sn-gI3"/>
-                <constraint firstItem="FL2-zP-sWB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NIG-gx-NVn"/>
                 <constraint firstItem="8tA-WT-LF6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="Uc8-DP-jXc"/>
                 <constraint firstItem="8eG-YI-DZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="XBg-Kz-pYJ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8tA-WT-LF6" secondAttribute="trailing" constant="47" id="XfP-hk-Qzz"/>
-                <constraint firstItem="4Bl-Y2-Anq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="74" id="fsG-ba-cw6"/>
+                <constraint firstItem="8eG-YI-DZa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="49.5" id="g5Q-8H-dDu"/>
                 <constraint firstAttribute="bottom" secondItem="8tA-WT-LF6" secondAttribute="bottom" constant="34" id="gKM-Ky-TFr"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Bl-Y2-Anq" secondAttribute="trailing" constant="73" id="gZJ-kp-lhW"/>
-                <constraint firstItem="FL2-zP-sWB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="i2Y-j1-Ns3"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FL2-zP-sWB" secondAttribute="trailing" constant="20" id="kUM-5c-6bX"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
         </view>
     </objects>
     <designables>
-        <designable name="4Bl-Y2-Anq">
-            <size key="intrinsicContentSize" width="143" height="36"/>
-        </designable>
         <designable name="kMB-zl-Iw6">
             <size key="intrinsicContentSize" width="301" height="45"/>
         </designable>
@@ -223,15 +157,6 @@
         </designable>
     </designables>
     <resources>
-        <namedColor name="BackEndColor">
-            <color red="1" green="0.74901960784313726" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BackStartColor">
-            <color red="1" green="0.9882352941176471" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="BackgroundColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="EndColor">
             <color red="0.49803921568627452" green="0.74901960784313726" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -240,9 +165,6 @@
         </namedColor>
         <namedColor name="StartColor">
             <color red="0.97647058823529409" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="TextColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

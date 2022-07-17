@@ -28,8 +28,10 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "メニュー"
         trackingAlert()
         
+        setBackButton()
         bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"//"ca-app-pub-3279976203462809/3585101848"
         bannerView.rootViewController = self
         bannerView.delegate = self
@@ -42,12 +44,17 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
         
         getProblem.getProblemList()
         
-        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-        else { lightMode() }
+//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
+//        else { lightMode() }
+    }
+    
+    func setBackButton() {
+        let backItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        backItem.tintColor = .black
+        navigationItem.backBarButtonItem = backItem
     }
     
     func createAccount() {
@@ -186,12 +193,13 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         }
     }
     
-    @IBAction func configuration(_ sender: Any) {
-        //　設定画面に遷移する
-        let configurationView = ConfigurationView()
-        navigationController?.pushViewController(configurationView, animated: true)
-        
-    }
+    // FIXME: 現状は設定を何もないようしているのでコメントアウト
+//    @IBAction func configuration(_ sender: Any) {
+//        //　設定画面に遷移する
+//        let configurationView = ConfigurationView()
+//        navigationController?.pushViewController(configurationView, animated: true)
+//
+//    }
     func mailCheckAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let mailCheckAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)
