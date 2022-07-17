@@ -32,7 +32,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         trackingAlert()
         
         setBackButton()
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"//"ca-app-pub-3279976203462809/3585101848"
+        bannerView.adUnitID = "ca-app-pub-3279976203462809/3585101848"
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.load(GADRequest())
