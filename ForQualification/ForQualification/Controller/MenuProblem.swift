@@ -7,6 +7,7 @@
 
 import GoogleMobileAds
 import UIKit
+import PKHUD
 import FirebaseAuth
 import AdSupport
 import AppTrackingTransparency
@@ -27,9 +28,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationItem.title = "メニュー"
-        trackingAlert()
         
         setBackButton()
         bannerView.adUnitID = "ca-app-pub-3279976203462809/3585101848"
@@ -45,10 +44,9 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        HUD.show(.progress)
         getProblem.getProblemList()
-        
-//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-//        else { lightMode() }
+        HUD.hide()
     }
     
     func setBackButton() {
@@ -68,87 +66,6 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         }
     }
     
-    func darkMode() {
-        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
-        
-        createButton.setTitleColor(UIColor.white, for: .normal)
-        createButton.layer.borderColor = UIColor.white.cgColor
-        createButton.layer.shadowColor = UIColor.white.cgColor
-        
-        challengeButton.setTitleColor(UIColor.white, for: .normal)
-        challengeButton.layer.borderColor = UIColor.white.cgColor
-        challengeButton.layer.shadowColor = UIColor.white.cgColor
-        
-        editButton.setTitleColor(UIColor.white, for: .normal)
-        editButton.layer.borderColor = UIColor.white.cgColor
-        editButton.layer.shadowColor = UIColor.white.cgColor
-        
-        menuLabel.textColor = UIColor.white
-        configurationBtn.setImage(UIImage(named: "設定の歯車White"), for: .normal)
-    }
-    
-    func lightMode() {
-        view.backgroundColor = UIColor.white
-        
-        createButton.setTitleColor(UIColor.black, for: .normal)
-        createButton.layer.borderColor = UIColor.black.cgColor
-        createButton.layer.shadowColor = UIColor.black.cgColor
-        
-        challengeButton.setTitleColor(UIColor.black, for: .normal)
-        challengeButton.layer.borderColor = UIColor.black.cgColor
-        challengeButton.layer.shadowColor = UIColor.black.cgColor
-        
-        editButton.setTitleColor(UIColor.black, for: .normal)
-        editButton.layer.borderColor = UIColor.black.cgColor
-        editButton.layer.shadowColor = UIColor.black.cgColor
-        
-        menuLabel.textColor = UIColor.black
-        configurationBtn.setImage(UIImage(named: "設定の歯車"), for: .normal)
-    }
-    
-    private func trackingAlert() {
-        if #available(iOS 15, *) {
-            switch ATTrackingManager.trackingAuthorizationStatus {
-            case .authorized:
-                print("Allow Tracking")
-                print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
-            case .denied:
-                print("😭拒否")
-            case .restricted:
-                print("🥺制限")
-            case .notDetermined:
-                showRequestTrackingAuthorizationAlert()
-            @unknown default:
-                fatalError()
-            }
-        } else {// iOS14未満
-            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
-                print("Allow Tracking")
-                print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
-            } else {
-                print("🥺制限")
-            }
-        }
-    }
-    
-    ///Alert表示
-    private func showRequestTrackingAuthorizationAlert() {
-        if #available(iOS 15, *) {
-            ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                switch status {
-                case .authorized:
-                    print("🎉")
-                    //IDFA取得
-                    print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
-                case .denied, .restricted, .notDetermined:
-                    print("😭")
-                @unknown default:
-                    fatalError()
-                }
-            })
-        }
-    }
-    
     @IBAction func createButton(_ sender: Any) {
         
         createButton.pulsate()
@@ -165,7 +82,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if getProblem.problemList.isEmpty {
+        if GetProblem_Answer.problemList.isEmpty {
             settingViewAlert(title: "挑戦する問題がありません！", message: "問題を登録して下さい")
             return
         }
@@ -181,7 +98,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         
         userId = UserDefaults.standard.string(forKey: "userId") ?? ""
         
-        if getProblem.problemList.isEmpty {
+        if GetProblem_Answer.problemList.isEmpty {
             settingViewAlert(title: "編集する問題がありません！", message: "問題を登録して下さい")
             return
         }
@@ -193,13 +110,6 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         }
     }
     
-    // FIXME: 現状は設定を何もないようしているのでコメントアウト
-//    @IBAction func configuration(_ sender: Any) {
-//        //　設定画面に遷移する
-//        let configurationView = ConfigurationView()
-//        navigationController?.pushViewController(configurationView, animated: true)
-//
-//    }
     func mailCheckAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         let mailCheckAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive, handler: nil)

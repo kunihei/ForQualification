@@ -11,12 +11,12 @@ import FirebaseStorage
 import FirebaseFirestore
 
 class CreateProblem {
-    var problemstatement = String()
-    var problemImageData = Data()
-    var answer           = String()
-    var selectList:[String] = []
-    var userId           = String()
-    var createAt         = Date().timeIntervalSince1970
+    var problemstatement    = String()
+    var problemImageData    = Data()
+    var answer              = String()
+    var selectList          = [String]()
+    var userId              = String()
+    var createAt            = Date().timeIntervalSince1970
     
     init (problemstatement: String, answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, userId: String) {
         self.problemstatement = problemstatement

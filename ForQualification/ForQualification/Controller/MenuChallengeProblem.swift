@@ -26,13 +26,6 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-//        else { lightMode() }
-    }
-    
     @IBAction func nomalButton(_ sender: Any) {
         
         let challengeView = ChallengeProblem()
@@ -46,30 +39,6 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.navigationController?.pushViewController(challengeView, animated: true)
         }
-    }
-    
-    func darkMode() {
-        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
-        
-        nomalButton.setTitleColor(UIColor.white, for: .normal)
-        nomalButton.layer.borderColor = UIColor.white.cgColor
-        nomalButton.layer.shadowColor = UIColor.white.cgColor
-        
-        shuffleButton.setTitleColor(UIColor.white, for: .normal)
-        shuffleButton.layer.borderColor = UIColor.white.cgColor
-        shuffleButton.layer.shadowColor = UIColor.white.cgColor
-    }
-    
-    func lightMode() {
-        view.backgroundColor = UIColor.white
-        
-        nomalButton.setTitleColor(UIColor.black, for: .normal)
-        nomalButton.layer.borderColor = UIColor.black.cgColor
-        nomalButton.layer.shadowColor = UIColor.black.cgColor
-        
-        shuffleButton.setTitleColor(UIColor.black, for: .normal)
-        shuffleButton.layer.borderColor = UIColor.black.cgColor
-        shuffleButton.layer.shadowColor = UIColor.black.cgColor
     }
     /*
      // MARK: - Navigation

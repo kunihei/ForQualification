@@ -12,12 +12,12 @@ import FirebaseStorage
 
 class UpdateProblem {
     var editProblemstatement = String()
-    var editProblemImageData    = Data()
-    var answer              = String()
-    var selectList:[String] = []
-    var documentId          = String()
-    var userId              = String()
-    var createAt            = Double()
+    var editProblemImageData = Data()
+    var answer               = String()
+    var selectList           = [String]()
+    var documentId           = String()
+    var userId               = String()
+    var createAt             = Double()
     
     init(editProblemstatement: String,  answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, documentId: String, userId: String, createAt: Double) {
         self.editProblemstatement = editProblemstatement

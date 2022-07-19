@@ -30,9 +30,8 @@ class EditProblem: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        if UserDefaults.standard.bool(forKey: "colorFlag") == true { darkMode() }
-//        else { lightMode() }
-        getProblemList.problemList = []
+
+        GetProblem_Answer.problemList = []
         problemList = []
         getProblemSelectList.problemSelectEmptyDelete = []
         getProblemSelectList.getProblemSelect()
@@ -41,20 +40,8 @@ class EditProblem: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        problemList = getProblemList.problemList
+        problemList = GetProblem_Answer.problemList
         tableView.reloadData()
-    }
-    
-    func darkMode() {
-        view.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
-        tableView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.241, alpha: 1.0)
-        tableView.separatorColor = UIColor.white
-    }
-    
-    func lightMode() {
-        view.backgroundColor = UIColor.white
-        tableView.backgroundColor = UIColor.white
-        tableView.separatorColor = UIColor.black
     }
     
     func moveSettingView(index: Int) {
