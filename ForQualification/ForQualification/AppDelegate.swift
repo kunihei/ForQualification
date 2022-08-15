@@ -9,7 +9,6 @@ import GoogleMobileAds
 import UIKit
 import Firebase
 import AdSupport
-import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -36,28 +35,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        if #available(iOS 14.5, *) {
-            if ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
-                if #available(iOS 14, *) {
-                    ATTrackingManager.requestTrackingAuthorization(completionHandler: { status in
-                        switch status {
-                        case .authorized:
-                            print("ON")
-                            //IDFA取得
-                            print("IDFA: \(ASIdentifierManager.shared().advertisingIdentifier)")
-                        case .denied, .restricted, .notDetermined:
-                            print("OFF")
-                        @unknown default:
-                            fatalError()
-                        }
-                    })
-                }
-            }
-        }
-    }
-    
-    
 }
 

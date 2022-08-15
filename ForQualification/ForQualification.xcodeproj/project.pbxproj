@@ -10,6 +10,8 @@
 		3DC520021E6EDB4F6FAC78D2 /* Pods_ForQualificationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAF755ACA505BB73844BB561 /* Pods_ForQualificationTests.framework */; };
 		48B048834541F5F27C84B8A5 /* Pods_ForQualification.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F81A87D88CCFC3092717F8 /* Pods_ForQualification.framework */; };
 		818F26384FE12B2393A38AAD /* Pods_ForQualification_ForQualificationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AC0D2A96E765C9FA5BE0FD /* Pods_ForQualification_ForQualificationUITests.framework */; };
+		BA02E63528A8BE5E00FC17AC /* SelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */; };
+		BA02E63628A8BE5E00FC17AC /* SelectButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */; };
 		BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */; };
 		BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */; };
 		BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA09FC1B26E4446E006BEAD8 /* Main.storyboard */; };
@@ -91,6 +93,8 @@
 		0F2BEB936C9C5F8FE14A89D5 /* Pods-ForQualification-ForQualificationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForQualification-ForQualificationUITests.debug.xcconfig"; path = "Target Support Files/Pods-ForQualification-ForQualificationUITests/Pods-ForQualification-ForQualificationUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		68AC0D2A96E765C9FA5BE0FD /* Pods_ForQualification_ForQualificationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForQualification_ForQualificationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD5BCCAC58CBF04FA5DE808 /* Pods-ForQualificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForQualificationTests.release.xcconfig"; path = "Target Support Files/Pods-ForQualificationTests/Pods-ForQualificationTests.release.xcconfig"; sourceTree = "<group>"; };
+		BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonView.swift; sourceTree = "<group>"; };
+		BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonView.xib; sourceTree = "<group>"; };
 		BA09FC1226E4446E006BEAD8 /* ForQualification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForQualification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 				BA51F0F12724508100F2EEEC /* SignUpView.xib */,
 				BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */,
 				BA466DAC287B0B83002F28CD /* ProblemCell.xib */,
+				BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 		BAD7048226EC427200508AE7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */,
 				BA466DAB287B0B83002F28CD /* ProblemCell.swift */,
 				BA8125EB272D7BBA007E9ED0 /* ConfigurationView.swift */,
 				BA51F0F02724508100F2EEEC /* SignUpView.swift */,
@@ -424,6 +430,7 @@
 				BAD7048A26EC610600508AE7 /* SettingProblem.xib in Resources */,
 				BA8125EF272D7BBA007E9ED0 /* ConfigurationView.xib in Resources */,
 				BA50B39928790EF7002DC613 /* Color.xcassets in Resources */,
+				BA02E63628A8BE5E00FC17AC /* SelectButtonView.xib in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
 				BA466DAE287B0B83002F28CD /* ProblemCell.xib in Resources */,
@@ -584,6 +591,7 @@
 			files = (
 				BA53D7862718F1C500DC820F /* CustomLabel.swift in Sources */,
 				BA8125ED272D7BBA007E9ED0 /* ConfigurationView.swift in Sources */,
+				BA02E63528A8BE5E00FC17AC /* SelectButtonView.swift in Sources */,
 				BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */,
 				BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */,
 				BAF68F0B2711D04000BF1CA3 /* UpdateProblem.swift in Sources */,

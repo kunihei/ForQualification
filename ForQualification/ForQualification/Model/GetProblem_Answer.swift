@@ -12,9 +12,10 @@ import FirebaseAuth
 
 class GetProblem_Answer {
     static var problemList:[Problem_AnswerModel] = []
-    var currentUserId = Auth.auth().currentUser?.uid
+    var currentUserId = String()
     
     func getProblemList() {
+        currentUserId = Auth.auth().currentUser?.uid ?? ""
         GetProblem_Answer.problemList = []
         Firestore.firestore().collection("problems").order(by: "updateAt").addSnapshotListener { snapshot, err in
             if let err = err {

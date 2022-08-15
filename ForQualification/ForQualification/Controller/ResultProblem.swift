@@ -26,6 +26,7 @@ class ResultProblem: UIViewController, GADFullScreenContentDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "採点結果"
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3279976203462809/1824656986", request: request) { [self] ad, err in
@@ -47,6 +48,7 @@ class ResultProblem: UIViewController, GADFullScreenContentDelegate {
             interstitial?.present(fromRootViewController: self)
         }
         let menuChallengeView = MenuChallengeProblem()
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.pushViewController(menuChallengeView, animated: true)
 
     }
