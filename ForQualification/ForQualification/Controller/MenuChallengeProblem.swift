@@ -14,11 +14,19 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
     @IBOutlet weak var shuffleButton: CustomButton!
     @IBOutlet weak var bannerView: GADBannerView!
     
+    private var challengeProblemModel = ChallengeProblemModel.shard
+    private var bannerID = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "モード選択"
-        bannerView.adUnitID = "ca-app-pub-3279976203462809/1649822190"
+#if DEBUG
+        bannerID = "ca-app-pub-3940256099942544/6300978111"
+#else
+        bannerID = "ca-app-pub-3279976203462809/1649822190"
+#endif
+        bannerView.adUnitID = bannerID
         bannerView.rootViewController = self
         bannerView.delegate = self
         
@@ -31,10 +39,10 @@ class MenuChallengeProblem: UIViewController, GADBannerViewDelegate {
         let challengeView = ChallengeProblem()
         if (sender as AnyObject).tag! == 2 {
             shuffleButton.flash()
-            challengeView.shuffleModeFlag = true
+            challengeProblemModel.shuffleModeFlag = true
         } else {
             nomalButton.flash()
-            challengeView.shuffleModeFlag = false
+            challengeProblemModel.shuffleModeFlag = false
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.navigationController?.pushViewController(challengeView, animated: true)

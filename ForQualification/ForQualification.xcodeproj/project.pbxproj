@@ -12,6 +12,7 @@
 		818F26384FE12B2393A38AAD /* Pods_ForQualification_ForQualificationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68AC0D2A96E765C9FA5BE0FD /* Pods_ForQualification_ForQualificationUITests.framework */; };
 		BA02E63528A8BE5E00FC17AC /* SelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */; };
 		BA02E63628A8BE5E00FC17AC /* SelectButtonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */; };
+		BA07C15228AA75E20098B668 /* ChallengeProblemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA07C15128AA75E20098B668 /* ChallengeProblemModel.swift */; };
 		BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */; };
 		BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */; };
 		BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA09FC1B26E4446E006BEAD8 /* Main.storyboard */; };
@@ -41,6 +42,10 @@
 		BA8125EE272D7BBA007E9ED0 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8125EB272D7BBA007E9ED0 /* ConfigurationView.swift */; };
 		BA8125EF272D7BBA007E9ED0 /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */; };
 		BA8125F0272D7BBA007E9ED0 /* ConfigurationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */; };
+		BA81870228B9B3F300C905F1 /* UpgradeNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA81870128B9B3F300C905F1 /* UpgradeNotice.swift */; };
+		BAB12D6728F30C0E00886A2F /* setUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB12D6628F30C0E00886A2F /* setUser.swift */; };
+		BAB80B3C28ABCCC9001E8F0F /* SelectButtonsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB80B3A28ABCCC9001E8F0F /* SelectButtonsCell.swift */; };
+		BAB80B3D28ABCCC9001E8F0F /* SelectButtonsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB80B3B28ABCCC9001E8F0F /* SelectButtonsCell.xib */; };
 		BAD416F3271B0C0900F30BA0 /* SettingProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7048726EC610600508AE7 /* SettingProblem.swift */; };
 		BAD416F6271B0C1200F30BA0 /* MenuProblem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD7047E26EC426100508AE7 /* MenuProblem.swift */; };
 		BAD416F7271B0D9B00F30BA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
@@ -95,6 +100,7 @@
 		9CD5BCCAC58CBF04FA5DE808 /* Pods-ForQualificationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForQualificationTests.release.xcconfig"; path = "Target Support Files/Pods-ForQualificationTests/Pods-ForQualificationTests.release.xcconfig"; sourceTree = "<group>"; };
 		BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonView.swift; sourceTree = "<group>"; };
 		BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonView.xib; sourceTree = "<group>"; };
+		BA07C15128AA75E20098B668 /* ChallengeProblemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProblemModel.swift; sourceTree = "<group>"; };
 		BA09FC1226E4446E006BEAD8 /* ForQualification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForQualification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +131,10 @@
 		BA53D7852718F1C500DC820F /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BA8125EB272D7BBA007E9ED0 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
 		BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfigurationView.xib; sourceTree = "<group>"; };
+		BA81870128B9B3F300C905F1 /* UpgradeNotice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeNotice.swift; sourceTree = "<group>"; };
+		BAB12D6628F30C0E00886A2F /* setUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setUser.swift; sourceTree = "<group>"; };
+		BAB80B3A28ABCCC9001E8F0F /* SelectButtonsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonsCell.swift; sourceTree = "<group>"; };
+		BAB80B3B28ABCCC9001E8F0F /* SelectButtonsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectButtonsCell.xib; sourceTree = "<group>"; };
 		BAD55B562720DAA30065A48F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
@@ -283,6 +293,7 @@
 				BA8125EC272D7BBA007E9ED0 /* ConfigurationView.xib */,
 				BA466DAC287B0B83002F28CD /* ProblemCell.xib */,
 				BA02E63428A8BE5E00FC17AC /* SelectButtonView.xib */,
+				BAB80B3B28ABCCC9001E8F0F /* SelectButtonsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +301,7 @@
 		BAD7048226EC427200508AE7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAB80B3A28ABCCC9001E8F0F /* SelectButtonsCell.swift */,
 				BA02E63328A8BE5E00FC17AC /* SelectButtonView.swift */,
 				BA466DAB287B0B83002F28CD /* ProblemCell.swift */,
 				BA8125EB272D7BBA007E9ED0 /* ConfigurationView.swift */,
@@ -301,6 +313,7 @@
 				BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */,
 				BAD7047E26EC426100508AE7 /* MenuProblem.swift */,
 				BAD55B562720DAA30065A48F /* LoginView.swift */,
+				BA81870128B9B3F300C905F1 /* UpgradeNotice.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,6 +327,8 @@
 				BA0E33E32701F639002A3A48 /* Problem_AnswerModel.swift */,
 				BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */,
 				BAF68F0A2711D04000BF1CA3 /* UpdateProblem.swift */,
+				BA07C15128AA75E20098B668 /* ChallengeProblemModel.swift */,
+				BAB12D6628F30C0E00886A2F /* setUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -432,6 +447,7 @@
 				BA50B39928790EF7002DC613 /* Color.xcassets in Resources */,
 				BA02E63628A8BE5E00FC17AC /* SelectButtonView.xib in Resources */,
 				BAD7048E26EC6CCA00508AE7 /* ChallengeProblem.xib in Resources */,
+				BAB80B3D28ABCCC9001E8F0F /* SelectButtonsCell.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
 				BA466DAE287B0B83002F28CD /* ProblemCell.xib in Resources */,
 				BA51F0E8272233F400F2EEEC /* LoginView.xib in Resources */,
@@ -605,13 +621,17 @@
 				BA53D7842718EEE900DC820F /* CustomTextView.swift in Sources */,
 				BA466DAD287B0B83002F28CD /* ProblemCell.swift in Sources */,
 				BA0E33E42701F639002A3A48 /* Problem_AnswerModel.swift in Sources */,
+				BAB12D6728F30C0E00886A2F /* setUser.swift in Sources */,
 				BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */,
 				BAD704E226EDC04A00508AE7 /* ResultProblem.swift in Sources */,
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
 				BAD55B572720DAA40065A48F /* LoginView.swift in Sources */,
+				BA07C15228AA75E20098B668 /* ChallengeProblemModel.swift in Sources */,
 				BA0E33E227008240002A3A48 /* GetProblemSelect.swift in Sources */,
 				BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */,
+				BA81870228B9B3F300C905F1 /* UpgradeNotice.swift in Sources */,
+				BAB80B3C28ABCCC9001E8F0F /* SelectButtonsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -808,13 +828,14 @@
 				CODE_SIGN_ENTITLEMENTS = ForQualification/ForQualification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8ARG4D8LX2;
+				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
 				INFOPLIST_FILE = ForQualification/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shouhei.ForQualification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -831,13 +852,14 @@
 				CODE_SIGN_ENTITLEMENTS = ForQualification/ForQualification.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8ARG4D8LX2;
+				GADApplicationIdentifier = "ca-app-pub-3279976203462809~4892661691";
 				INFOPLIST_FILE = ForQualification/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shouhei.ForQualification;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

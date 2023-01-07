@@ -19,6 +19,7 @@ class EditProblem: UIViewController {
     private let userUid = Auth.auth().currentUser?.uid
     
     private var problemList = [Problem_AnswerModel]()
+    private var challengeProblemModel = ChallengeProblemModel.shard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class EditProblem: UIViewController {
 
         GetProblem_Answer.problemList = []
         problemList = []
-        getProblemSelectList.problemSelectEmptyDelete = []
+        challengeProblemModel.problemSelectEmptyDelete = []
         getProblemSelectList.getProblemSelect()
         getProblemList.getProblemList()
     }
@@ -51,7 +52,7 @@ class EditProblem: UIViewController {
         settingView.documentId = self.problemList[index].documentID
         settingView.problem = self.problemList[index].problem
         settingView.problemImageData = self.problemList[index].problemImageData
-        settingView.selects = self.getProblemSelectList.problemSelectEmptyDelete
+        settingView.selects = self.challengeProblemModel.problemSelectEmptyDelete
         settingView.answer = self.problemList[index].answer
         settingView.createAt = self.problemList[index].createAt
         self.navigationController?.pushViewController(settingView, animated: true)

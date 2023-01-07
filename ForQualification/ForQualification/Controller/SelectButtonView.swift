@@ -9,68 +9,24 @@ import UIKit
 
 class SelectButtonView: UIViewController {
 
-    @IBOutlet weak var selectButton1: UIButton!
-    @IBOutlet weak var selectButton2: UIButton!
-    @IBOutlet weak var selectButton3: UIButton!
-    @IBOutlet weak var selectButton4: UIButton!
-    @IBOutlet weak var selectButton5: UIButton!
-    @IBOutlet weak var selectButton6: UIButton!
-    @IBOutlet weak var selectButton7: UIButton!
-    @IBOutlet weak var selectButton8: UIButton!
-    @IBOutlet weak var selectButton9: UIButton!
-    @IBOutlet weak var selectButton10: UIButton!
-    private var selectButtons = [UIButton]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    private let getSelectList = ChallengeProblemModel.shard
+    weak var delegate: SelectedButtonTextDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectButtons = [
-            selectButton1,
-            selectButton2,
-            selectButton3,
-            selectButton4,
-            selectButton5,
-            selectButton6,
-            selectButton7,
-            selectButton8,
-            selectButton9,
-            selectButton10
-        ]
-        UIView.setAnimationsEnabled(false)
-        selectButtons.forEach { button in
-            button.titleLabel?.numberOfLines = 0
-            button.titleLabel?.textAlignment = .center
-            button.layoutIfNeeded()
-        }
-        UIView.setAnimationsEnabled(true)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "SelectButtonsCell", bundle: nil), forCellReuseIdentifier: "SelectButtonCell")
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func selectButtons(_ sender: Any) {
-        switch (sender as AnyObject).tag {
-            
-        case 1:
-            print("1")
-        case 2:
-            print("2")
-        case 3:
-            print("3")
-        case 4:
-            print("4")
-        case 5:
-            print("5")
-        case 6:
-            print("6")
-        case 7:
-            print("7")
-        case 8:
-            print("8")
-        case 9:
-            print("9")
-        case 10:
-            print("10")
-        default:
-            return
-        }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        delegate = nil
     }
     
     /*
@@ -84,3 +40,26 @@ class SelectButtonView: UIViewController {
     */
 
 }
+
+extension SelectButtonView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return getSelectList.problemSelectEmptyDelete.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectButtonCell", for: indexPath) as! SelectButtonsCell
+        cell.selectionStyle = .none
+        cell.selectTitleLabel.text = getSelectList.problemSelectEmptyDelete[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.setButtonText(text: getSelectList.problemSelectEmptyDelete[indexPath.row])
+        dismiss(animated: true)
+        print(indexPath.row)
+    }
+    
+}
+

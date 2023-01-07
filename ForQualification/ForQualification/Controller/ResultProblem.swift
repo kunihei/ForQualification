@@ -19,17 +19,23 @@ class ResultProblem: UIViewController, GADFullScreenContentDelegate {
     
     var correctAnswerCount = Int()
     var incorrectAnswerCount = Int()
+    var interstitialID: String?
     var averageTotal = Int()
     
     private var interstitial: GADInterstitialAd?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
         self.navigationItem.title = "採点結果"
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3279976203462809/1824656986", request: request) { [self] ad, err in
+#if DEBUG
+        interstitialID = "ca-app-pub-3940256099942544/4411468910"
+#else
+        interstitialID = "ca-app-pub-3279976203462809/1824656986"
+#endif
+        GADInterstitialAd.load(withAdUnitID: interstitialID ?? "", request: request) { [self] ad, err in
             if let err = err {
                 print("Failed to load interstitial ad with error: \(err.localizedDescription)")
                 return
@@ -50,16 +56,16 @@ class ResultProblem: UIViewController, GADFullScreenContentDelegate {
         let menuChallengeView = MenuChallengeProblem()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.pushViewController(menuChallengeView, animated: true)
-
+        
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

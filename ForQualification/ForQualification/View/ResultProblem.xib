@@ -119,15 +119,6 @@
                         <constraint firstAttribute="height" constant="235" id="z41-AM-nVs"/>
                     </constraints>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="採点結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNv-jU-2Eq">
-                    <rect key="frame" x="0.0" y="44" width="414" height="60"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="QB7-NU-s2O"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZo-YF-ztx" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
                     <rect key="frame" x="134.5" y="665.5" width="145" height="51"/>
                     <constraints>
@@ -176,14 +167,11 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="uNv-jU-2Eq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0ud-5E-Ncw"/>
                 <constraint firstItem="KZo-YF-ztx" firstAttribute="top" secondItem="cJp-zA-e3c" secondAttribute="bottom" constant="100" id="HCu-Ai-ECg"/>
-                <constraint firstItem="uNv-jU-2Eq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KO7-YF-mFM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cJp-zA-e3c" secondAttribute="trailing" constant="42" id="Xtd-G2-A0R"/>
                 <constraint firstItem="KZo-YF-ztx" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bts-BW-WPI"/>
                 <constraint firstItem="cJp-zA-e3c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="ci0-JU-Cvv"/>
                 <constraint firstItem="cJp-zA-e3c" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="eKr-2L-boo"/>
-                <constraint firstItem="uNv-jU-2Eq" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="pWc-T0-Bvd"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="84.375"/>
         </view>

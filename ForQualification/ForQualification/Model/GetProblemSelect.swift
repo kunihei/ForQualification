@@ -14,7 +14,6 @@ class GetProblemSelect {
     var selectList: [ProblemSelectModel] = []
     var currentUserId = Auth.auth().currentUser?.uid
     var problemSelectList = [String]()
-    var problemSelectEmptyDelete = [String]()
     
     func getProblemSelect() {
         Firestore.firestore().collection("problems").order(by: "updateAt").addSnapshotListener { snapshot, err in
@@ -39,7 +38,7 @@ class GetProblemSelect {
     
     func selectEmptyDelete(problemCount: Int) {
         problemSelectList = []
-        problemSelectEmptyDelete = []
+        ChallengeProblemModel.shard.problemSelectEmptyDelete = []
         for i in 0..<selectList.count {
             if i == problemCount {
                 problemSelectList.append(selectList[problemCount].select1)
@@ -58,7 +57,7 @@ class GetProblemSelect {
         // 空の要素の削除
         for i in 0..<problemSelectList.count {
             if problemSelectList[i].isEmpty != true {
-                problemSelectEmptyDelete.append(problemSelectList[i])
+                ChallengeProblemModel.shard.problemSelectEmptyDelete.append(problemSelectList[i])
             }
         }
     }

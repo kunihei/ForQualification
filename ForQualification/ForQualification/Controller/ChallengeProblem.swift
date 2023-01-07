@@ -9,6 +9,10 @@ import UIKit
 import SDWebImage
 import PKHUD
 
+protocol SelectedButtonTextDelegate: class {
+    func setButtonText(text: String)
+}
+
 class ChallengeProblem: UIViewController {
 
     @IBOutlet weak var selectTextView: UITextView!
@@ -21,16 +25,15 @@ class ChallengeProblem: UIViewController {
     private let getSelectList = GetProblemSelect()
     private let getProblemAnswerList = GetProblem_Answer()
     
+    private var challengeProblemModel = ChallengeProblemModel.shard
     private var pickerView = UIPickerView()
     private var problemList = [Problem_AnswerModel]()
-    private var problemCount = 0
     private var correctAnswerCount = 0
     private var incorrectAnswerCount = 0
     private var averageCount = 0.0
     private var averageTotal = 0.0
     private var lastFlag = false
     private var nextFlag = false
-    var shuffleModeFlag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,21 +59,21 @@ class ChallengeProblem: UIViewController {
         pickerView.delegate = self
         pickerView.dataSource = self
         problemList = GetProblem_Answer.problemList
-        doneBar()
+//        doneBar()
         imageCheck()
-        problemTextView.text = problemList[problemCount].problem
-        getSelectList.selectEmptyDelete(problemCount: problemCount)
-        if shuffleModeFlag {
-            getSelectList.problemSelectEmptyDelete.shuffle()
+        problemTextView.text = problemList[challengeProblemModel.problemCount].problem
+        getSelectList.selectEmptyDelete(problemCount: challengeProblemModel.problemCount)
+        if challengeProblemModel.shuffleModeFlag {
+            challengeProblemModel.problemSelectEmptyDelete.shuffle()
         }
         HUD.hide()
     }
     
     // UIImageViewの表示・非表示のチェック
     func imageCheck() {
-        if problemList[problemCount].problemImageData != "" {
+        if problemList[challengeProblemModel.problemCount].problemImageData != "" {
             problemImage.isHidden = false
-            problemImage.sd_setImage(with: URL(string: problemList[problemCount].problemImageData), completed: nil)
+            problemImage.sd_setImage(with: URL(string: problemList[challengeProblemModel.problemCount].problemImageData), completed: nil)
         } else {
             problemImage.isHidden = true
         }
@@ -78,7 +81,7 @@ class ChallengeProblem: UIViewController {
     
     // 採点結果で使用する数値
     func resetCount() {
-        problemCount = 0
+        challengeProblemModel.problemCount = 0
         averageCount = 0.0
         averageTotal = 0.0
         correctAnswerCount = 0
@@ -87,7 +90,7 @@ class ChallengeProblem: UIViewController {
     
     // 表示ラベルの初期化
     func initialValue() {
-        problemCountLabel.text = "第\(problemCount + 1)問"
+        problemCountLabel.text = "第\(challengeProblemModel.problemCount + 1)問"
         selectTextView.text = "ここをタッチして正解を選んでください！"
         answerLabel.text = "結果"
 
@@ -106,7 +109,7 @@ class ChallengeProblem: UIViewController {
     
     @objc func done() {
         selectTextView.endEditing(true)
-        selectTextView.text = "\(getSelectList.problemSelectEmptyDelete[pickerView.selectedRow(inComponent: 0)])"
+        selectTextView.text = "\(challengeProblemModel.problemSelectEmptyDelete[pickerView.selectedRow(inComponent: 0)])"
     }
     
     //pickerViewの表示を消す
@@ -139,9 +142,16 @@ class ChallengeProblem: UIViewController {
         notPickerView()
     }
     
+    @IBAction func selectedButton(_ sender: Any) {
+        print("kuni")
+        let selectButtonView = SelectButtonView()
+        selectButtonView.delegate = self
+        selectButtonView.modalPresentationStyle = .formSheet
+        present(selectButtonView, animated: true)
+    }
     // 最終問題解答後に表示
     func checkLastProblem() {
-        if problemCount == problemList.count - 1 {
+        if challengeProblemModel.problemCount == problemList.count - 1 {
             problemCountLabel.text = "問題終了"
             answerButton.setTitle("採点画面へ", for: .normal)
             lastFlag = true
@@ -152,11 +162,11 @@ class ChallengeProblem: UIViewController {
     
     // 正解の判断
     func checkTheAnswer() -> Bool {
-        if selectTextView.text == problemList[problemCount].answer {
+        if selectTextView.text == problemList[challengeProblemModel.problemCount].answer {
             answerLabel.text = "正解"
             correctAnswerCount += 1
         } else {
-            answerLabel.text = "正解は「\(problemList[problemCount].answer)」"
+            answerLabel.text = "正解は「\(problemList[challengeProblemModel.problemCount].answer)」"
             incorrectAnswerCount += 1
         }
         return true
@@ -164,14 +174,14 @@ class ChallengeProblem: UIViewController {
     
     // 次の問題に進める
     func nextProblem() {
-        if problemCount < problemList.count - 1 {
-            problemCount += 1
+        if challengeProblemModel.problemCount < problemList.count - 1 {
+            challengeProblemModel.problemCount += 1
             initialValue()
-            problemTextView.text = problemList[problemCount].problem
+            problemTextView.text = problemList[challengeProblemModel.problemCount].problem
             imageCheck()
-            getSelectList.selectEmptyDelete(problemCount: problemCount)
-            if shuffleModeFlag {
-                getSelectList.problemSelectEmptyDelete.shuffle()
+            getSelectList.selectEmptyDelete(problemCount: challengeProblemModel.problemCount)
+            if challengeProblemModel.shuffleModeFlag {
+                challengeProblemModel.problemSelectEmptyDelete.shuffle()
             }
             doneBar()
             pickerView.selectRow(0, inComponent: 0, animated: true)
@@ -224,15 +234,19 @@ extension ChallengeProblem: UIPickerViewDataSource, UIPickerViewDelegate {
         cellLabel.font = UIFont.boldSystemFont(ofSize: 20)
         cellLabel.backgroundColor = UIColor.darkGray
         cellLabel.textColor = UIColor.white
-        cellLabel.text = getSelectList.problemSelectEmptyDelete[row]
+        cellLabel.text = challengeProblemModel.problemSelectEmptyDelete[row]
         
         return cellLabel
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        getSelectList.problemSelectEmptyDelete.count
+        challengeProblemModel.problemSelectEmptyDelete.count
 
     }
-    
-    
+}
+
+extension ChallengeProblem: SelectedButtonTextDelegate {
+    func setButtonText(text: String) {
+        selectTextView.text = text
+    }
 }

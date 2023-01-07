@@ -25,13 +25,33 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     private let getProblem = GetProblem_Answer()
     
     private var userId = String()
+    private var bannerID = String()
+    private let apple_id = "1590729960"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "メニュー"
+        AppVersionCompare.toAppStoreVersion(appId: apple_id) { type in
+            switch type {
+            case .latest:
+                print("最新バージョンです")
+            case .old:
+                print("旧バージョンです")
+                DispatchQueue.main.async {
+                    self.updateAlert()
+                }
+            case .error:
+                print("エラー")
+            }
+        }
         
         setBackButton()
-        bannerView.adUnitID = "ca-app-pub-3279976203462809/3585101848"
+#if DEBUG
+        bannerID = "ca-app-pub-3940256099942544/6300978111"
+#else
+        bannerID = "ca-app-pub-3279976203462809/3585101848"
+#endif
+        bannerView.adUnitID = bannerID
         bannerView.rootViewController = self
         bannerView.delegate = self
         bannerView.load(GADRequest())
@@ -155,6 +175,31 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
         }
         return false
     }
+    
+    private func updateAlert() {
+        let actionA: UIAlertAction = UIAlertAction(title: "更新", style: .default) { action in
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/id\(self.apple_id)"),
+                UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+//            let actionA = UIAlertAction(title: "更新", style: .default, handler: {
+//                        (action: UIAlertAction!) in
+//                if let url = URL(string: "itms-apps://itunes.apple.com/app/id\(self.apple_id)"),
+//                    UIApplication.shared.canOpenURL(url) {
+//                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//                }
+//            })
+            
+            let actionB = UIAlertAction(title: "あとで", style: .default, handler: {
+                        (action: UIAlertAction!) in
+            })
+            
+            let alert: UIAlertController = UIAlertController(title: "最新バージョンのお知らせ", message: "最新バージョンがあります。", preferredStyle: .alert)
+            alert.addAction(actionA)
+            alert.addAction(actionB)
+            present(alert, animated: true, completion: nil)
+        }
     
     /*
      // MARK: - Navigation
