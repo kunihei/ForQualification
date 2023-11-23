@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MenuChallengeProblem" customModule="ForQualification" customModuleProvider="target">
+            <connections>
+                <outlet property="bannerView" destination="8tA-WT-LF6" id="81x-Gi-eMF"/>
+                <outlet property="nomalButton" destination="vwa-BE-MPr" id="sv4-cA-tyk"/>
+                <outlet property="shuffleButton" destination="kMB-zl-Iw6" id="LJV-eu-5Wh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8tA-WT-LF6" customClass="GADBannerView">
+                    <rect key="frame" x="47" y="812" width="320" height="50"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="7jc-Ey-xZo"/>
+                        <constraint firstAttribute="height" constant="50" id="ctj-W8-frK"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="67" translatesAutoresizingMaskIntoConstraints="NO" id="8eG-YI-DZa">
+                    <rect key="frame" x="22" y="384" width="370" height="227"/>
+                    <subviews>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vwa-BE-MPr" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="370" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="l3O-cP-iFO"/>
+                                <constraint firstAttribute="width" constant="370" id="tHn-M5-mWH"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <state key="normal" title="普通モード">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="5" height="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                    <color key="value" name="ShadowColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                                    <color key="value" name="EndColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="color1">
+                                    <color key="value" name="StartColor"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nomalButton:" destination="-1" eventType="touchUpInside" id="vkY-Ps-v2U"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMB-zl-Iw6" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="147" width="370" height="80"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="8Zh-gM-79k"/>
+                                <constraint firstAttribute="width" constant="370" id="r3R-GR-5BA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
+                            <state key="normal" title="選択肢シャッフルモード">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="0.29999999999999999"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="5" height="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                    <color key="value" name="ShadowColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="gradientCornerRadius">
+                                    <real key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="color2">
+                                    <color key="value" name="EndColor"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="color1">
+                                    <color key="value" name="StartColor"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="nomalButton:" destination="-1" eventType="touchUpInside" id="eNp-TY-Tgo"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="370" id="BsI-Wa-Obo"/>
+                        <constraint firstAttribute="height" constant="227" id="znj-Kt-mCs"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8eG-YI-DZa" secondAttribute="trailing" constant="22" id="A85-Md-via"/>
+                <constraint firstItem="8tA-WT-LF6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="47" id="Uc8-DP-jXc"/>
+                <constraint firstItem="8eG-YI-DZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="22" id="XBg-Kz-pYJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8tA-WT-LF6" secondAttribute="trailing" constant="47" id="XfP-hk-Qzz"/>
+                <constraint firstItem="8eG-YI-DZa" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="49.5" id="g5Q-8H-dDu"/>
+                <constraint firstAttribute="bottom" secondItem="8tA-WT-LF6" secondAttribute="bottom" constant="34" id="gKM-Ky-TFr"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="108.48214285714285"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="kMB-zl-Iw6">
+            <size key="intrinsicContentSize" width="278" height="45"/>
+        </designable>
+        <designable name="vwa-BE-MPr">
+            <size key="intrinsicContentSize" width="127" height="45"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="EndColor">
+            <color red="0.49803921568627452" green="0.74901960784313726" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ShadowColor">
+            <color red="0.41176470588235292" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="StartColor">
+            <color red="0.97647058823529409" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
