@@ -39,17 +39,8 @@ class SelectRegistViewController: UIViewController, KeyboardDetector  {
     
     @IBAction func confirmButton(_ sender: UIButton) {
         ProblemSelect.shared.setSelects(array: textList)
-        print(ProblemSelect.shared.getSelects())
+        self.moveView(storyboardName: StoryboardName.confirm)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -117,7 +108,6 @@ extension SelectRegistViewController: AddSelectDelegate {
             textList.removeAll()
             textList = tmpTextList
             tmpIndex = index - 1
-            selectCount -= 1
         }
         oldIndex = tmpIndex
         textList.updateValue(textList[0] ?? "", forKey: tmpIndex)

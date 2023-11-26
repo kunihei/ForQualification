@@ -72,8 +72,9 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRN-K8-3ca" customClass="CustomButton" customModule="ForQualification" customModuleProvider="target">
-                                <rect key="frame" x="100" y="748" width="193" height="50"/>
+                                <rect key="frame" x="106.66666666666669" y="748" width="180" height="50"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="CVm-wj-WEU"/>
                                     <constraint firstAttribute="height" constant="50" id="fpG-37-jpg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
@@ -119,13 +120,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xRN-K8-3ca" secondAttribute="bottom" constant="20" id="4pB-gR-Bh3"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xRN-K8-3ca" secondAttribute="trailing" constant="100" id="AiI-eg-Tbj"/>
                             <constraint firstItem="7aw-od-tMP" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Asr-iz-zAJ"/>
                             <constraint firstItem="7aw-od-tMP" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="B0w-v0-OdH"/>
                             <constraint firstItem="J9J-Dw-8Tx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="DLg-Mq-65e"/>
+                            <constraint firstItem="xRN-K8-3ca" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="WgL-ft-HiZ"/>
                             <constraint firstItem="Ec1-xR-wrq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Y7F-SW-9Zj"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J9J-Dw-8Tx" secondAttribute="trailing" id="ZU2-lM-pz6"/>
-                            <constraint firstItem="xRN-K8-3ca" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="100" id="ZiC-v3-gli"/>
                             <constraint firstItem="xRN-K8-3ca" firstAttribute="top" secondItem="J9J-Dw-8Tx" secondAttribute="bottom" constant="15" id="hzY-fJ-gl1"/>
                             <constraint firstItem="J9J-Dw-8Tx" firstAttribute="top" secondItem="7aw-od-tMP" secondAttribute="bottom" constant="30" id="oYf-72-Jcs"/>
                             <constraint firstItem="7aw-od-tMP" firstAttribute="centerY" secondItem="Ec1-xR-wrq" secondAttribute="centerY" id="sPB-z5-dGX"/>

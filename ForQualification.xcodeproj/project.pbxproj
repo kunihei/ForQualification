@@ -45,6 +45,10 @@
 		BAB930C22972359D00196CDD /* MenuChallengeProblem.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAB930C12972359D00196CDD /* MenuChallengeProblem.xib */; };
 		BABAB6862AEC9B4800A9E0DE /* Problem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BABAB6852AEC9B4800A9E0DE /* Problem.storyboard */; };
 		BABAB6892AECAC9800A9E0DE /* NaviTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABAB6882AECAC9800A9E0DE /* NaviTitle.swift */; };
+		BAC15A602B0F916300446033 /* ConfirmSelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC15A5E2B0F916300446033 /* ConfirmSelectCell.swift */; };
+		BAC15A612B0F916300446033 /* ConfirmSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAC15A5F2B0F916300446033 /* ConfirmSelectCell.xib */; };
+		BACDE0A62B0EE641004B217C /* ConfirmProblem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACDE0A52B0EE641004B217C /* ConfirmProblem.storyboard */; };
+		BACDE0A82B0EE661004B217C /* ConfirmProblemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDE0A72B0EE661004B217C /* ConfirmProblemViewController.swift */; };
 		BAD416F7271B0D9B00F30BA0 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
 		BAD416F8271B0D9E00F30BA0 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7832718EEE900DC820F /* CustomTextView.swift */; };
 		BAD416F9271B0DA100F30BA0 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53D7852718F1C500DC820F /* CustomLabel.swift */; };
@@ -144,6 +148,10 @@
 		BAB930C12972359D00196CDD /* MenuChallengeProblem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuChallengeProblem.xib; sourceTree = "<group>"; };
 		BABAB6852AEC9B4800A9E0DE /* Problem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Problem.storyboard; sourceTree = "<group>"; };
 		BABAB6882AECAC9800A9E0DE /* NaviTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviTitle.swift; sourceTree = "<group>"; };
+		BAC15A5E2B0F916300446033 /* ConfirmSelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmSelectCell.swift; sourceTree = "<group>"; };
+		BAC15A5F2B0F916300446033 /* ConfirmSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmSelectCell.xib; sourceTree = "<group>"; };
+		BACDE0A52B0EE641004B217C /* ConfirmProblem.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmProblem.storyboard; sourceTree = "<group>"; };
+		BACDE0A72B0EE661004B217C /* ConfirmProblemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmProblemViewController.swift; sourceTree = "<group>"; };
 		BAD7047E26EC426100508AE7 /* MenuProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuProblem.swift; sourceTree = "<group>"; };
 		BAD7048326EC5ACA00508AE7 /* MenuChallengeProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuChallengeProblem.swift; sourceTree = "<group>"; };
 		BAD7048726EC610600508AE7 /* SettingProblem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingProblem.swift; sourceTree = "<group>"; };
@@ -362,6 +370,7 @@
 		BAB930C3297235F400196CDD /* RegistProblem */ = {
 			isa = PBXGroup;
 			children = (
+				BACDE0A42B0EE5E6004B217C /* ConfirmProblem */,
 				BA05F3CB2AEC9AEC00A872F2 /* ProblemStep1 */,
 				BABAB6872AEC9D6100A9E0DE /* SelectStep2 */,
 				BA84D80B299732D00002C939 /* SettingProblem.xib */,
@@ -387,6 +396,25 @@
 				BAEED2972AFF17C8008FFABF /* SelectRegistViewController.swift */,
 			);
 			path = SelectStep2;
+			sourceTree = "<group>";
+		};
+		BAC15A5D2B0F90B400446033 /* ConfirmSelectCell */ = {
+			isa = PBXGroup;
+			children = (
+				BAC15A5F2B0F916300446033 /* ConfirmSelectCell.xib */,
+				BAC15A5E2B0F916300446033 /* ConfirmSelectCell.swift */,
+			);
+			path = ConfirmSelectCell;
+			sourceTree = "<group>";
+		};
+		BACDE0A42B0EE5E6004B217C /* ConfirmProblem */ = {
+			isa = PBXGroup;
+			children = (
+				BAC15A5D2B0F90B400446033 /* ConfirmSelectCell */,
+				BACDE0A52B0EE641004B217C /* ConfirmProblem.storyboard */,
+				BACDE0A72B0EE661004B217C /* ConfirmProblemViewController.swift */,
+			);
+			path = ConfirmProblem;
 			sourceTree = "<group>";
 		};
 		BAD0BF5C29723500007A6A3E /* Menu */ = {
@@ -575,6 +603,7 @@
 				BAEAD5452A7DD7D400D9E39A /* ProblemCell.xib in Resources */,
 				BA09FC2226E4446F006BEAD8 /* LaunchScreen.storyboard in Resources */,
 				BAEED2A02AFF307D008FFABF /* SelectCell.xib in Resources */,
+				BAC15A612B0F916300446033 /* ConfirmSelectCell.xib in Resources */,
 				BAEAD5442A7DD7D400D9E39A /* MenuProblem.xib in Resources */,
 				BAEAD5432A7DD7D400D9E39A /* SelectButtonsCell.xib in Resources */,
 				BA0DD4EC2972369A001AC01A /* ChallengeProblem.xib in Resources */,
@@ -584,6 +613,7 @@
 				BA09FC1D26E4446E006BEAD8 /* Main.storyboard in Resources */,
 				BAD704E326EDC04A00508AE7 /* ResultProblem.xib in Resources */,
 				BA84D80C299732D00002C939 /* SettingProblem.xib in Resources */,
+				BACDE0A62B0EE641004B217C /* ConfirmProblem.storyboard in Resources */,
 				BAEAD54A2A7DD82900D9E39A /* LoginView.xib in Resources */,
 				BAEAD5412A7DD7D400D9E39A /* SelectButtonView.xib in Resources */,
 				BAD704E526EDDD4500508AE7 /* GoogleService-Info.plist in Resources */,
@@ -738,6 +768,7 @@
 				BA05F3C92AEC95F700A872F2 /* ButtonTitle.swift in Sources */,
 				BAEED28E2AFF000B008FFABF /* UserDefaults.swift in Sources */,
 				BAF68F0B2711D04000BF1CA3 /* UpdateProblem.swift in Sources */,
+				BACDE0A82B0EE661004B217C /* ConfirmProblemViewController.swift in Sources */,
 				BA52268E2A7DD48F00303A1D /* SignUpView.swift in Sources */,
 				BAEAD5462A7DD7D400D9E39A /* ProblemCell.swift in Sources */,
 				BA51C4242B0E516D00621F4B /* ProblemRegistSingleton.swift in Sources */,
@@ -770,6 +801,7 @@
 				BA81870228B9B3F300C905F1 /* UpgradeNotice.swift in Sources */,
 				BABAB6892AECAC9800A9E0DE /* NaviTitle.swift in Sources */,
 				BAEAD5422A7DD7D400D9E39A /* SelectButtonsCell.swift in Sources */,
+				BAC15A602B0F916300446033 /* ConfirmSelectCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

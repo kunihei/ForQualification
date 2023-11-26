@@ -16,9 +16,9 @@ protocol AddSelectDelegate: AnyObject {
 
 class SelectCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak private var titleLabel: UILabel!
     @IBOutlet weak var selectTextView: UITextView!
-    @IBOutlet weak var answerButton: UIButton!
+    @IBOutlet weak private var answerButton: UIButton!
     @IBOutlet weak var delButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     

@@ -9,4 +9,5 @@ import Foundation
 
 struct StoryboardName {
     static let select = "SelectRegist"
+    static let confirm = "ConfirmProblem"
 }
