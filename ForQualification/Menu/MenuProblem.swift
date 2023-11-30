@@ -152,9 +152,7 @@ class MenuProblem: UIViewController, GADBannerViewDelegate {
     }
     
     func problemMove() {
-        let storyBoard = UIStoryboard(name: "Problem", bundle: nil)
-        let problem = storyBoard.instantiateViewController(withIdentifier: "ProblemVC") as! ProblemViewController
-        self.navigationController?.pushViewController(problem, animated: true)
+        self.moveView(storyboardName: StoryboardName.problem)
     }
     
     // 本登録を促すアラート

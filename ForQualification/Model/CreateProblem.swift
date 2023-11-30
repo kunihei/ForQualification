@@ -17,6 +17,18 @@ class CreateProblem {
     var selectList          = [String]()
     var userId              = String()
     var createAt            = Date().timeIntervalSince1970
+    var parameter           = [String: String]()
+    init (problemText: String, answer: String, selects:[String], userId: String, problemImageData: Data? = nil) {
+        parameter["problem"] = problemText
+        parameter["userId"] = userId
+        parameter["answer"] = answer
+        parameter["createAt"] = String(createAt)
+        parameter["updateAt"] = String(Date().timeIntervalSince1970)
+        for i in 0..<selects.count {
+            parameter["select\(i + 1)"] = selects[i]
+        }
+        self.problemImageData = problemImageData ?? Data()
+    }
     
     init (problemstatement: String, answer: String, select1: String, select2: String, select3: String, select4: String, select5: String, select6: String, select7: String, select8: String, select9: String, select10: String, userId: String) {
         self.problemstatement = problemstatement
@@ -49,6 +61,35 @@ class CreateProblem {
         self.selectList.append(select8)
         self.selectList.append(select9)
         self.selectList.append(select10)
+    }
+    
+    func createProblem(completion: @escaping (Bool) -> Void) {
+        if !self.problemImageData.isEmpty {
+            let problemImageRef = Storage.storage().reference().child("problemImages").child("\(parameter["userId"]! + String(createAt)).jpg")
+            problemImageRef.putData(problemImageData, metadata: nil) { metaData, err in
+                if let err = err {
+                    completion(false)
+                    print("画像の保存に失敗しました。", err)
+                    return
+                }
+                problemImageRef.downloadURL { url, err in
+                    if let err = err {
+                        completion(false)
+                        print("画像の取得に失敗しました。", err)
+                        return
+                    }
+                    self.parameter["problemImage"] = url?.absoluteString
+                    Firestore.firestore().collection("problems").addDocument(data: self.parameter) {(err) in
+                        if let err = err {
+                            completion(false)
+                            print("画像の削除に失敗しました。", err)
+                            return
+                        }
+                        completion(true)
+                    }
+                }
+            }
+        }
     }
     
     func isImageCreateProblem() -> Bool {

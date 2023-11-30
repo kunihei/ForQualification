@@ -12,6 +12,8 @@ class SelectRegistViewController: UIViewController, KeyboardDetector  {
     @IBOutlet weak var tableView: UITableView!
     private var selectCount = 2
     private var textList = [Int: String]()
+    private var emptySelect = [Int: Bool]()
+    private var emptyAnsFlg = false
     private var delShowFlg = false
     private var answerText = ""
     private var index = 0
@@ -23,6 +25,10 @@ class SelectRegistViewController: UIViewController, KeyboardDetector  {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SelectCell", bundle: nil), forCellReuseIdentifier: "selectCell")
+        if !ProblemSelect.shared.getSelects().isEmpty {
+            selectCount = ProblemSelect.shared.getSelects().count
+            textList = ProblemSelect.shared.getSelects()
+        }
         self.view.closeTapKeyborad()
         // Do any additional setup after loading the view.
     }
@@ -38,6 +44,31 @@ class SelectRegistViewController: UIViewController, KeyboardDetector  {
     }
     
     @IBAction func confirmButton(_ sender: UIButton) {
+        emptyAnsFlg = false
+        if textList[0] == nil {
+            emptyAnsFlg = true
+        }
+        if selectCount >= 2 {
+            for item in 1..<selectCount {
+                if textList[item] == nil || textList[item] == "" {
+                    emptySelect[item] = false
+                } else {
+                    emptySelect[item] = true
+                }
+            }
+        }
+        var selectFlg = 0
+        emptySelect.forEach { (key, val) in
+            if val {
+                selectFlg += 1
+                emptySelect.removeAll()
+            }
+        }
+        tableView.reloadData()
+        if emptyAnsFlg || selectFlg == 0 {
+            return
+        }
+        
         ProblemSelect.shared.setSelects(array: textList)
         self.moveView(storyboardName: StoryboardName.confirm)
     }
@@ -59,12 +90,26 @@ extension SelectRegistViewController: UITableViewDelegate, UITableViewDataSource
         } else {
             cell.setCell(tag: indexPath.row)
         }
+        if emptyAnsFlg && indexPath.row == 0 {
+            cell.errorLabel.isHidden = false
+            cell.selectTextView.borderColor = .red
+        } else if indexPath.row == 0 {
+            cell.errorLabel.isHidden = true
+            cell.selectTextView.borderColor = ColorPalette.borderColor
+        }
+        if emptySelect.count != 0 && indexPath.row > 0 {
+            cell.errorLabel.isHidden = emptySelect[indexPath.row] ?? true
+            if emptySelect[indexPath.row] != nil {
+                cell.selectTextView.borderColor = .red
+            }
+        } else if indexPath.row > 0 {
+            cell.errorLabel.isHidden = true
+            cell.selectTextView.borderColor = ColorPalette.borderColor
+        }
         
+        // 正解のテキストを取得
         if indexPath.row == 0 {
             answerText = cell.selectTextView.text
-        }
-        if indexPath.row == index {
-            cell.selectTextView.text = answerText
         }
         
         // 選択肢の一つだけの時は削除ボタンを表示しないようにする
@@ -76,7 +121,7 @@ extension SelectRegistViewController: UITableViewDelegate, UITableViewDataSource
         
         // 選択肢が10個になったら追加ボタン非表示
         if selectCount - 1 == 10 {
-            cell.addBtnHidden()
+            cell.addButton.isHidden = true
         }
         
         // テーブルビューのリサイクル対策のためにtextViewのテキストを配列に格納しリロードかかるたびにtextViewに反映するようにする
@@ -91,26 +136,30 @@ extension SelectRegistViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SelectRegistViewController: AddSelectDelegate {
     func setAnswerText(index: Int) {
-        var tmpIndex = index
-        var tmpTextList = [Int: String]()
+//        var tmpIndex = index
+//        var tmpTextList = [Int: String]()
+//        var firstFlg = true
         if oldIndex != nil {
             if textList[oldIndex!] != nil {
                 textList.removeValue(forKey: oldIndex!)
             }
-            textList.forEach { (key, val) in
-                if key > oldIndex! {
-                    tmpTextList[key - 1] = val
-                } else {
-                    tmpTextList[key] = val
-                }
-            }
-
-            textList.removeAll()
-            textList = tmpTextList
-            tmpIndex = index - 1
+//            textList.forEach { (key, val) in
+//                if key > oldIndex! {
+//                    tmpTextList[key - 1] = val
+//                    if firstFlg && tmpIndex > 1 {
+//                        firstFlg = false
+//                        tmpIndex = index - 1
+//                    }
+//                } else {
+//                    tmpTextList[key] = val
+//                }
+//            }
+//
+//            textList.removeAll()
+//            textList = tmpTextList
         }
-        oldIndex = tmpIndex
-        textList.updateValue(textList[0] ?? "", forKey: tmpIndex)
+        oldIndex = index
+        textList.updateValue(textList[0] ?? "", forKey: index)
         tableView.reloadData()
     }
     

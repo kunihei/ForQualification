@@ -8,6 +8,7 @@
 import Foundation
 
 struct StoryboardName {
+    static let problem = "Problem"
     static let select = "SelectRegist"
     static let confirm = "ConfirmProblem"
 }

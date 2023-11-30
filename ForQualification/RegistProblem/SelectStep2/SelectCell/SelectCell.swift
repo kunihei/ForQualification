@@ -21,6 +21,7 @@ class SelectCell: UITableViewCell {
     @IBOutlet weak private var answerButton: UIButton!
     @IBOutlet weak var delButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     weak var addSelectDelegate: AddSelectDelegate?
     
@@ -75,6 +76,7 @@ extension SelectCell {
     }
     
     func setCell(tag: Int) {
+        errorLabel.isHidden = true
         titleLabel.isHidden        = true
         answerButton.isHidden      = false
         delButton.isHidden         = false
@@ -90,10 +92,6 @@ extension SelectCell {
     
     func addBtnHidden () {
         addButton.isHidden = true
-    }
-    
-    func addBtnShow () {
-        addButton.isHidden = false
     }
     
 }

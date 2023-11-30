@@ -27,27 +27,38 @@
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlq-ni-Rv7" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-lo-mXF">
                         <rect key="frame" x="20" y="41" width="280" height="70"/>
-                        <color key="backgroundColor" name="StartColor"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="70" id="5FO-yM-acM"/>
-                        </constraints>
-                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                <real key="value" value="2"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </textView>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nlq-ni-Rv7" customClass="CustomTextView" customModule="ForQualification" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="280" height="70"/>
+                                <color key="backgroundColor" name="StartColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5FO-yM-acM"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" name="BoaderColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必須項目です" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afA-BE-BEU" userLabel="era-">
+                                <rect key="frame" x="0.0" y="70" width="280" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.093561275459999996" blue="0.3571518239" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Srf-qO-J8b">
                         <rect key="frame" x="232" y="116" width="68" height="25"/>
                         <subviews>
@@ -84,13 +95,13 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syK-UJ-pfX">
-                        <rect key="frame" x="20" y="116" width="71" height="25"/>
+                        <rect key="frame" x="20" y="116" width="127" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="yGO-3t-bYK"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <state key="normal" title="正解にする">
+                        <state key="normal" title="正解の選択肢にする">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -100,17 +111,16 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="nlq-ni-Rv7" firstAttribute="top" secondItem="KuC-FJ-BOa" secondAttribute="bottom" constant="10" id="2uN-OO-c6K"/>
+                    <constraint firstItem="Cpf-lo-mXF" firstAttribute="top" secondItem="KuC-FJ-BOa" secondAttribute="bottom" constant="10" id="4Uv-pz-9fv"/>
                     <constraint firstAttribute="bottom" secondItem="Srf-qO-J8b" secondAttribute="bottom" id="58p-CZ-rns"/>
                     <constraint firstItem="KuC-FJ-BOa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="9mm-WQ-Lhs"/>
-                    <constraint firstAttribute="trailing" secondItem="nlq-ni-Rv7" secondAttribute="trailing" constant="20" id="EF9-Qa-OHW"/>
-                    <constraint firstItem="Srf-qO-J8b" firstAttribute="top" secondItem="nlq-ni-Rv7" secondAttribute="bottom" constant="5" id="JiK-jx-xHy"/>
+                    <constraint firstItem="Srf-qO-J8b" firstAttribute="trailing" secondItem="Cpf-lo-mXF" secondAttribute="trailing" id="GNa-PB-WA4"/>
+                    <constraint firstItem="Cpf-lo-mXF" firstAttribute="leading" secondItem="KuC-FJ-BOa" secondAttribute="leading" id="Rzi-rc-6fc"/>
+                    <constraint firstItem="syK-UJ-pfX" firstAttribute="top" secondItem="Cpf-lo-mXF" secondAttribute="bottom" constant="5" id="b8c-Fj-8kz"/>
                     <constraint firstItem="KuC-FJ-BOa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="flt-dR-o7G"/>
-                    <constraint firstItem="Srf-qO-J8b" firstAttribute="trailing" secondItem="nlq-ni-Rv7" secondAttribute="trailing" id="kHr-65-nXh"/>
-                    <constraint firstItem="nlq-ni-Rv7" firstAttribute="leading" secondItem="KuC-FJ-BOa" secondAttribute="leading" id="kYQ-hm-jfF"/>
                     <constraint firstAttribute="bottom" secondItem="syK-UJ-pfX" secondAttribute="bottom" id="lM3-J8-3g6"/>
-                    <constraint firstItem="syK-UJ-pfX" firstAttribute="leading" secondItem="nlq-ni-Rv7" secondAttribute="leading" id="q2B-oS-F5Q"/>
-                    <constraint firstItem="syK-UJ-pfX" firstAttribute="top" secondItem="nlq-ni-Rv7" secondAttribute="bottom" constant="5" id="uB0-Db-I6c"/>
+                    <constraint firstAttribute="trailing" secondItem="Cpf-lo-mXF" secondAttribute="trailing" constant="20" id="mvd-a1-PHr"/>
+                    <constraint firstItem="syK-UJ-pfX" firstAttribute="leading" secondItem="KuC-FJ-BOa" secondAttribute="leading" id="trF-jf-S7n"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -119,6 +129,7 @@
                 <outlet property="addButton" destination="Lh2-qT-uFO" id="Zcy-m2-WvA"/>
                 <outlet property="answerButton" destination="syK-UJ-pfX" id="V3F-Vc-4jA"/>
                 <outlet property="delButton" destination="RKT-J8-Dyp" id="KMn-Is-TzW"/>
+                <outlet property="errorLabel" destination="afA-BE-BEU" id="hoh-5J-jbx"/>
                 <outlet property="selectTextView" destination="nlq-ni-Rv7" id="fXL-zh-roZ"/>
                 <outlet property="titleLabel" destination="KuC-FJ-BOa" id="Mwa-kT-pFQ"/>
             </connections>
@@ -126,6 +137,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="BoaderColor">
+            <color red="0.0" green="0.81568627450980391" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="StartColor">
             <color red="0.97647058823529409" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

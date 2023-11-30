@@ -14,6 +14,8 @@ class ProblemViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var problemImageView: UIImageView!
     @IBOutlet weak var problemTextView: CustomTextView!
+    @IBOutlet weak var nextButton: CustomButton!
+    @IBOutlet weak var errorLabel: UILabel!
     
     private let userUid = Auth.auth().currentUser?.uid
     var documentId = String()
@@ -23,11 +25,15 @@ class ProblemViewController: UIViewController, UITextViewDelegate {
     var selects = [String]()
     var answer = String()
     var createAt = Double()
+    var confirmFlg = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         problemTextView.delegate = self
         self.view.closeTapKeyborad()
+        if confirmFlg {
+            nextButton.setTitle("確認する", for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,19 +60,21 @@ class ProblemViewController: UIViewController, UITextViewDelegate {
     }
     @IBAction func nextStepButton(_ sender: UIButton) {
         if problemTextView.chkEmpty() {
-            let confirmAction: UIAlertAction = UIAlertAction(title: ButtonTitle.Common.close, style: .default)
-            self.showAlert(title: MessageList.Empty.title, message: MessageList.Empty.emptyTextView, actions: [confirmAction])
+            errorLabel.isHidden = false
+            problemTextView.borderColor = .red
             return
         }
-        
+        errorLabel.isHidden = true
+        problemTextView.borderColor = ColorPalette.borderColor
         ProblemSelect.shared.setProblemText(text: problemTextView.text)
         ProblemSelect.shared.setImageData(image: nil)
-//        UserDefault.Problem.problemText = problemTextView.text
-//        UserDefault.Problem.imageData = nil
         if let problemImageConversion = problemImageView.image {
             let problemImageData = problemImageConversion.jpegData(compressionQuality: 0.3)
             ProblemSelect.shared.setImageData(image: problemImageData)
-//            UserDefault.Problem.imageData = problemImageData
+        }
+        if (confirmFlg) {
+            self.moveView(storyboardName: StoryboardName.confirm)
+            return
         }
         self.moveView(storyboardName: StoryboardName.select)
         

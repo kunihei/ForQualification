@@ -6,17 +6,22 @@
 //
 
 import UIKit
+import Firebase
+import SDWebImage
+import FirebaseStorage
+import FirebaseFirestore
 
 class ConfirmProblemViewController: UIViewController {
 
     @IBOutlet weak var problemTextLabel: UILabel!
     @IBOutlet weak var problemImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mainViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    
     private var count = 0
     private var selectList = [String]()
     private var observation: NSKeyValueObservation?
+    private let userId = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,28 +64,48 @@ class ConfirmProblemViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func problemEditButton(_ sender: UIButton) {
+        let storyBoard = UIStoryboard(name: StoryboardName.problem, bundle: nil)
+        let problem = storyBoard.instantiateViewController(withIdentifier: StoryboardName.problem) as! ProblemViewController
+        problem.confirmFlg = true
+        self.navigationController?.pushViewController(problem, animated: true)
     }
     @IBAction func problemRegistButton(_ sender: CustomButton) {
+        let answerText = selectList[0]
+        selectList.remove(at: 0)
+        let createProblem = CreateProblem(problemText: ProblemSelect.shared.getProblemText(), answer: ProblemSelect.shared.getSelects()[0]!, selects: selectList, userId: userId!, problemImageData: ProblemSelect.shared.getImageData())
+        createProblem.createProblem { flg in
+            if flg {
+                print("hisa:成功")
+            } else {
+                print("hisa:失敗")
+            }
+        }
     }
 }
 
 extension ConfirmProblemViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("hisa-count: \(selectList.count)")
         return selectList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "confirmSelectCell", for: indexPath) as! ConfirmSelectCell
-        print("hisa-index: \(indexPath.row)")
+        cell.editSelectDelegate = self
         if indexPath.row == 1 {
             cell.firstSelectItem()
         }
         cell.setSelectLabel(index: indexPath.row, text: selectList[indexPath.row])
-        print("hisa-cell:\(cell.contentView.bounds.height)")
         
         cell.selectionStyle = .none
         return cell
     }
+    
+}
+
+extension ConfirmProblemViewController: EditSelectDelegate {
+    func editSelects(button: UIButton) {
+        self.moveView(storyboardName: StoryboardName.select)
+    }
+    
     
 }

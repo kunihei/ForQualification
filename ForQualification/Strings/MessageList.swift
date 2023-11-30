@@ -14,6 +14,8 @@ struct MessageList {
     
     struct Empty {
         static let title = "未入力"
-        static let emptyTextView = "問題文は必須項目です"
+        static let emptyProblem = "問題文は必須項目です"
+        static let emptyAnswer  = "回答文は必須項目です"
+        static let emptySelect  = "選択肢は必須項目です"
     }
 }

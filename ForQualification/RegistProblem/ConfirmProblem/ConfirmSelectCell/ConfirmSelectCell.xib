@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +30,7 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8P-qx-0DX">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8P-qx-0DX">
                                 <rect key="frame" x="115" y="10" width="145" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="15" id="cDd-3T-dKO"/>
@@ -51,9 +52,18 @@
                             <constraint firstItem="MiE-YZ-Vf6" firstAttribute="top" secondItem="46s-YC-IAa" secondAttribute="top" id="ozu-7K-g7X"/>
                         </constraints>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-Xx-924">
+                        <rect key="frame" x="30" y="44" width="260" height="92"/>
+                        <color key="backgroundColor" name="StartColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E56-hT-rva">
                         <rect key="frame" x="30" y="44" width="260" height="92"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -65,8 +75,12 @@
                     <constraint firstItem="E56-hT-rva" firstAttribute="top" secondItem="46s-YC-IAa" secondAttribute="bottom" constant="10" id="CHH-Oa-C7W"/>
                     <constraint firstItem="E56-hT-rva" firstAttribute="leading" secondItem="46s-YC-IAa" secondAttribute="leading" id="DPD-k4-v4l"/>
                     <constraint firstItem="E56-hT-rva" firstAttribute="trailing" secondItem="46s-YC-IAa" secondAttribute="trailing" id="Enh-Bx-J4u"/>
+                    <constraint firstItem="MiX-Xx-924" firstAttribute="bottom" secondItem="E56-hT-rva" secondAttribute="bottom" id="Ngw-8K-JnX"/>
+                    <constraint firstItem="MiX-Xx-924" firstAttribute="trailing" secondItem="E56-hT-rva" secondAttribute="trailing" id="Rii-P6-WyQ"/>
                     <constraint firstItem="E56-hT-rva" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="TDa-x6-ZBS"/>
+                    <constraint firstItem="MiX-Xx-924" firstAttribute="top" secondItem="E56-hT-rva" secondAttribute="top" id="TFC-Y6-Obv"/>
                     <constraint firstAttribute="trailing" secondItem="E56-hT-rva" secondAttribute="trailing" constant="30" id="UFI-G6-Jwv"/>
+                    <constraint firstItem="MiX-Xx-924" firstAttribute="leading" secondItem="E56-hT-rva" secondAttribute="leading" id="auV-Yb-tTv"/>
                     <constraint firstAttribute="bottom" secondItem="E56-hT-rva" secondAttribute="bottom" constant="5" id="dx5-f3-agM"/>
                 </constraints>
             </tableViewCellContentView>
@@ -81,4 +95,9 @@
             <point key="canvasLocation" x="138.93129770992365" y="54.577464788732399"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <namedColor name="StartColor">
+            <color red="0.97647058823529409" green="0.9882352941176471" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

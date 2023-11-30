@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol EditSelectDelegate: AnyObject {
+    func editSelects(button:UIButton)
+}
+
 class ConfirmSelectCell: UITableViewCell {
 
     @IBOutlet weak var mainStackHeight: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak private var selectLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
+    
+    weak var editSelectDelegate: EditSelectDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,6 +32,7 @@ class ConfirmSelectCell: UITableViewCell {
     }
     
     @IBAction func editSelectButton(_ sender: UIButton) {
+        editSelectDelegate?.editSelects(button: sender)
     }
     func firstSelectItem() {
         editButton.isHidden = true

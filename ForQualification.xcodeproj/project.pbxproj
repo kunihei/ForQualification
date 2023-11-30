@@ -28,6 +28,8 @@
 		BA0E33E62701F6D7002A3A48 /* GetProblem_Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */; };
 		BA0E33EB27048E78002A3A48 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0E33EA27048E78002A3A48 /* CustomButton.swift */; };
 		BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA13A5FA2879E9A0009AEEFE /* CustomView.swift */; };
+		BA1E2BA62B16190000B17C54 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2BA52B16190000B17C54 /* UIColor.swift */; };
+		BA1E2BA92B16192900B17C54 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E2BA82B16192900B17C54 /* ColorPalette.swift */; };
 		BA4C59842B06499900461313 /* KeyboardDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4C59832B06499900461313 /* KeyboardDetector.swift */; };
 		BA50B39928790EF7002DC613 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA50B39828790EF7002DC613 /* Color.xcassets */; };
 		BA51C4242B0E516D00621F4B /* ProblemRegistSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51C4232B0E516D00621F4B /* ProblemRegistSingleton.swift */; };
@@ -131,6 +133,8 @@
 		BA0E33E52701F6D7002A3A48 /* GetProblem_Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProblem_Answer.swift; sourceTree = "<group>"; };
 		BA0E33EA27048E78002A3A48 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		BA13A5FA2879E9A0009AEEFE /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		BA1E2BA52B16190000B17C54 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		BA1E2BA82B16192900B17C54 /* ColorPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		BA4C59832B06499900461313 /* KeyboardDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDetector.swift; sourceTree = "<group>"; };
 		BA50B39828790EF7002DC613 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		BA51C4232B0E516D00621F4B /* ProblemRegistSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemRegistSingleton.swift; sourceTree = "<group>"; };
@@ -287,6 +291,7 @@
 				BA09FC1526E4446E006BEAD8 /* AppDelegate.swift */,
 				BA09FC1726E4446E006BEAD8 /* SceneDelegate.swift */,
 				BA05F3C72AEC95E200A872F2 /* Strings */,
+				BA1E2BA72B16191600B17C54 /* ColorPalette */,
 				BA5226842A7DD36400303A1D /* Configuration */,
 				BA6D2E562997316300C5B124 /* ResultProblem */,
 				BA0DD4ED297236BB001AC01A /* EditProblem */,
@@ -345,8 +350,17 @@
 				BAEED28D2AFF000B008FFABF /* UserDefaults.swift */,
 				BAEED2912AFF1118008FFABF /* Notification.swift */,
 				BA4C59832B06499900461313 /* KeyboardDetector.swift */,
+				BA1E2BA52B16190000B17C54 /* UIColor.swift */,
 			);
 			path = CustomClass;
+			sourceTree = "<group>";
+		};
+		BA1E2BA72B16191600B17C54 /* ColorPalette */ = {
+			isa = PBXGroup;
+			children = (
+				BA1E2BA82B16192900B17C54 /* ColorPalette.swift */,
+			);
+			path = ColorPalette;
 			sourceTree = "<group>";
 		};
 		BA5226842A7DD36400303A1D /* Configuration */ = {
@@ -367,14 +381,22 @@
 			path = ResultProblem;
 			sourceTree = "<group>";
 		};
+		BA943F7C2B14B0930036ABC4 /* BK */ = {
+			isa = PBXGroup;
+			children = (
+				BA84D80B299732D00002C939 /* SettingProblem.xib */,
+				BAD7048726EC610600508AE7 /* SettingProblem.swift */,
+			);
+			path = BK;
+			sourceTree = "<group>";
+		};
 		BAB930C3297235F400196CDD /* RegistProblem */ = {
 			isa = PBXGroup;
 			children = (
+				BA943F7C2B14B0930036ABC4 /* BK */,
 				BACDE0A42B0EE5E6004B217C /* ConfirmProblem */,
 				BA05F3CB2AEC9AEC00A872F2 /* ProblemStep1 */,
 				BABAB6872AEC9D6100A9E0DE /* SelectStep2 */,
-				BA84D80B299732D00002C939 /* SettingProblem.xib */,
-				BAD7048726EC610600508AE7 /* SettingProblem.swift */,
 			);
 			path = RegistProblem;
 			sourceTree = "<group>";
@@ -762,6 +784,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA53D7862718F1C500DC820F /* CustomLabel.swift in Sources */,
+				BA1E2BA62B16190000B17C54 /* UIColor.swift in Sources */,
 				BA09FC1626E4446E006BEAD8 /* AppDelegate.swift in Sources */,
 				BA4C59842B06499900461313 /* KeyboardDetector.swift in Sources */,
 				BA13A5FB2879E9A1009AEEFE /* CustomView.swift in Sources */,
@@ -793,6 +816,7 @@
 				BAD7048026EC426100508AE7 /* MenuProblem.swift in Sources */,
 				BAD7048D26EC6CCA00508AE7 /* ChallengeProblem.swift in Sources */,
 				BAEAD54B2A7DD82900D9E39A /* LoginView.swift in Sources */,
+				BA1E2BA92B16192900B17C54 /* ColorPalette.swift in Sources */,
 				BA07C15228AA75E20098B668 /* ChallengeProblemModel.swift in Sources */,
 				BA0E33E227008240002A3A48 /* GetProblemSelect.swift in Sources */,
 				BA09FC1826E4446E006BEAD8 /* SceneDelegate.swift in Sources */,
